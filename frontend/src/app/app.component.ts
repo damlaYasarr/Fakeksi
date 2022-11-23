@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+//import { ProfileComponent } from './container/profile/profile.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  s1=34;
+  s2=90
+
+
+
+
 }
