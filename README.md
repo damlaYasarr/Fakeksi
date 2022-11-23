@@ -6,6 +6,8 @@
  
  Dependencies :
  Angular   "@angular/cli": "^15.0.0" version 
+ 
+ ### Installation
    - ->sudo npm install -g @angular/cli
    - ->ng new {folderName}
    - ->cd {folderName}
