@@ -20,4 +20,8 @@
 Dependencies : 
 Go 
 
+### Installation
+   - ->sudo snap install go --classic
+
+
   
