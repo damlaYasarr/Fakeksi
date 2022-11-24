@@ -6,6 +6,8 @@
  
  Dependencies :
  Angular   "@angular/cli": "^15.0.0" version 
+ 
+ ### Installation
    - ->sudo npm install -g @angular/cli
    - ->ng new {folderName}
    - ->cd {folderName}
@@ -17,5 +19,9 @@
 
 Dependencies : 
 Go 
+
+### Installation
+   - ->sudo snap install go --classic
+
 
   
