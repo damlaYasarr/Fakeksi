@@ -145,11 +145,11 @@ a{
   <body>
     <div class="header">
       <div class="header-detail1">
-         <div class="header-header"> <a href="#"> Fakeksi</a></div>
+         <div  class="header-header"> <a [routerLink]="['/']" routerLinkActive="router-link-active" > Fakeksi</a></div>
          <div class="header-search"> <input placeholder="arama yeri" /></div>
          <div class="header-router">
-             <div (click)="onPress()"><fa-icon [icon]="faUser"></fa-icon> <a style="color: black; padding: 5px;" href="">ben</a></div>
-             <div><fa-icon [icon]="faMessage"></fa-icon>  <a style="color: black;  padding: 5px;" href="">msg</a></div>
+             <div ><fa-icon [icon]="faUser"></fa-icon> <a [routerLink]="['/profile']" routerLinkActive="router-link-active"  style="color: black; padding: 5px;">profile</a></div>
+             <div ><fa-icon [icon]="faMessage"></fa-icon>  <a [routerLink]="['/msg']" routerLinkActive="router-link-active" style="color: black;  padding: 5px;" >msg</a></div>
              <div class="header-event"> <a href="">olay</a></div>
              <div> <a href="">...</a></div>
          </div>
@@ -173,18 +173,14 @@ a{
      </div>
    </div>
 
-
-
-
  <div class="flowEvent">
    <div class="flowEventfirst"> bugün
    </div>
    <div class="flowEventsec" >
-    <div *ngIf="!display;then content else other_content">    </div>
-   <ng-template #content><profile></profile></ng-template>
-   <ng-template #other_content><dataflow></dataflow></ng-template>
+    <router-outlet> </router-outlet>
+   </div>
 
-  </div>
+
 
 
    <div class="flowEventthird">reklam</div>
