@@ -1,8 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output, ViewChild } from "@angular/core";
 import { faUser, faMessage} from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
+import { ProfileComponent } from "./container/profile/profile.component";
+import { MsggingComponent } from "./container/msgging/msgging.component";
+import { DailyFLow } from "./container/daily-flow/daily-flow.component";
 
-import { ProfileComponent } from "src/app/container/profile/profile.component";
+
 @Component({
   selector:'product',
   //sayfayı komple kullan diyoruz
@@ -11,20 +14,24 @@ import { ProfileComponent } from "src/app/container/profile/profile.component";
 })
 
 export class LayoutComponent implements OnInit{
-  display:boolean;
+
   constructor(){
-    this.display=true
+
   }
 
    faUser=faUser
    faMessage=faMessage
-   ngOnInit(): void {
+
+   selectedList:any
+   menulist=['eksi','msg','profile']
+   ngOnInit() :void{
 
    }
-   profile=ProfileComponent
 
-   onPress(){
-      this.display=!this.display;
+
+   openFLowList(menulist:any){
+    this.selectedList=menulist
+
    }
 
 }

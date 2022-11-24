@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { faUser, faMessage} from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
-import { ProfileComponent } from "src/app/container/profile/profile.component";
+
 @Component({
   selector:'dataflow',
   //sayfayı komple kullan diyoruz
@@ -10,12 +10,15 @@ import { ProfileComponent } from "src/app/container/profile/profile.component";
 })
 
 export class DailyFLow implements OnInit{
+   display:boolean
   constructor(){
-
+     this.display=false
   }
 
    ngOnInit(): void {
 
    }
-
+   AddComment(): void{
+    //post eklenirken bu metodu
+   }
 }

@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector:'product',
+  selector:'app_search',
   //sayfayı komple kullan diyoruz
   templateUrl:'app-search.component.html',
 
 })
 
-export class LayoutComponent implements OnInit{
+export class AppSearchComponent implements OnInit{
   constructor(){
     //tanımlama yaparken kullanılır
   }
