@@ -7,8 +7,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from 'src/layout/container/profile/profile.component';
 import { DailyFLow } from 'src/layout/container/daily-flow/daily-flow.component';
-import { AppSearchComponent } from 'src/layout/container/app-search/app-search.component';
+import { HeaderFlowComponent } from 'src/layout/container/app-search/headerflow.component';
 import { MsggingComponent } from 'src/layout/container/msgging/msgging.component';
+import { CommentComponent } from 'src/layout/container/commentContainer/commentContainer.component';
 
 const appRoute: Routes=[
   {path: '', component: DailyFLow},
@@ -23,8 +24,9 @@ const appRoute: Routes=[
     LayoutComponent,
     ProfileComponent,
     DailyFLow,
-    AppSearchComponent,
-    MsggingComponent
+    HeaderFlowComponent,
+    MsggingComponent,
+    CommentComponent
 
   ],
   imports: [

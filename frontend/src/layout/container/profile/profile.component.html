@@ -1,3 +1,99 @@
-<p>burası  profil sayfası ve içindekiler</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .profile-card{
+    display: flex;
+    flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
 
-<p>yorum yapmam da burada yer almaı</p>
+  }
+
+.profile-card-info{
+  display: flex;
+  flex-direction: column;
+}
+.profile-picture{
+
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url('https://via.placeholder.com/400x200');
+
+}
+.alt-profile{
+  margin-left: auto;
+  margin-right: auto;
+padding: 10px;
+  box-sizing: border-box;
+  width: 95%;
+  height: 50px;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  margin-bottom: 20px;
+}
+.alt-profile span{
+  padding: 8px;
+}
+.alt-profile span:hover{
+  font-weight: bold;
+  border-bottom: 2px solid rgb(130, 212, 23);
+  cursor: pointer;
+}
+.container-flow{
+  padding: 20px;
+  box-sizing: border-box;
+  height: 170px;
+  border: 2px solid pink;
+}
+</style>
+<body>
+
+<div>
+      <div class="profile-card">
+         <div class="profile-card-info">
+          <span style="font-size: 20px; color:black; font-weight: bold;">username</span>
+          <span > <fa-icon [icon]="faSmile"></fa-icon>
+            <fa-icon [icon]="faSmile"></fa-icon>
+            <fa-icon [icon]="faSmile"></fa-icon></span>
+           <span> 270 entry. 50 takibinde. 4 takipçi</span>
+           <span > <fa-icon style="font-size: 1.8em; padding: 4px;" [icon]="facirclearrow"> </fa-icon> <fa-icon style="font-size: 1.8em; padding: 4px;" [icon]="facirclearrow"> </fa-icon></span>
+         </div>
+         <div class="profile-picture">
+
+        </div>
+  </div>
+
+
+ <div class="alt-profile">
+     <span> entry'ler</span>
+     <span> favoriler</span>
+     <span> görseller</span>
+     <span> istatistikler</span>
+ </div>
+
+
+  <div class="container-flow">
+   <entry> </entry>
+
+
+
+  </div>
+</div>
+
+
+
+</body>
+</html>
