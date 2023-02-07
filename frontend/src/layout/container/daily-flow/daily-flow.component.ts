@@ -14,7 +14,9 @@ export class DailyFLow implements OnInit{
   constructor(){
      this.display=false
   }
-
+  getConfig() {
+   return this.http.get(this.configUrl);
+ }
    ngOnInit(): void {
 
    }

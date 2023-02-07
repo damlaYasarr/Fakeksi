@@ -10,7 +10,9 @@ import { DailyFLow } from 'src/layout/container/daily-flow/daily-flow.component'
 import { HeaderFlowComponent } from 'src/layout/container/app-search/headerflow.component';
 import { MsggingComponent } from 'src/layout/container/msgging/msgging.component';
 import { CommentComponent } from 'src/layout/container/commentContainer/commentContainer.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 const appRoute: Routes=[
   {path: '', component: DailyFLow},
  {path: '', component: DailyFLow},
@@ -31,6 +33,7 @@ const appRoute: Routes=[
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FontAwesomeModule,
     RouterModule.forRoot(appRoute)
 
@@ -38,6 +41,11 @@ const appRoute: Routes=[
   providers: [],
   bootstrap: [AppComponent]
 })
+
+@Injectable()
+export class ConfigService {
+  constructor(private http: HttpClient) { }
+}
 export class AppModule {
 
 
