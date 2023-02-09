@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { faUser, faMessage} from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
+import { EntryFlow } from "src/app/models/entryflow";
 
 @Component({
   selector:'dataflow',
@@ -14,9 +15,10 @@ export class DailyFLow implements OnInit{
   constructor(){
      this.display=false
   }
-  getConfig() {
-   return this.http.get(this.configUrl);
- }
+  entries:EntryFlow[]=[ ];
+ // getConfig() {
+  // return this.http.get(this.configUrl);
+ //}
    ngOnInit(): void {
 
    }

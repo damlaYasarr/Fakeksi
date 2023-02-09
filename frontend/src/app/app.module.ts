@@ -41,11 +41,13 @@ const appRoute: Routes=[
   providers: [],
   bootstrap: [AppComponent]
 })
-
-@Injectable()
+//injectble kısmında sayfa gidiyor
+/**@Injectable()
 export class ConfigService {
   constructor(private http: HttpClient) { }
-}
+}*/
+//https://localhost:7095/api/TagEntry/GetTagandcount
+//localhost: /api/getalltagandentrieswithUSER -userin taglere entryleri -anasayfa
 export class AppModule {
 
 
