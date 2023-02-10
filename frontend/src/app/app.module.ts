@@ -12,7 +12,7 @@ import { MsggingComponent } from 'src/layout/container/msgging/msgging.component
 import { CommentComponent } from 'src/layout/container/commentContainer/commentContainer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+//moduller buraya eklenir
 const appRoute: Routes=[
   {path: '', component: DailyFLow},
  {path: '', component: DailyFLow},

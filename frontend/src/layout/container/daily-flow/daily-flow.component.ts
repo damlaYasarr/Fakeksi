@@ -1,7 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { faUser, faMessage} from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
-import { EntryFlow } from "src/app/models/entryflow";
+
+import { EntryResponseModels } from "src/app/models/EntryResponseModel";
+import { HttpClient } from '@angular/common/http';
+import { faDroplet , faListDots} from "@fortawesome/free-solid-svg-icons";
+import { Entryflow } from "src/app/models/Entryflow";
 
 @Component({
   selector:'dataflow',
@@ -11,18 +15,31 @@ import { EntryFlow } from "src/app/models/entryflow";
 })
 
 export class DailyFLow implements OnInit{
-   display:boolean
-  constructor(){
-     this.display=false
+  faDrop=faDroplet
+  faMessageArrowUp=faMessage
+  faListDot=faListDots
+    entries:Entryflow[]=[];
+    entriesResponseModel:EntryResponseModels={
+     data:this.entries,
+     message:"",
+     success:true
+    };
+  constructor(private httpClient:HttpClient){
+   
   }
-  entries:EntryFlow[]=[ ];
- // getConfig() {
-  // return this.http.get(this.configUrl);
- //}
-   ngOnInit(): void {
+
+  
+ 
+apiURL="https://localhost:7095/api/TagEntry/getalltagandentrieswithUSER1";
+  
+ngOnInit(): void {
+  this.httpClient.get<EntryResponseModels>(this.apiURL).subscribe((response)=>{
+    this.entries=response.data
+    console.log(response.data)
+ })
 
    }
-   AddComment(): void{
-    //post eklenirken bu metodu
-   }
+  
+
+   
 }

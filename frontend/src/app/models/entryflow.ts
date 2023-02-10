@@ -1,8 +1,8 @@
 //userin yaptığı yorumlar
-export interface EntryFlow {
+export interface Entryflow {
     name:string;
     tagname:string;
-    entrydate:string; 
+    enrydate:string; 
     entries:string;
     kod:string;
     likecount:number;
