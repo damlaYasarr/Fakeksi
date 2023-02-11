@@ -1,8 +1,12 @@
 
 <style>
+  .comment-card{
+    box-sizing: border-box;
+    height: 200px;
+    
+  }
 .comment-header{
   font-size: 18px;
-  
   font-weight: bold;
   cursor: pointer;
 }
@@ -51,10 +55,12 @@ border-bottom: 1px solid rgb(55, 173, 8);
 </style>
 <div >
 
-
+  <tr *ngFor="let entry of entriesUser" >
+    <td> 
+      <div class="comment-card"> 
   <div class="comment-header">
-    <span> header</span></div>
-       <div style="font-size: 15px;"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia voluptatum dolor itaque sit iure corrupti quo. Voluptatem obcaecati consequuntur aliquam libero quae id a ullam ipsa maxime numquam, delectus repudiandae?</div>
+    <span> {{entry.tagname}}</span></div>
+       <div style="font-size: 15px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque deleniti amet impedit fuga? Quas doloremque tempora placeat! Quae, assumenda corrupti, dignissimos eius, quas excepturi neque aspernatur tempore consectetur animi labore?</div>
        <div style="display: flex; flex-direction: row; justify-content:space-between ;align-items: center;">
         <span> <fa-icon class="style-icon" style=" cursor: pointer;"  [icon]="faDrop"></fa-icon>
 
@@ -65,10 +71,13 @@ border-bottom: 1px solid rgb(55, 173, 8);
         </span>
        </div>
        <div class="alt-card-style">
-          <div class="ff" style="display:flex; margin-right: 7px; flex-direction: column;">
-            <span class="isim">isim</span>
-            <span  class="tarih">tarih</span>
+          <div class="ff" style="display:flex;  flex-direction: column;">
+            <span class="isim">{{entry.name}}</span>
+            <span  class="tarih">{{entry.enrydate}}</span>
           </div>
            <div class="profile-user"></div>
        </div>
+      </div>
+      </td>
+      </tr>
 </div>

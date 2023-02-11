@@ -31,6 +31,8 @@ font-size: 15px;
  margin-right: auto;
  font-size: 15px;
  padding: 2px;
+ display: flex;
+ flex-direction: column;
 }
 .header-flow-headers:hover{
   background-color: rgb(238, 238, 238);
@@ -42,15 +44,23 @@ font-size: 15px;
 }
 
 </style>
+
 <div class="header-flow-left-side">
+
    <div class="header-flow-header"><span>bugün</span></div>
    <div class="header-flow-re"> <span>yenile <fa-icon [icon]="faRotate"></fa-icon></span></div>
+    
    <div class="header-flow-headers">
+    <td *ngFor="let list of dailyflow"> 
+      <tr>
    <div class="header-detail">
-    <span>Lorem ipsum dolor sitdfgfddgdfgd, </span>
-    <span style="font-size: 12px; color:gray;">yorum sayısı</span>
+    <span>{{list.tag}} </span>
+    <span style="font-size: 12px; color:gray;">{{list.entryCount}}</span>
    </div>
+  </tr>
+  </td>
   </div>
+
 
 
 </div>

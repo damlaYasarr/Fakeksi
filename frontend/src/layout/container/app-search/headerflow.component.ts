@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 @Component({
@@ -6,13 +7,20 @@ import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
   templateUrl:'headerflow.component.html',
 
 })
-
+//css düzenlenecek
 export class HeaderFlowComponent implements OnInit{
-  constructor(){
-    //tanımlama yaparken kullanılır
-  }
+  constructor(private httpClient:HttpClient){ }
+  dailyflow:any;
+  apiURL="https://localhost:7095/api/TagEntry/GetTagandcount";
   faRotate=faRotateRight
+    getDaily(){
+    this.httpClient.get(this.apiURL).subscribe(response=>{
+    
+      this.dailyflow=response
+     
+   })
+  }
    ngOnInit(): void {
-
+      this.getDaily();
    }
 }

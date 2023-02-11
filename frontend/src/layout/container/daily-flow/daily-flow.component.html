@@ -63,14 +63,27 @@
   <div style="padding: 16px;">
 
    hello
-    <tr *ngFor="get the list" > 
-      <td>{{entries.name}}</td>
-      <td>{{entries.tagname}}</td>
-      <td>{{entries.entrydate}}</td>
-      <td>{{entries.entries}}</td>
+    <tr *ngFor="let entry of entries" > 
+      <div class="comment-header">
+        <span> {{entry.tagname}}</span></div>
+           <div style="font-size: 15px;">{{entry.entries}}</div>
+           <div style="display: flex; flex-direction: row; justify-content:space-between ;align-items: center;">
+            <span> <fa-icon class="style-icon" style=" cursor: pointer;"  [icon]="faDrop"></fa-icon>
+    
+            </span>
+            <span >
+              <fa-icon class="style-icon" style="margin: 4px; cursor: pointer;"  [icon]="faMessageArrowUp"></fa-icon>
+              <fa-icon class="style-icon" style=" cursor: pointer;" [icon]="faListDot"></fa-icon>
+            </span>
+           </div>
+           <div class="alt-card-style">
+              <div class="ff" style="display:flex; margin-right: 7px; flex-direction: column;">
+                <span class="isim">{{entry.name}}</span>
+                <span  class="tarih">{{entry.enrydate}}</span>
+              </div>
+               <div class="profile-user"></div>
+           </div>
 
-      <td>{{entries.kod}}</td>
-      <td>{{entries.likecount}}</td>
     </tr>
       
    <form >
