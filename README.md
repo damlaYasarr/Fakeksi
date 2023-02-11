@@ -1,10 +1,11 @@
 # Fakeksi
 
+- this is clone website and inspired [here](www.eksisozluk.com)
 
 
 ## frontend side 
  
- Dependencies :
+- Dependencies :
  Angular   "@angular/cli": "^15.0.0" version 
  
  ### Installation
@@ -16,12 +17,14 @@
     
     
 ## backend side 
-
-Dependencies : 
-Go 
-
-### Installation
-   - ->sudo snap install go --classic
+- backend code [here](https://github.com/damlaYasarr/fakeksi_backend)
+- Dependencies : 
+c# dotnet version 7.
 
 
+
+## sql side
+
+Dependencies :
+mssql 
   
