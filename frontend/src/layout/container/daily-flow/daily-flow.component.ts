@@ -18,21 +18,9 @@ export class DailyFLow implements OnInit{
   entries:any;
  
   constructor(private httpClient:HttpClient){ }
-
   
- 
-
-appurl="https://localhost:7095/api/TagEntry/getalltagandentrieswithUSER";
-  getEntry(){
-    this.httpClient.get(this.appurl+"1").subscribe(response=>{
-    
-      this.entries=response
-     
-   })
-  }
 ngOnInit(): void {
-this.getEntry();
-console.log(this.entries)
+
    }
   
 

@@ -97,27 +97,34 @@ a{
 
     body{
       width: 78%;
-      margin-left: auto;
-      margin-right: auto;
+     left: 100px;
+     right: 100px;
       box-sizing: border-box;
       margin-top: 155px;
+      position: fixed;
+
+     
     }
     .flowEvent{
       display: flex;
       flex-direction: row;
+      height: 600px;
     }
     .flowEventfirst{
       box-sizing: border-box;
       width:29%;
       overflow: scroll;
-      height: 600px;
+ 
       border: 2px solid pink;
 
     }
     .flowEventsec{
       box-sizing: border-box;
       width: 66%;
+     
       border: 2px solid pink;
+      overflow: scroll;
+      
     }
     .flowEventthird{
       box-sizing: border-box;
@@ -181,12 +188,18 @@ a{
     <header_flow></header_flow>
    </div>
    <div class="flowEventsec" >
-    <router-outlet> </router-outlet>
+    <login_progress></login_progress>
+   <!-- <router-outlet> </router-outlet>
+  giriş kayıt ol butonları değişecek
+  
+  -->
    </div>
 
    <div class="flowEventthird">reklam</div>
  </div>
+ 
   </body>
+
 </html>
 
 

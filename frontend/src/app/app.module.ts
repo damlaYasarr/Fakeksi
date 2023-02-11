@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MatTabsModule} from '@angular/material/tabs'
 import { BrowserModule } from '@angular/platform-browser';
 import { LayoutComponent } from 'src/layout/layout.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from 'src/layout/container/profile/profile.component';
 import { DailyFLow } from 'src/layout/container/daily-flow/daily-flow.component';
-import { HeaderFlowComponent } from 'src/layout/container/app-search/headerflow.component';
+import { HeaderFlowComponent } from 'src/layout/container/user_entry/headerflow.component';
 import { MsggingComponent } from 'src/layout/container/msgging/msgging.component';
 import { CommentComponent } from 'src/layout/container/commentContainer/commentContainer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { LoginProgress } from 'src/layout/container/login/login.component';
+//import { Injectable } from '@angular/core';
 //moduller buraya eklenir
 const appRoute: Routes=[
   {path: '', component: DailyFLow},
@@ -28,8 +28,8 @@ const appRoute: Routes=[
     DailyFLow,
     HeaderFlowComponent,
     MsggingComponent,
-    CommentComponent
-
+    CommentComponent,
+    LoginProgress
   ],
   imports: [
     BrowserModule,
