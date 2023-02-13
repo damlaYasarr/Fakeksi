@@ -11,6 +11,7 @@ import { MsggingComponent } from 'src/layout/container/msgging/msgging.component
 import { CommentComponent } from 'src/layout/container/commentContainer/commentContainer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginProgress } from 'src/layout/container/login/login.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms' 
 //import { Injectable } from '@angular/core';
 //moduller buraya eklenir
 const appRoute: Routes=[
@@ -35,6 +36,7 @@ const appRoute: Routes=[
     BrowserModule,
     HttpClientModule,
     FontAwesomeModule,
+    FormsModule, ReactiveFormsModule,
     RouterModule.forRoot(appRoute)
 
   ],

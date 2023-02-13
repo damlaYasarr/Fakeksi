@@ -1,17 +1,23 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-
+import { Observable } from 'rxjs';
+import { User } from "../models/user";
+import { ResponseModel } from "../models/responsemodel";
 @Injectable({
     providedIn:'root'
 })
 
-export class EntryServices {
+export class userservice {
     constructor(private httpclient:HttpClient){}
    
     
-    public saveUser(user: User): Observable<any> {
-        return this.httpclient.post<any>('https://localhost:7095/api/User/Login', user);
-      }
+    
+
+   public loginProfile(email:string, password:string): Observable<ResponseModel> {
+  
+        const authData: User = {email: email, password: password};
+        return this.httpclient.post<ResponseModel>('https://localhost:7095/api/User/Login', authData);
+      }  
     callingFromTepmlate(){
         console.log("calling from template directlt");
     }
