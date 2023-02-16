@@ -16,7 +16,7 @@ export class DailyFLow implements OnInit{
   faMessageArrowUp=faMessage
   faListDot=faListDots
   entries:any;
- 
+  
   constructor(private httpClient:HttpClient){ }
   
 ngOnInit(): void {

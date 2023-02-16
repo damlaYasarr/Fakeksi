@@ -1,10 +1,12 @@
 import { Component} from "@angular/core";
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder, FormControl } from "@angular/forms";
 import { FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { userservice } from "src/app/services/userservices";
 import { ToastrService } from 'ngx-toastr';
+import { Rounded } from "@coreui/angular/lib/utilities/rounded.type";
+import { Router } from "@angular/router";
 @Component({
   selector:'login_progress',
   //sayfayı komple kullan diyoruz
@@ -13,20 +15,38 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 //css düzenlenecek
-export class LoginProgress {
+export class LoginComponent {
 
-  constructor(private formBuilder:FormBuilder, private toastrService:ToastrService, private userservice:userservice ){ }
-  isLoading = false;
- 
-  onLogin(form: NgForm) {
-    if (form.invalid) {
-      return;
-    }
-    this.isLoading = true;
-    this.userservice.loginProfile(form.value.email, form.value.password);
-   }
-   ngOnInit(): void {
+  loginForm:FormGroup;
+
+  constructor(private formBuilder:FormBuilder, private authService:userservice, private router:Router) {}
+
+  ngOnInit():void {
+    this.createLoginForm();
+    this.login();
+  }
+
+  createLoginForm(){
+    this.loginForm = this.formBuilder.group({
+      email:["", Validators.required],
+      password:["", Validators.required]
+    })
+  }
+
+ public login(){
+    if(this.loginForm.valid){
+      this.authService.loginProfile(this.loginForm.value.email, this.loginForm.value.password ).subscribe(response=>{
+        console.log(response)
+        if(response.success){
+          console.log("giriş yapamazsın");
+        }
+          this.router.navigate(['/profile']);
+        
+      });
     
-   }
+      }
+      return this.loginForm.valid;
+    }
+  
 
 }

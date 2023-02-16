@@ -11,6 +11,7 @@ export class ProfileComponent implements OnInit{
   constructor(){
     //tanımlama yaparken kullanılır
   }
+ 
   faSmile=faSmile
   facirclearrow=faCircleArrowUp
    ngOnInit(): void {

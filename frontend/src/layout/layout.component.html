@@ -158,8 +158,9 @@ a{
          <div  class="header-header"> <a [routerLink]="['/']" routerLinkActive="router-link-active" > Fakeksi</a></div>
          <div class="header-search"> <input placeholder="arama yeri" /></div>
          <div class="header-router">
-             <div ><fa-icon [icon]="faUser"></fa-icon> <a [routerLink]="['/profile']" routerLinkActive="router-link-active"  style="color: black; padding: 5px;">profile</a></div>
-             <div ><fa-icon [icon]="faMessage"></fa-icon>  <a [routerLink]="['/msg']" routerLinkActive="router-link-active" style="color: black;  padding: 5px;" >msg</a></div>
+          <div id="loginbfr"  *ngIf = "authendricated" > <a [routerLink]="['/login']" routerLinkActive="router-link-active"  style="color: black; padding: 5px;"><fa-icon [icon]="faUser"></fa-icon>giriş</a></div>
+             <div  id="loginaftr" *ngIf = "!authendricated"  > <a [routerLink]="['/profile']" routerLinkActive="router-link-active"  style="color: black; padding: 5px;"><fa-icon [icon]="faUser"></fa-icon>profile</a></div>
+             <div id="loginaftr" *ngIf = "!authendricated" >  <a [routerLink]="['/msg']" routerLinkActive="router-link-active" style="color: black;  padding: 5px;" ><fa-icon  [icon]="faMessage"></fa-icon>msg</a></div>
              <div class="header-event"> <a href="">olay</a></div>
              <div> <a href="">...</a></div>
          </div>
@@ -188,8 +189,8 @@ a{
     <header_flow></header_flow>
    </div>
    <div class="flowEventsec" >
-    
-  <router-outlet> </router-outlet>
+   
+   <router-outlet> </router-outlet>
 
    </div>
 

@@ -47,19 +47,23 @@
 
   <div ><span style="font-weight: bold;">giriş</span> </div>
   <div> 
-   <form (submit)="onLogin(loginForm)" #loginForm="ngForm"> 
+   <form [formGroup]="loginForm"> 
     <div class="email_card"> 
-    <label> email adresi</label>
-    <input  placeholder="email gir"
-    name="email"
+    <label for="floatingInput"> email adresi</label>
+    <input  formControlName="email"
     type="email"
-    ngModel
-    placeholder="E-Mail"
-    #emailInput="ngModel"
-    required type="password" name="password" ngModel #passwordInput="ngModel" required/>
-</div>
-    <button class="regis_btn"  type="submit"
-    *ngIf="!isLoading">giriş yapmaya çabala</button>
+   
+    id="floatingInput"
+    placeholder="name@example.com" />
+    <label  for="floatingPassword"> şifre</label>
+    <input   formControlName="password"
+    type="password"
+   
+    id="floatingPassword"
+    placeholder="Password" />
+    </div>
+    <button type="submit" (click)="login()"class="regis_btn" 
+  >giriş yapmaya çabala</button>
    </form>
   </div>
   <div style="margin-top: 20px;"><span style="font-weight: bold; ">giremeyiş</span></div>

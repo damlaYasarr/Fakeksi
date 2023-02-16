@@ -10,12 +10,12 @@ import { HeaderFlowComponent } from 'src/layout/container/user_entry/headerflow.
 import { MsggingComponent } from 'src/layout/container/msgging/msgging.component';
 import { CommentComponent } from 'src/layout/container/commentContainer/commentContainer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginProgress } from 'src/layout/container/login/login.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms' 
+import {  LoginComponent } from 'src/layout/container/login/login.component';
+import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms' 
 //import { Injectable } from '@angular/core';
 //moduller buraya eklenir
 const appRoute: Routes=[
-  {path: '', component: DailyFLow},
+  {path: 'login', component:  LoginComponent},
  {path: '', component: DailyFLow},
  {path: 'profile', component: ProfileComponent},
  {path: 'msg', component: MsggingComponent}
@@ -30,13 +30,15 @@ const appRoute: Routes=[
     HeaderFlowComponent,
     MsggingComponent,
     CommentComponent,
-    LoginProgress
+   LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FontAwesomeModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule, 
+
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoute)
 
   ],
