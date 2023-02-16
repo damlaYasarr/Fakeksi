@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { faSmile, faCircleArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { Userservice } from "src/app/services/userservices";
+import { LayoutComponent } from "src/layout/layout.component";
+import { Router } from "@angular/router";
 @Component({
   selector:'profile',
   //sayfayı komple kullan diyoruz
@@ -8,14 +11,23 @@ import { faSmile, faCircleArrowUp } from "@fortawesome/free-solid-svg-icons";
 })
 
 export class ProfileComponent implements OnInit{
-  constructor(){
+  constructor(private userservice:Userservice,
+     private layoutcontainer:LayoutComponent,
+     private router:Router){
     //tanımlama yaparken kullanılır
   }
- 
+  
   faSmile=faSmile
   facirclearrow=faCircleArrowUp
+id:number;
+  //get params
    ngOnInit(): void {
-
+    
+   this.logout(this.id);
    }
-
+   logout(id:number){
+    this.userservice.logout(id); 
+    this.layoutcontainer.authendricated=false;
+   
+   }
 }

@@ -24,18 +24,18 @@ export class LayoutComponent{
    faUser=faUser
    faMessage=faMessage
    logincomponent:LoginComponent;
-    
-  authendricated=true;
+   
+  authendricated=false;
    selectedList:any
    menulist=['eksi','msg','profile']
-
+   
    
    ngOnInit() :void{
-
-    console.log(this.logincomponent.login())
-    if(this.logincomponent.login()){
-       this.authendricated=false;
-    }
+     if(this.logincomponent.isTrue()){
+      this.authendricated=true;
+     }else{
+      this.authendricated=false;
+     }
       
    }
    

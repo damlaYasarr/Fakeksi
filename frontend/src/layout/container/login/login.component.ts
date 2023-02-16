@@ -1,12 +1,11 @@
-import { Component} from "@angular/core";
+import { Component, OnInit} from "@angular/core";
 import { FormBuilder, FormControl } from "@angular/forms";
 import { FormGroup, Validators } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
-import { userservice } from "src/app/services/userservices";
+
+import { Userservice } from "src/app/services/userservices";
 import { ToastrService } from 'ngx-toastr';
-import { Rounded } from "@coreui/angular/lib/utilities/rounded.type";
 import { Router } from "@angular/router";
+import { User } from "src/app/models/user";
 @Component({
   selector:'login_progress',
   //sayfayı komple kullan diyoruz
@@ -15,38 +14,49 @@ import { Router } from "@angular/router";
 })
 
 //css düzenlenecek
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  loginForm:FormGroup;
+  form: any = {
+    email: null,
+    password: null
+  };
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
 
-  constructor(private formBuilder:FormBuilder, private authService:userservice, private router:Router) {}
+  constructor( private authService:Userservice, private router:Router) {}
 
   ngOnInit():void {
-    this.createLoginForm();
-    this.login();
-  }
+     console.log(this.isLoggedIn);
 
-  createLoginForm(){
-    this.loginForm = this.formBuilder.group({
-      email:["", Validators.required],
-      password:["", Validators.required]
-    })
   }
-
- public login(){
-    if(this.loginForm.valid){
-      this.authService.loginProfile(this.loginForm.value.email, this.loginForm.value.password ).subscribe(response=>{
-        console.log(response)
-        if(response.success){
-          console.log("giriş yapamazsın");
-        }
-          this.router.navigate(['/profile']);
-        
-      });
+   onSubmit(){
     
+    const { email, password } = this.form;
+    console.log(email,password);
+    this.authService.loginProfile(email, password).subscribe({
+      next: data => { 
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.router.navigate(['/profile']);
+        
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+        console.log(err);
+       
       }
-      return this.loginForm.valid;
+    });
+  }
+  public isTrue():boolean{
+    if(this.isLoggedIn==true){
+      return  true;
     }
+    return false;
+  }
+   }
+
+    
   
 
-}
