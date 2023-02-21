@@ -21,6 +21,10 @@ export class ProfileComponent implements OnInit{
   facirclearrow=faCircleArrowUp
 id:number;
   //get params
+  //jwt kullan; backend düzenle. 
+  //aadmin panel 
+  //logout 
+  //id senkronize olacak
    ngOnInit(): void {
     
    this.logout(this.id);

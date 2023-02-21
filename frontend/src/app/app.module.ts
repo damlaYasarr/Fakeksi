@@ -12,13 +12,15 @@ import { CommentComponent } from 'src/layout/container/commentContainer/commentC
 import { HttpClientModule } from '@angular/common/http';
 import {  LoginComponent } from 'src/layout/container/login/login.component';
 import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms' 
+import { AdminComponent } from 'src/layout/admin/admin.component';
 //import { Injectable } from '@angular/core';
 //moduller buraya eklenir
 const appRoute: Routes=[
   {path: 'login', component:  LoginComponent},
  {path: '', component: DailyFLow},
  {path: 'profile', component: ProfileComponent},
- {path: 'msg', component: MsggingComponent}
+ {path: 'msg', component: MsggingComponent},
+ {path: 'admin', component:  AdminComponent},
 ]
 //bütün component modulleri bburaya import eidlir
 @NgModule({
@@ -30,7 +32,8 @@ const appRoute: Routes=[
     HeaderFlowComponent,
     MsggingComponent,
     CommentComponent,
-   LoginComponent
+   LoginComponent,
+   AdminComponent
   ],
   imports: [
     BrowserModule,
