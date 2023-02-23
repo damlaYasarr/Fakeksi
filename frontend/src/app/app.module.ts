@@ -21,14 +21,16 @@ import { CommentComponent } from './layout/container/commentContainer/commentCon
 //import { Injectable } from '@angular/core';
 //moduller buraya eklenir
 const appRoute: Routes=[
-  {path: 'login', component:  LoginComponent},
+  { path:"", component:LayoutComponent, outlet:"full", pathMatch:'full',children:[
+    {path:'login', component:LoginComponent},
+    {path:'msg', component:MsggingComponent},
+    {path:'profile', component:ProfileComponent},
+  ]},
  //{path: '', component: LayoutComponent, outlet:'full'},
- {path: '', component: DailyFLow},
- {path: 'profile', component: ProfileComponent},
- {path: 'msg', component: MsggingComponent},
+   
  {path: 'admin', component:  AdminComponent, outlet:'admin', pathMatch:'full'}, 
 //otherwise redirect to home
- { path: '**', redirectTo: '' }
+ { path: '**', redirectTo: '' },
 ]
 //bütün component modulleri bburaya import eidlir
 @NgModule({
