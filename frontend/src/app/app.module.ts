@@ -1,26 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { LayoutComponent } from 'src/layout/layout.component';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
-import { ProfileComponent } from 'src/layout/container/profile/profile.component';
-import { DailyFLow } from 'src/layout/container/daily-flow/daily-flow.component';
-import { HeaderFlowComponent } from 'src/layout/container/user_entry/headerflow.component';
-import { MsggingComponent } from 'src/layout/container/msgging/msgging.component';
-import { CommentComponent } from 'src/layout/container/commentContainer/commentContainer.component';
+
 import { HttpClientModule } from '@angular/common/http';
-import {  LoginComponent } from 'src/layout/container/login/login.component';
 import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms' 
-import { AdminComponent } from 'src/layout/admin/admin.component';
+import { LoginComponent } from './layout/container/login/login.component';
+import { DailyFLow } from './layout/container/daily-flow/daily-flow.component';
+import { ProfileComponent } from './layout/container/profile/profile.component';
+import { MsggingComponent } from './layout/container/msgging/msgging.component';
+import { AdminComponent } from './layout/admin/admin.component';
+import { LayoutComponent } from './layout/layout.component';
+import { HeaderFlowComponent } from './layout/container/user_entry/headerflow.component';
+import { CommentComponent } from './layout/container/commentContainer/commentContainer.component';
+
+
+
 //import { Injectable } from '@angular/core';
 //moduller buraya eklenir
 const appRoute: Routes=[
   {path: 'login', component:  LoginComponent},
+ //{path: '', component: LayoutComponent, outlet:'full'},
  {path: '', component: DailyFLow},
  {path: 'profile', component: ProfileComponent},
  {path: 'msg', component: MsggingComponent},
- {path: 'admin', component:  AdminComponent},
+ {path: 'admin', component:  AdminComponent, outlet:'admin', pathMatch:'full'}, 
+
 ]
 //bütün component modulleri bburaya import eidlir
 @NgModule({
@@ -33,7 +40,7 @@ const appRoute: Routes=[
     MsggingComponent,
     CommentComponent,
    LoginComponent,
-   AdminComponent
+   AdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { EntryServices } from "src/app/services/entryservices";
+
 @Component({
   selector:'header_flow',
   //sayfayı komple kullan diyoruz

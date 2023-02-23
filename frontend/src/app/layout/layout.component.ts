@@ -1,9 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from "@angular/core";
 import { faUser, faMessage} from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
-import { ProfileComponent } from "./container/profile/profile.component";
-import { MsggingComponent } from "./container/msgging/msgging.component";
-import { DailyFLow } from "./container/daily-flow/daily-flow.component";
 import { LoginComponent } from "./container/login/login.component";
 
 

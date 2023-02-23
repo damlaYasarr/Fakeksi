@@ -2,10 +2,11 @@ import { Component, OnInit} from "@angular/core";
 import { FormBuilder, FormControl } from "@angular/forms";
 import { FormGroup, Validators } from '@angular/forms';
 
-import { Userservice } from "src/app/services/userservices";
+
 import { ToastrService } from 'ngx-toastr';
 import { Router } from "@angular/router";
-import { User } from "src/app/models/user";
+import { Userservice } from "src/app/services/userservices";
+
 @Component({
   selector:'login_progress',
   //sayfayı komple kullan diyoruz

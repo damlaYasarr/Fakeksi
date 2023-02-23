@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-//import { ProfileComponent } from './container/profile/profile.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
