@@ -27,7 +27,8 @@ const appRoute: Routes=[
  {path: 'profile', component: ProfileComponent},
  {path: 'msg', component: MsggingComponent},
  {path: 'admin', component:  AdminComponent, outlet:'admin', pathMatch:'full'}, 
-
+//otherwise redirect to home
+ { path: '**', redirectTo: '' }
 ]
 //bütün component modulleri bburaya import eidlir
 @NgModule({
