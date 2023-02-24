@@ -156,7 +156,7 @@ a{
 
     <div class="header">
       <div class="header-detail1">
-         <div  class="header-header"> <a href="/"  > Fakeksi</a></div>
+         <div  class="header-header"> <a [routerLink]="['home']"  > Fakeksi</a></div>
          <div class="header-search"> <input placeholder="arama yeri" /></div>
          <div class="header-router">
           <div id="loginbfr"   > <a  [routerLink]="[ 'login']" routerLinkActive="router-link-active"   style="color: black; padding: 5px;"><fa-icon [icon]="faUser"></fa-icon>giriş</a></div>
@@ -167,7 +167,7 @@ a{
          </div>
       </div>
      <div class="header-detail2">
-       <div><a href="#">bugün</a></div>
+       <div><a  [routerLink]="['home']" >bugün</a></div>
        <div><a href="#">gündem</a></div>
        <div><a href="#">debe</a></div>
        <div><a href="#">sorunsallar</a></div>

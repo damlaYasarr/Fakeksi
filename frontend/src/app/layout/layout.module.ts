@@ -4,14 +4,14 @@ import { RouterModule, Route } from '@angular/router';
 import { LoginModule } from './container/login/login-routing.module';
 import { LoginComponent } from './container/login/login.component';
 import { MsgModule } from './container/msgging/msg-routing.module';
-import { MsggingComponent } from './container/msgging/msgging.component';
 import { ProfileModule } from './container/profile/profile-routing.module';
-import { LayoutComponent } from './layout.component';
+
+
 
 const dashBoardRoutes : Route[] = [
     {
         path: 'home', pathMatch:'full',
-        component: LayoutComponent,children:[
+      children:[
     
             {
                 path: 'profile',
@@ -36,15 +36,15 @@ const dashBoardRoutes : Route[] = [
 @NgModule({
   imports: [
     CommonModule,
-    ProfileModule,
-    LoginModule,
-    MsgModule,
+  
     RouterModule.forChild(dashBoardRoutes)
   ],
   declarations: [],
   exports: [
     RouterModule,
-
+    LoginModule,
+    MsgModule,
+    ProfileModule,
   ]
 })
 export class LayoutModule { }

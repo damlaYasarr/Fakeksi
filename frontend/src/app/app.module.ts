@@ -17,10 +17,6 @@ import { HeaderFlowComponent } from './layout/container/user_entry/headerflow.co
 import { CommentComponent } from './layout/container/commentContainer/commentContainer.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { MsgModule } from './layout/container/msgging/msg-routing.module';
-import { LoginModule } from './layout/container/login/login-routing.module';
-import { LayoutModule } from './layout/layout.module';
-
 
 
 
@@ -30,12 +26,12 @@ import { LayoutModule } from './layout/layout.module';
   declarations: [
     AppComponent,
     LayoutComponent,
-    ProfileComponent,
+ 
     DailyFLow,
     HeaderFlowComponent,
-    MsggingComponent,
+  
     CommentComponent,
-   LoginComponent,
+   LoginComponent,  MsggingComponent,   ProfileComponent,
    AdminComponent,
   ],
   imports: [
@@ -46,7 +42,7 @@ import { LayoutModule } from './layout/layout.module';
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
-    LayoutModule,
+   
    
   ],
   providers: [],
