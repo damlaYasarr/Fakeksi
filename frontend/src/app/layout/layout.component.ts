@@ -28,11 +28,7 @@ export class LayoutComponent{
    
    
    ngOnInit() :void{
-     if(this.logincomponent.isTrue()){
-      this.authendricated=true;
-     }else{
-      this.authendricated=false;
-     }
+    
       
    }
    

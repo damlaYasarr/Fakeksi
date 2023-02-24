@@ -4,6 +4,7 @@ import { Userservice } from "src/app/services/userservices";
 
 import { Router } from "@angular/router";
 import { LayoutComponent } from "../../layout.component";
+
 @Component({
   selector:'profile',
   //sayfayı komple kullan diyoruz
@@ -13,7 +14,7 @@ import { LayoutComponent } from "../../layout.component";
 
 export class ProfileComponent implements OnInit{
   constructor(private userservice:Userservice,
-     private layoutcontainer:LayoutComponent,
+   
      private router:Router){
     //tanımlama yaparken kullanılır
   }
@@ -28,11 +29,11 @@ id:number;
   //id senkronize olacak
    ngOnInit(): void {
     
-   this.logout(this.id);
+
    }
    logout(id:number){
     this.userservice.logout(id); 
-    this.layoutcontainer.authendricated=false;
+  
    
    }
 }

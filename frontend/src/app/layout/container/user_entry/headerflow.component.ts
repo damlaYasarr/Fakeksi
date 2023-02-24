@@ -17,6 +17,9 @@ export class HeaderFlowComponent implements OnInit{
     
   
    ngOnInit(): void {
+  
+   }
+   method(){
     this.entryservices.getEntry().subscribe(data=>{
       this.dailyflow=data;
      })

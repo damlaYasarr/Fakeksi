@@ -15,23 +15,16 @@ import { AdminComponent } from './layout/admin/admin.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HeaderFlowComponent } from './layout/container/user_entry/headerflow.component';
 import { CommentComponent } from './layout/container/commentContainer/commentContainer.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { MsgModule } from './layout/container/msgging/msg-routing.module';
+import { LoginModule } from './layout/container/login/login-routing.module';
+import { LayoutModule } from './layout/layout.module';
 
 
 
-//import { Injectable } from '@angular/core';
-//moduller buraya eklenir
-const appRoute: Routes=[
-  { path:"", component:LayoutComponent, outlet:"full", pathMatch:'full',children:[
-    {path:'login', component:LoginComponent},
-    {path:'msg', component:MsggingComponent},
-    {path:'profile', component:ProfileComponent},
-  ]},
- //{path: '', component: LayoutComponent, outlet:'full'},
-   
- {path: 'admin', component:  AdminComponent, outlet:'admin', pathMatch:'full'}, 
-//otherwise redirect to home
- { path: '**', redirectTo: '' },
-]
+
+
 //bütün component modulleri bburaya import eidlir
 @NgModule({
   declarations: [
@@ -50,10 +43,11 @@ const appRoute: Routes=[
     HttpClientModule,
     FontAwesomeModule,
     FormsModule, 
-
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoute)
-
+    RouterModule,
+    AppRoutingModule,
+    LayoutModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

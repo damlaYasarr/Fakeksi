@@ -153,14 +153,15 @@ a{
     </style>
   </head>
   <body>
+
     <div class="header">
       <div class="header-detail1">
-         <div  class="header-header"> <a [routerLink]="['/']" routerLinkActive="router-link-active" > Fakeksi</a></div>
+         <div  class="header-header"> <a href="/"  > Fakeksi</a></div>
          <div class="header-search"> <input placeholder="arama yeri" /></div>
          <div class="header-router">
-          <div id="loginbfr"  *ngIf = "authendricated" > <a [routerLink]="['/login']" routerLinkActive="router-link-active"  style="color: black; padding: 5px;"><fa-icon [icon]="faUser"></fa-icon>giriş</a></div>
-             <div  id="loginaftr" *ngIf = "!authendricated"  > <a [routerLink]="['/profile']" routerLinkActive="router-link-active"  style="color: black; padding: 5px;"><fa-icon [icon]="faUser"></fa-icon>profile</a></div>
-             <div id="loginaftr" *ngIf = "!authendricated" >  <a [routerLink]="['/msg']" routerLinkActive="router-link-active" style="color: black;  padding: 5px;" ><fa-icon  [icon]="faMessage"></fa-icon>msg</a></div>
+          <div id="loginbfr"   > <a  [routerLink]="[ 'login']" routerLinkActive="router-link-active"   style="color: black; padding: 5px;"><fa-icon [icon]="faUser"></fa-icon>giriş</a></div>
+             <div  id="loginaftr" *ngIf = "!authendricated"  > <a [routerLink]="['profile']" routerLinkActive="router-link-active"   style="color: black; padding: 5px;"><fa-icon [icon]="faUser"></fa-icon>profile</a></div>
+             <div id="loginaftr" *ngIf = "!authendricated" >  <a [routerLink]="['msg']" routerLinkActive="router-link-active"   style="color: black;  padding: 5px;" ><fa-icon  [icon]="faMessage"></fa-icon>msg</a></div>
              <div class="header-event"> <a href="">olay</a></div>
              <div> <a href="">...</a></div>
          </div>
@@ -188,10 +189,9 @@ a{
    <div class="flowEventfirst">
     <header_flow></header_flow>
    </div>
-   <div class="flowEventsec" >
-   
-   <router-outlet> </router-outlet>
-
+   <div class="flowEventsec" > 
+<router-outlet></router-outlet>
+  
    </div>
 
    <div class="flowEventthird">reklam</div>
