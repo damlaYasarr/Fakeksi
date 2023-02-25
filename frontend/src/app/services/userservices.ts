@@ -13,7 +13,7 @@ export class Userservice {
     constructor(private httpclient:HttpClient){}
     
  
-   loginProfile(email:string,password:string) {
+   loginProfile(email:string,password:string): Observable<any> {
         return this.httpclient.post(API, {email, password});
       }  
    logout(id:number):Observable<any>{

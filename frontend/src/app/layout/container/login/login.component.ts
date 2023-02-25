@@ -8,8 +8,8 @@ import { Router } from "@angular/router";
 import { AuthenticationService } from "src/app/services/authenticationservice";
 import { Userservice } from "src/app/services/userservices";
 import { User } from "src/app/models/user";
-const headers = new HttpHeaders()
-   .append('Content-Type' , 'application/json');
+
+
 @Component({
   selector:'login_progress',
   //sayfayı komple kullan diyoruz
@@ -19,7 +19,8 @@ const headers = new HttpHeaders()
 
 //css düzenlenecek
 export class LoginComponent implements OnInit {
-   API='https://localhost:7095/api/Auth/login';
+  
+
 
 form: FormGroup;
     loading = false;
@@ -29,7 +30,7 @@ form: FormGroup;
         private formBuilder: FormBuilder,
        private http:HttpClient,
         private router: Router,
-        private accountService: Userservice,
+        private authservice: Userservice,
         
     ) { }
 
@@ -49,15 +50,12 @@ form: FormGroup;
         if (this.form.invalid) {
             return;
         }
-    
-        this.loading = true;
-        this.http.post(this.API,{email:this.form.value.email,password:this.form.value.password }, {headers:headers})
-            .subscribe((res)=>{
-             
-                this.router.navigateByUrl('/(bla:home/profile)');
-         
-            
-            });
+        this.authservice
+        .loginProfile(this.form.value.email, this.form.value.password)
+        .subscribe((response) => {
+          this.router.navigateByUrl('/(bla:home/profile)');
+        });
+        
     }
   }
   /**  ********
