@@ -1,8 +1,8 @@
 export class User{
     //user bilgisi eklenir.
-    id:number;
+    user_id:number;
     email:string;
     password:string;
-    token:string;
+
     
 }

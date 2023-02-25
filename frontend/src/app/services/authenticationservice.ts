@@ -19,11 +19,11 @@ this.currentUser = this.currentUserSubject.asObservable();
 public get currentUserValue(): User {
 return this.currentUserSubject.value;
 }
- 
+ API='https://localhost:7095/api/Auth/login';
 login(email: string, password: string) {
-return this.http.post<any>(`auth/login`, { email, password })
+return this.http.post<any>(this.API, { email, password })
 .pipe(map(user => {
-if (user && user.token) {
+if (user ) {
 // store user details in local storage to keep user logged in
 localStorage.setItem('currentUser', JSON.stringify(user.result));
 this.currentUserSubject.next(user);
