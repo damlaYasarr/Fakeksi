@@ -10,9 +10,19 @@
 </head>
 
 <style>
+  .general-body{
+    box-sizing: border-box; 
+
+    align-items: center;
+    width: 630px;
+    padding: 10px;
+    height: 150px;
+  
+    margin-bottom: 5px;
+  }
   .comment-header{
     font-size: 18px;
-    
+     margin-bottom: 10px;
     font-weight: bold;
     cursor: pointer;
   }
@@ -37,7 +47,7 @@
   
   }
   .profile-user{
-    display: inline-block;
+    display: flex;
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -61,11 +71,10 @@
   </style>
 <body>
   <div style="padding: 16px;">
-
-   hello
     <tr *ngFor="let entry of entries" > 
+      <div class="general-body">
       <div class="comment-header">
-        <span> bla</span></div>
+        <span> {{entry.tagname}}</span></div>
            <div style="font-size: 15px;">{{entry.entries}}</div>
            <div style="display: flex; flex-direction: row; justify-content:space-between ;align-items: center;">
             <span> <fa-icon class="style-icon" style=" cursor: pointer;"  [icon]="faDrop"></fa-icon>
@@ -83,7 +92,7 @@
               </div>
                <div class="profile-user"></div>
            </div>
-
+          </div>
     </tr>
       
    <form >

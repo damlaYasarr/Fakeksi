@@ -7,6 +7,7 @@ import { LoginModule } from './container/login/login-routing.module';
 import { LoginComponent } from './container/login/login.component';
 import { MsgModule } from './container/msgging/msg-routing.module';
 import { ProfileModule } from './container/profile/profile-routing.module';
+import { TagAllModule } from './container/tagallentries/tagallentries-routing.module';
 
 
 
@@ -35,6 +36,11 @@ const dashBoardRoutes : Route[] = [
                
                 loadChildren: () => import('./container/msgging/msg-routing.module').then(m => m.MsgModule)
               },
+              {
+                path: 'entrydetail',
+               
+                loadChildren: () => import('./container/tagallentries/tagallentries-routing.module').then(m => m.TagAllModule)
+              },
              
             ]},
         
@@ -52,6 +58,7 @@ const dashBoardRoutes : Route[] = [
     LoginModule,
     MsgModule,
     DailyModule,
+    TagAllModule,
     ProfileModule,
   ]
 })

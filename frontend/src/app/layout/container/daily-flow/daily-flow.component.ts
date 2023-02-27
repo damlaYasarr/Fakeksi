@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { faUser, faMessage} from '@fortawesome/free-solid-svg-icons'
+import {  faDroplet , faListDots,faMessage} from '@fortawesome/free-solid-svg-icons'
 import { HttpClient } from '@angular/common/http';
-import { faDroplet , faListDots} from "@fortawesome/free-solid-svg-icons";
+import { EntryServices } from "src/app/services/entryservices";
+
 
 
 @Component({
@@ -17,12 +18,16 @@ export class DailyFLow implements OnInit{
   faListDot=faListDots
   entries:any;
   
-  constructor(private httpClient:HttpClient){ }
-  
+  constructor(private entryService:EntryServices){ }
+  //one tag one entry
 ngOnInit(): void {
-
+  this.entryService.getDailyOneTagAndOneEntry().subscribe((res)=>{
+    console.log(res)
+    this.entries=res
+  })
    }
-  
+
+
 
    
 }

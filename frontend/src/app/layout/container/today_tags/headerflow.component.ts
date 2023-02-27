@@ -17,10 +17,11 @@ export class HeaderFlowComponent implements OnInit{
     
   
    ngOnInit(): void {
-  
+  this.method();
    }
    method(){
-    this.entryservices.getEntry().subscribe(data=>{
+    this.entryservices.getEntry().subscribe((data)=>{
+      console.log(data)
       this.dailyflow=data;
      })
    }

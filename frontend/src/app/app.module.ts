@@ -13,9 +13,11 @@ import { ProfileComponent } from './layout/container/profile/profile.component';
 import { MsggingComponent } from './layout/container/msgging/msgging.component';
 import { AdminComponent } from './layout/admin/admin.component';
 import { LayoutComponent } from './layout/layout.component';
-import { HeaderFlowComponent } from './layout/container/user_entry/headerflow.component';
+
 import { CommentComponent } from './layout/container/commentContainer/commentContainer.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HeaderFlowComponent } from './layout/container/today_tags/headerflow.component';
+import { TagAllEntriesComponent } from './layout/container/tagallentries/tagallentries.component';
 
 
 
@@ -29,7 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
  
     DailyFLow,
     HeaderFlowComponent,
-  
+    TagAllEntriesComponent,
     CommentComponent,
    LoginComponent,  MsggingComponent,   ProfileComponent,
    AdminComponent,

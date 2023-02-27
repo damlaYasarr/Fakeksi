@@ -28,6 +28,7 @@ export class ProfileComponent implements OnInit{
   
 
    }  
+   
    onClick(){
     this.authservice.logout();
     console.log('çıkış yapıldı')

@@ -11,6 +11,9 @@ export class EntryServices {
     getEntry(){
         return this.httpclient.get('https://localhost:7095/api/TagEntry/GetTagandcount');
     }
+    getDailyOneTagAndOneEntry(){
+        return this.httpclient.get('https://localhost:7095/api/TagEntry/GetMOSTlikesEntryDetailwithContent');
+    }
 
     callingFromTepmlate(){
         console.log("calling from template directlt");
