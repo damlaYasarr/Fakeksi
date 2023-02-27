@@ -17,9 +17,12 @@ faDrop=faDroplet
 faMessageArrowUp=faMessage
 faListDot=faListDots
 appurl="https://localhost:7095/api/TagEntry/getalltagandentrieswithUSER";
+
 //params kullanılır user id alınır-comment cart genişliği sabit kalmalı
   getEntry(){
-    this.httpClient.get(this.appurl+"1").subscribe(response=>{
+    const number=localStorage.getItem('user_id');
+    console.log(number);
+    this.httpClient.get(this.appurl+number).subscribe(response=>{
     
       this.entriesUser=response
      
