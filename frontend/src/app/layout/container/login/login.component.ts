@@ -1,9 +1,10 @@
-import { Component, OnInit} from "@angular/core";
+import { Component, EventEmitter, OnInit, Output} from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 import { User } from "src/app/models/user";
 import { AuthenticationService } from "src/app/services/authenticationservice";
+import { LayoutComponent } from "../../layout.component";
 
 
 @Component({
@@ -15,13 +16,15 @@ import { AuthenticationService } from "src/app/services/authenticationservice";
 
 //css düzenlenecek
 export class LoginComponent implements OnInit {
-  
    userid:any; //send info to the profile
    form: FormGroup;
    loading :boolean; //send info from child to parent
    submitted = false;
+  
+
    isAdmin:boolean;
     constructor(
+      private logoutLayout:LayoutComponent,
         private formBuilder: FormBuilder,
         private router: Router,
         private authservice: AuthenticationService,
@@ -51,8 +54,8 @@ export class LoginComponent implements OnInit {
         this.authservice
         .login(this.form.value.email, this.form.value.password)
         .subscribe((response) => {
-          
           this.loading=true;
+          this.logoutLayout.classReferance.authendricated=true;
           this.authservice.getusrid(this.form.value.email).subscribe((res)=>{
 
             this.userid=res

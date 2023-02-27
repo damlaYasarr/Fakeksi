@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from "@angular/cor
 import { faUser, faMessage} from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
 import { LoginComponent } from "./container/login/login.component";
+import { AuthenticationService } from "../services/authenticationservice";
 
 
 @Component({
@@ -12,35 +13,37 @@ import { LoginComponent } from "./container/login/login.component";
 })
 
 export class LayoutComponent{
-
-  constructor(  private router: Router){
-
+  static authendricated:boolean;
+  public classReferance=LayoutComponent;
+  constructor( private router: Router, 
+                private authService:AuthenticationService){
+    LayoutComponent.authendricated;
   }
-   //eğer loginde giriş yapılmadı ise profile ve msg kapanacak
    
    faUser=faUser
-   faMessage=faMessage
-   logincomponent:LoginComponent;
-   
-  authendricated=false;
+   faMessage=faMessage;
+ 
    selectedList:any
    menulist=['eksi','msg','profile']
    
    
    ngOnInit() :void{
-    console.log(this.logincomponent)
-      this.changebuttons();
+    console.log(this.changebuttons());
+   
+ 
    }
    changebuttons(){
-    if(this.logincomponent.loading==true){
-      this.authendricated=true;
+    if(localStorage.getItem('user_id')!=null){
+         LayoutComponent.authendricated=true;
+    } else {
+         LayoutComponent.authendricated=false;
     }
-    return this.authendricated;
+    return  LayoutComponent.authendricated;
    }
 
    openFLowList(menulist:any){
     this.selectedList=menulist
-
    }
+ 
 
 }
