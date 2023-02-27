@@ -27,7 +27,7 @@ appurl="https://localhost:7095/api/TagEntry/getalltagandentrieswithUSER";
   }
 ngOnInit(): void {
 this.getEntry();
-console.log(this.entriesUser)
+
    }
   
 

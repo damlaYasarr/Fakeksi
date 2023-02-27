@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { faSmile, faCircleArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { Userservice } from "src/app/services/userservices";
+
 
 import { Router } from "@angular/router";
 import { LayoutComponent } from "../../layout.component";
+import { AuthenticationService } from "src/app/services/authenticationservice";
 
 @Component({
   selector:'profile',
@@ -13,14 +14,15 @@ import { LayoutComponent } from "../../layout.component";
 })
 
 export class ProfileComponent implements OnInit{
-  constructor(private userservice:Userservice,
-   
+  constructor(
+     private authservice:AuthenticationService,
      private router:Router){
     //tanımlama yaparken kullanılır
   }
   
   faSmile=faSmile
   facirclearrow=faCircleArrowUp
+  //entry içine user id gönderilmeli
 id:number;
   //get params
   //jwt kullan; backend düzenle. 
@@ -30,10 +32,7 @@ id:number;
    ngOnInit(): void {
     
 
-   }
-   logout(id:number){
-    this.userservice.logout(id); 
-  
-   
-   }
+   }  
+
+ 
 }

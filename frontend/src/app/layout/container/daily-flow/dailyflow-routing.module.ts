@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from 'src/app/_helpers';
-import { LoginComponent } from './login.component';
+import { DailyFLow } from './daily-flow.component';
+
 
 
 
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'daily',
 
-    component: LoginComponent,
-    canActivate:[AuthGuard]
+    component: DailyFLow,
+    
   }
 ];
 
@@ -19,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LoginModule { }
+export class DailyModule { }

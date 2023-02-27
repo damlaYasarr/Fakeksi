@@ -28,10 +28,15 @@ export class LayoutComponent{
    
    
    ngOnInit() :void{
-    
-      
+    console.log(this.logincomponent)
+      this.changebuttons();
    }
-   
+   changebuttons(){
+    if(this.logincomponent.loading==true){
+      this.authendricated=true;
+    }
+    return this.authendricated;
+   }
 
    openFLowList(menulist:any){
     this.selectedList=menulist

@@ -6,20 +6,21 @@ import { AuthenticationService } from '../services/authenticationservice';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
+    user_id:any;
     constructor(
         private router: Router,
         private authenticationService: AuthenticationService
     ) {}
-
+ 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentUser = this.authenticationService.currentUserValue;
         if (currentUser) {
-            // authorised so return true
+           
             return true;
         }
 
         // not logged in so redirect to login page with the return url
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+        this.router.navigateByUrl(('/(bla:home/login'));
         return false;
     }
 }

@@ -23,7 +23,7 @@ return this.currentUserSubject.value;
 login(email: string, password: string) {
 return this.http.post<any>(this.API, { email, password })
 .pipe(map(user => {
-if (user ) {
+if (user && user.token ) { 
 // store user details in local storage to keep user logged in
 localStorage.setItem('currentUser', JSON.stringify(user.result));
 this.currentUserSubject.next(user);
@@ -36,5 +36,10 @@ return user;
 logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next({} as User)
+}
+
+getusrid(email:string){
+
+   return this.http.get("https://localhost:7095/api/User/getuserIdByEmail?email="+email);
 }
 }

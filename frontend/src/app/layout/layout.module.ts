@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
+import { DailyFLow } from './container/daily-flow/daily-flow.component';
+import { DailyModule } from './container/daily-flow/dailyflow-routing.module';
 import { LoginModule } from './container/login/login-routing.module';
 import { LoginComponent } from './container/login/login.component';
 import { MsgModule } from './container/msgging/msg-routing.module';
@@ -17,6 +19,11 @@ const dashBoardRoutes : Route[] = [
                 path: 'profile',
              
                 loadChildren: () => import('./container/profile/profile-routing.module').then(m => m.ProfileModule)
+              },
+              {
+                path: 'daily',
+             
+                loadChildren: () => import('./container/daily-flow/dailyflow-routing.module').then(m => m.DailyModule)
               },
               {
                 path: 'login',
@@ -44,6 +51,7 @@ const dashBoardRoutes : Route[] = [
     RouterModule,
     LoginModule,
     MsgModule,
+    DailyModule,
     ProfileModule,
   ]
 })
