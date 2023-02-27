@@ -28,12 +28,12 @@ export class ProfileComponent implements OnInit{
   
 
    }  
-   
+
    onClick(){
     this.authservice.logout();
     console.log('çıkış yapıldı')
     this.logoutLayout.classReferance.authendricated=false;
-    this.router.navigateByUrl('/(bla:home)');
+    this.router.navigateByUrl('/(bla:home/daily)');
    }
 
  

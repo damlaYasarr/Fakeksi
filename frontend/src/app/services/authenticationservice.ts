@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user';
+import { Router } from '@angular/router';
  
 
  
@@ -36,6 +37,7 @@ return user;
 logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next({} as User)
+   
 }
 
 getusrid(email:string){
