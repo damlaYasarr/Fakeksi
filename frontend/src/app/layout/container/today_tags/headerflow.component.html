@@ -52,12 +52,12 @@ font-size: 15px;
 
    <div class="header-flow-header"><span>bugün</span></div>
    <div class="header-flow-re"> <span>yenile <fa-icon [icon]="faRotate"></fa-icon></span></div>
-   <tr *ngFor="let list of dailyflow"> 
+   <tr  *ngFor="let list of dailyflow" (click)="onLineClick(list)"> 
    <div class="header-flow-headers">
   
    
    <div  [routerLink]="['entrydetail']" class="header-detail">
-    <span  >{{list.tag}} </span>
+    <span >{{list.tag}} </span>
     <span style="font-size: 13px; color:gray;">{{list.entryCount}}</span>
    </div>
   

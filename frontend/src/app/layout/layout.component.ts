@@ -30,7 +30,7 @@ export class LayoutComponent{
    ngOnInit() :void{
     console.log(this.changebuttons());
    
- 
+    
    }
    changebuttons(){
     if(localStorage.getItem('user_id')!=null){
