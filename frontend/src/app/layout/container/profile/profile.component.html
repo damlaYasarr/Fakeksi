@@ -64,11 +64,11 @@ padding: 10px;
 <div>
       <div class="profile-card">
          <div class="profile-card-info">
-          <span style="font-size: 20px; color:black; font-weight: bold;">username</span>
+          <span style="font-size: 20px; color:black; font-weight: bold;">{{profile.username}}</span>
           <span > <fa-icon [icon]="faSmile"></fa-icon>
             <fa-icon [icon]="faSmile"></fa-icon>
             <fa-icon [icon]="faSmile"></fa-icon></span>
-           <span> 270 entry. 50 takibinde. 4 takipçi</span>
+           <span> {{profile.totalentrynumber}} entry. {{profile.followernumber}} takipçi. {{profile.followednumber}} takipedilen</span>
            <span > <fa-icon style="font-size: 1.8em; padding: 4px;" [icon]="facirclearrow"> </fa-icon> <fa-icon style="font-size: 1.8em; padding: 4px;" [icon]="facirclearrow"> </fa-icon></span>
          </div>
          <button (click)="onClick()">çıkış</button>

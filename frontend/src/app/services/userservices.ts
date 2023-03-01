@@ -12,7 +12,8 @@ const headers = new HttpHeaders()
 export class Userservice {
     constructor(private httpclient:HttpClient){}
     
- 
-
+ userProfileInfo(id:number){
+   return this.httpclient.get('https://localhost:7095/api/User/UserProfileDetail?id='+id);
+ }
    
 }

@@ -14,6 +14,13 @@ export class EntryServices {
     getDailyOneTagAndOneEntry(){
         return this.httpclient.get('https://localhost:7095/api/TagEntry/GetMOSTlikesEntryDetailwithContent');
     }
+    getTagIdByName(name:string){
+        return this.httpclient.get('https://localhost:7095/api/TagEntry/tagidbyname?name='+name);
+    }
+    //entrieswithallprofile
+    getTagsAllEntriesByTagId(id:number){
+        return this.httpclient.get('https://localhost:7095/api/TagEntry/getonestagallEntries?id='+id);
+    }
 
     callingFromTepmlate(){
         console.log("calling from template directlt");
