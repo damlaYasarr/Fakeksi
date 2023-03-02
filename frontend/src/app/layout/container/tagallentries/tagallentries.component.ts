@@ -11,14 +11,14 @@ import { HeaderFlowComponent } from "../today_tags/headerflow.component";
 })
 //css düzenlenecek
 export class TagAllEntriesComponent implements OnInit{
-
+  
   constructor(private entryservices: EntryServices 
    ){ }
   dailyflow:any;
   faDrop=faDroplet
   faMessageArrowUp=faMessage
   faListDot=faListDots
-    
+    tagvalue:number;
    ngOnInit(): void {
 
   this.getEntryies();
@@ -26,12 +26,10 @@ export class TagAllEntriesComponent implements OnInit{
    }
   getEntryies(){
 
- console.log(this.entryservices.tagidforentities);
-
     this.entryservices.getTagsAllEntriesByTagId( 1).subscribe((res)=>{
       this.dailyflow=res;
-       
-      
+      console.log(this.dailyflow)
+
     })
   }
    

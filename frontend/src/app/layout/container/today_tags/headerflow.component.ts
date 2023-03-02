@@ -11,31 +11,29 @@ import { BehaviorSubject } from 'rxjs';
 
 export class HeaderFlowComponent implements OnInit{
   //use how to send data from child to child
-   tagnumber:number; 
    
+  
   constructor(private entryservices: EntryServices, 
               private router:Router){
-         
+       
                }
   dailyflow:any;
   gettag:string;
   faRotate=faRotateRight
-    
+  tagids:number;
   
    ngOnInit(): void {
   this.method();
+
    }
    onLineClick(list:any){
     this.gettag=list.tag;
     console.log(list.tag);
+    
     this.entryservices.getTagIdByName(this.gettag).subscribe((res)=>{
-      this.tagnumber=Number(res);
-       this.entryservices.tagidforentities=this.tagnumber;
-       console.log(this.tagnumber)
-       this.tagnumber=0;
-      
-        
-      
+      this.tagids=Number(res);
+      this.entryservices.tagidforentities=this.tagids;
+      localStorage.setItem('tgid', String(this.tagids));
     })
    }
    method(){
@@ -44,4 +42,5 @@ export class HeaderFlowComponent implements OnInit{
       this.dailyflow=data;
      })
    }
+  
 }
