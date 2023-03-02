@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 
 export class EntryServices {
     constructor(private httpclient:HttpClient){}
-   
+    public tagidforentities: number;
     getEntry(){
         return this.httpclient.get('https://localhost:7095/api/TagEntry/GetTagandcount');
     }
@@ -19,9 +19,9 @@ export class EntryServices {
     }
     //entrieswithallprofile
     getTagsAllEntriesByTagId(id:number){
-        return this.httpclient.get('https://localhost:7095/api/TagEntry/getonestagallEntries?id='+id);
+        return this.httpclient.get('https://localhost:7095/api/TagEntry/entries:'+id);
     }
-
+    
     callingFromTepmlate(){
         console.log("calling from template directlt");
     }

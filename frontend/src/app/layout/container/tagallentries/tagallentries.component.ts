@@ -11,24 +11,27 @@ import { HeaderFlowComponent } from "../today_tags/headerflow.component";
 })
 //css düzenlenecek
 export class TagAllEntriesComponent implements OnInit{
-  constructor(public entryservices: EntryServices){ }
+
+  constructor(private entryservices: EntryServices 
+   ){ }
   dailyflow:any;
   faDrop=faDroplet
   faMessageArrowUp=faMessage
   faListDot=faListDots
     
-  
    ngOnInit(): void {
 
   this.getEntryies();
 
    }
   getEntryies(){
- 
-  
-    this.entryservices.getTagsAllEntriesByTagId(1 ).subscribe((res)=>{
+
+ console.log(this.entryservices.tagidforentities);
+
+    this.entryservices.getTagsAllEntriesByTagId( 1).subscribe((res)=>{
       this.dailyflow=res;
-      console.log(res);
+       
+      
     })
   }
    
