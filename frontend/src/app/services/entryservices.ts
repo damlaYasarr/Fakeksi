@@ -19,7 +19,7 @@ export class EntryServices {
     }
     //entrieswithallprofile
     getTagsAllEntriesByTagId(id:number){
-        return this.httpclient.get('https://localhost:7095/api/TagEntry/entries:'+id);
+        return this.httpclient.get('https://localhost:7095/api/TagEntry/entries'+id);
     }
     
     callingFromTepmlate(){

@@ -71,9 +71,10 @@
     </style>
     <div> bir tag'in bütün entriesleri gelir.</div>
     <div> <span>tag name</span></div>
+    <tr  *ngFor="let list of dailyflow"> 
     <div class="general-body">
         
-             <div style="font-size: 15px;">    entry detail burada yer alır</div>
+             <div style="font-size: 15px;">   {{list.entries}}</div>
              <div style="display: flex; flex-direction: row; justify-content:space-between ;align-items: center;">
               <span> <fa-icon class="style-icon" style=" cursor: pointer;"  [icon]="faDrop"></fa-icon>
           
@@ -85,11 +86,12 @@
              </div>
              <div class="alt-card-style">
                 <div class="ff" style="display:flex; margin-right: 7px; flex-direction: column;">
-                  <span class="isim">entryname</span>
-                  <span  class="tarih">date</span>
+                  <span class="isim">{{list.name}}</span>
+                  <span  class="tarih">{{list.enrydate}}</span>
                 </div>
                  <div class="profile-user"></div>
              </div>
             </div>
+          </tr>
 </body>
 </html>

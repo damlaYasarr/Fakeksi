@@ -19,7 +19,7 @@ export class LayoutComponent{
                 private authService:AuthenticationService){
     LayoutComponent.authendricated;
   }
-   
+
    faUser=faUser
    faMessage=faMessage;
  
@@ -29,8 +29,6 @@ export class LayoutComponent{
    
    ngOnInit() :void{
     console.log(this.changebuttons());
-   
-    
    }
    changebuttons(){
     if(localStorage.getItem('user_id')!=null){

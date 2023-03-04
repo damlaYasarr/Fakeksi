@@ -3,24 +3,23 @@ import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { EntryServices } from "src/app/services/entryservices";
 import { Router } from "@angular/router";
 import { BehaviorSubject } from 'rxjs';
+import { SharedService } from "src/app/services/simpleservice";
 @Component({
   selector:'header_flow',
   templateUrl:'headerflow.component.html',
 
 })
 
-export class HeaderFlowComponent implements OnInit{
+
+ 
+export class HeaderFlowComponent {
   //use how to send data from child to child
-   
   
-  constructor(private entryservices: EntryServices, 
-              private router:Router){
-       
-               }
+  constructor(private entryservices: EntryServices, private sharedid:SharedService){ }
   dailyflow:any;
   gettag:string;
   faRotate=faRotateRight
-  tagids:number;
+   public tagsid:number;
   
    ngOnInit(): void {
   this.method();
@@ -29,17 +28,23 @@ export class HeaderFlowComponent implements OnInit{
    onLineClick(list:any){
     this.gettag=list.tag;
     console.log(list.tag);
-    
+     
     this.entryservices.getTagIdByName(this.gettag).subscribe((res)=>{
-      this.tagids=Number(res);
-      this.entryservices.tagidforentities=this.tagids;
-      localStorage.setItem('tgid', String(this.tagids));
+      
+      this.tagsid=Number(res)
+      this.sharedid.tagseriousid=this.tagsid
+      console.log(this.sharedid.value())
+      
+      console.log(this.tagsid);
+      
+    
     })
    }
    method(){
     this.entryservices.getEntry().subscribe((data)=>{
      
       this.dailyflow=data;
+    
      })
    }
   

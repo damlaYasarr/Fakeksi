@@ -1,7 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,Input } from "@angular/core";
 import { EntryServices } from "src/app/services/entryservices";
 import { faDroplet , faMessage, faListDots} from "@fortawesome/free-solid-svg-icons";
 import { HeaderFlowComponent } from "../today_tags/headerflow.component";
+import {  Router } from "@angular/router";
+import { SharedService } from "src/app/services/simpleservice";
 
 @Component({
   selector:'tagallentries',
@@ -10,27 +12,27 @@ import { HeaderFlowComponent } from "../today_tags/headerflow.component";
 
 })
 //css düzenlenecek
-export class TagAllEntriesComponent implements OnInit{
-  
-  constructor(private entryservices: EntryServices 
-   ){ }
+export class TagAllEntriesComponent{
+ 
+
+  constructor(private entryservices: EntryServices, private sharedservice:SharedService){ }
   dailyflow:any;
   faDrop=faDroplet
   faMessageArrowUp=faMessage
   faListDot=faListDots
-    tagvalue:number;
+  public tagseriousid:number;
    ngOnInit(): void {
-
+    this.tagseriousid = this.sharedservice.tagseriousid;
   this.getEntryies();
-
    }
   getEntryies(){
-
-    this.entryservices.getTagsAllEntriesByTagId( 1).subscribe((res)=>{
+    
+    this.entryservices.getTagsAllEntriesByTagId(this.tagseriousid).subscribe((res)=>{
       this.dailyflow=res;
-      console.log(this.dailyflow)
-
+     // this.router.navigateByUrl(`http://localhost:4200/(bla:home/entrydetail/:${this.tagids})`);
+   
     })
   }
+  
    
 }
