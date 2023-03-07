@@ -33,10 +33,9 @@ export class HeaderFlowComponent {
       
       this.tagsid=Number(res)
       this.sharedid.tagseriousid=this.tagsid
-      console.log(this.sharedid.value())
+      
       
       console.log(this.tagsid);
-      
     
     })
    }
