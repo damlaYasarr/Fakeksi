@@ -18,10 +18,10 @@ export class EntryServices {
         return this.httpclient.get('https://localhost:7095/api/TagEntry/tagidbyname?name='+name);
     }
     //entrieswithallprofile
+   
     getTagsAllEntriesByTagId(id:number){
         return this.httpclient.get('https://localhost:7095/api/TagEntry/entries'+id);
     }
-    
     callingFromTepmlate(){
         console.log("calling from template directlt");
     }

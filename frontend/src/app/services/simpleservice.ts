@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-  constructor(private httpclient:HttpClient){}
-  public tagseriousid: number;
- 
-  getTagsAllEntriesByTagId(){
-    return this.httpclient.get('https://localhost:7095/api/TagEntry/entries'+this.tagseriousid);
-}
+  private idSource = new BehaviorSubject<number>(0);
+  currentId = this.idSource.asObservable();
+
+  constructor() { }
+
+  changeId(id: number) {
+    this.idSource.next(id);
+  }
 }

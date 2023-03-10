@@ -1,36 +1,40 @@
-import { Component} from "@angular/core";
+import { Component, OnInit} from "@angular/core";
 import { EntryServices } from "src/app/services/entryservices";
 import { faDroplet , faMessage, faListDots} from "@fortawesome/free-solid-svg-icons";
 import { SharedService } from "src/app/services/simpleservice";
+import { Route, Router } from "@angular/router";
 
 @Component({
   selector:'tagallentries',
   //sayfayı komple kullan diyoruz
   templateUrl:'tagallentries.component.html',
-
+  
 })
 //css düzenlenecek
-export class TagAllEntriesComponent{
+export class TagAllEntriesComponent implements OnInit{
  
-
-  constructor(private entryservices: EntryServices, public sharedservice:SharedService){ }
+ tagid:number;
+  constructor(private router: Router, private sharedservice:SharedService, 
+    private enryservice:EntryServices){ }
   dailyflow:any;
   faDrop=faDroplet
   faMessageArrowUp=faMessage
   faListDot=faListDots
-   id:number;
-   ngOnInit(): void {
-  this.getEntryies();
-   }
-  getEntryies(){
-
-    this.sharedservice.getTagsAllEntriesByTagId().subscribe((res)=>{
   
-      
+   ngOnInit(): void {
+    this.sharedservice.currentId.subscribe(id => {
+    
+      this.tagid = Number(id);
+      console.log(this.tagid)  
+      this.getEntryies(this.tagid);  
+    });
+   }
+  getEntryies(id:number){
+    this.enryservice.getTagsAllEntriesByTagId(id).subscribe((res)=>{
+      this.dailyflow=res;
       console.log(res)
-    //  this.router.navigateByUrl(`http://localhost:4200/(bla:home/entrydetail/:${this.tagids})`);
-   
     })
+   
   }
   
    

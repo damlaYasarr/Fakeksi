@@ -1,9 +1,10 @@
-import { Component, OnInit,Output, EventEmitter } from "@angular/core";
+import { Component} from "@angular/core";
 import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { EntryServices } from "src/app/services/entryservices";
 import { Router } from "@angular/router";
 import { BehaviorSubject } from 'rxjs';
 import { SharedService } from "src/app/services/simpleservice";
+import { AsyncPipe } from "@angular/common";
 @Component({
   selector:'header_flow',
   templateUrl:'headerflow.component.html',
@@ -32,7 +33,7 @@ export class HeaderFlowComponent {
     this.entryservices.getTagIdByName(this.gettag).subscribe((res)=>{
       
       this.tagsid=Number(res)
-      this.sharedid.tagseriousid=this.tagsid
+      this.sharedid.changeId(this.tagsid);
       
       
       console.log(this.tagsid);
