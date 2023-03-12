@@ -29,7 +29,7 @@ export class HeaderFlowComponent {
    onLineClick(list:any){
     this.gettag=list.tag;
     console.log(list.tag);
-     
+    this.sharedid.tagname=this.gettag;
     this.entryservices.getTagIdByName(this.gettag).subscribe((res)=>{
       
       this.tagsid=Number(res)

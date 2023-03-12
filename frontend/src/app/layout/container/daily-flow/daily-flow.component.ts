@@ -20,6 +20,9 @@ export class DailyFLow implements OnInit{
   
   constructor(private entryService:EntryServices){ }
   //one tag one entry
+  //tag başlığına tıklayınca idsini al. consola yaz. 
+  //buradan tekrar tag all entries ksımına yönlendir. 
+  //router link isimlerideğişmeli araştır.
 ngOnInit(): void {
   this.entryService.getDailyOneTagAndOneEntry().subscribe((res)=>{
     console.log(res)

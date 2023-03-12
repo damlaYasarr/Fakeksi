@@ -68,10 +68,16 @@
           .ff .tarih:hover{
             border-bottom: 1px solid rgb(179, 179, 179);
           }
+          .header-tag-flow {
+        font-size: 20px;
+         margin-top: 20px;
+         margin-left: 20px;
+        align-items: center;
+        font-weight: bold;
+          }
     </style>
-   
-    <div> bir tag'in bütün entriesleri gelir.</div>
-    <div> <span>tag name</span></div>
+  
+    <div class="header-tag-flow"> <span>{{sharedservice.tagname}}</span></div>
     <tr  *ngFor="let list of dailyflow"> 
     <div class="general-body">
         

@@ -2,7 +2,7 @@ import { Component, OnInit} from "@angular/core";
 import { EntryServices } from "src/app/services/entryservices";
 import { faDroplet , faMessage, faListDots} from "@fortawesome/free-solid-svg-icons";
 import { SharedService } from "src/app/services/simpleservice";
-import { Route, Router } from "@angular/router";
+import { ActivatedRoute, Route, Router } from "@angular/router";
 
 @Component({
   selector:'tagallentries',
@@ -14,7 +14,7 @@ import { Route, Router } from "@angular/router";
 export class TagAllEntriesComponent implements OnInit{
  
  tagid:number;
-  constructor(private router: Router, private sharedservice:SharedService, 
+  constructor(private router: Router, public sharedservice:SharedService, 
     private enryservice:EntryServices){ }
   dailyflow:any;
   faDrop=faDroplet
@@ -23,15 +23,19 @@ export class TagAllEntriesComponent implements OnInit{
   
    ngOnInit(): void {
     this.sharedservice.currentId.subscribe(id => {
-    
+      
       this.tagid = Number(id);
       console.log(this.tagid)  
       this.getEntryies(this.tagid);  
     });
+
    }
+  
   getEntryies(id:number){
     this.enryservice.getTagsAllEntriesByTagId(id).subscribe((res)=>{
       this.dailyflow=res;
+      
+      this.router.navigateByUrl(`(bla:home/entrydetail/:${id})`);
       console.log(res)
     })
    

@@ -9,7 +9,7 @@ import { TagAllEntriesComponent } from './tagallentries.component';
 
 const routes: Routes = [
   {
-    path: 'entrydetail',
+    path: 'entrydetail/:id',
     component: TagAllEntriesComponent,
     
   }
