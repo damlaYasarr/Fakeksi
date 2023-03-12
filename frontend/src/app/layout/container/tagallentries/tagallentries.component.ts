@@ -19,7 +19,8 @@ export class TagAllEntriesComponent implements OnInit{
   dailyflow:any;
   faDrop=faDroplet
   faMessageArrowUp=faMessage
-  faListDot=faListDots
+  faListDot=faListDots 
+  
   
    ngOnInit(): void {
     this.sharedservice.currentId.subscribe(id => {
@@ -28,7 +29,7 @@ export class TagAllEntriesComponent implements OnInit{
       console.log(this.tagid)  
       this.getEntryies(this.tagid);  
     });
-
+   this.addentries(localStorage.getItem('user_id'),this.tagid  )
    }
   
   getEntryies(id:number){
@@ -40,8 +41,11 @@ export class TagAllEntriesComponent implements OnInit{
     })
    
   }
-  addentries(id:number){
+  addentries(usr_id: number,tag_id:number, def:string ){
    //kullanıcı id si ile entry eklenir
+   this.enryservice.addEntry(usr_id, tag_id,def).subscribe((res)=>{
+       
+   })
   }
   
    
