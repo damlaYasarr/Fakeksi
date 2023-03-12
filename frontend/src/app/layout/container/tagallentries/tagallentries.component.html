@@ -75,6 +75,36 @@
         align-items: center;
         font-weight: bold;
           }
+          .add_entry {
+            
+            border: 1px solid rgb(193, 193, 193);
+            min-width: 420px;
+            
+            height: 100px;
+            padding: 5px;
+          }
+          .add_entry textarea {
+            outline: none;
+           min-width: 400px;
+            padding: 10px;
+            border: none;
+            height: 90px;
+            overflow:hidden;
+            display: block;
+          }
+          .sbmt_btn button{
+            background-color: rgb(37, 170, 37);
+            color: white;
+            border:none;
+            width: 50px;
+            font-size: 15px;
+           
+          }
+          .add-entry{
+            display: flex;
+            flex-direction: row;
+            margin-left: 20px;
+          }
     </style>
   
     <div class="header-tag-flow"> <span>{{sharedservice.tagname}}</span></div>
@@ -100,5 +130,11 @@
              </div>
             </div>
           </tr>
+          <div>
+            <form class="add-entry"> 
+               <div class="add_entry"> <textarea id="comment" name="comment" rows="5"></textarea></div>
+               <div class="sbmt_btn"> <button type="submit">yolla gelsin</button></div>
+            </form>
+          </div>
 </body>
 </html>

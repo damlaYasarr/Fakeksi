@@ -40,6 +40,9 @@ export class TagAllEntriesComponent implements OnInit{
     })
    
   }
+  addentries(id:number){
+   //kullanıcı id si ile entry eklenir
+  }
   
    
 }
