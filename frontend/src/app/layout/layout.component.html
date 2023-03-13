@@ -40,14 +40,7 @@
     text-decoration: none;
     color: black;
   }
-  .header-search input{
-    box-sizing: border-box;
-    width: 300px;
-    border: 2px solid grey;
-    height: 30px;
-    outline: none;
-    padding: 10px;
-  }
+
 a{
   text-decoration: none;
 }
@@ -157,7 +150,7 @@ a{
     <div class="header">
       <div class="header-detail1">
          <div  class="header-header"> <a [routerLink]="['daily']"  > Fakeksi</a></div>
-         <div class="header-search"> <input id="searchvalue" placeholder="arama yeri" /></div>
+         <div><searchbox></searchbox> </div>
          <div class="header-router">
           <div id="loginbfr"   *ngIf = "!classReferance.authendricated" > <a  [routerLink]="[ 'login']" routerLinkActive="router-link-active"   style="color: black; padding: 5px;"><fa-icon [icon]="faUser"></fa-icon>giriş</a></div>
              <div  id="loginaftr" *ngIf = "classReferance.authendricated"  > <a [routerLink]="['profile']" routerLinkActive="router-link-active"   style="color: black; padding: 5px;"><fa-icon [icon]="faUser"></fa-icon>profile</a></div>

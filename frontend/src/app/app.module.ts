@@ -18,6 +18,7 @@ import { CommentComponent } from './layout/container/commentContainer/commentCon
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderFlowComponent } from './layout/container/today_tags/headerflow.component';
 import { TagAllEntriesComponent } from './layout/container/tagallentries/tagallentries.component';
+import { SearchBoxComponent } from './layout/container/searchbox/searchbox.component';
 
 
 
@@ -28,7 +29,7 @@ import { TagAllEntriesComponent } from './layout/container/tagallentries/tagalle
   declarations: [
     AppComponent,
     LayoutComponent,
- 
+    SearchBoxComponent,
     DailyFLow,
     HeaderFlowComponent,
     TagAllEntriesComponent,

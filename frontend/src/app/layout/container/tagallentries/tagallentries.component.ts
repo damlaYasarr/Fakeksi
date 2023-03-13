@@ -29,7 +29,7 @@ export class TagAllEntriesComponent implements OnInit{
       console.log(this.tagid)  
       this.getEntryies(this.tagid);  
     });
-   this.addentries(localStorage.getItem('user_id'),this.tagid  )
+   //this.addentries(localStorage.getItem('user_id'),this.tagid  )
    }
   
   getEntryies(id:number){
@@ -41,12 +41,13 @@ export class TagAllEntriesComponent implements OnInit{
     })
    
   }
-  addentries(usr_id: number,tag_id:number, def:string ){
+  
+  /*addentries(usr_id: number,tag_id:number, def:string ){
    //kullanıcı id si ile entry eklenir
    this.enryservice.addEntry(usr_id, tag_id,def).subscribe((res)=>{
        
    })
-  }
+  }*/
   
    
 }
