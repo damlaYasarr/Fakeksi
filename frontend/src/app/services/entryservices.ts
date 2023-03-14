@@ -25,6 +25,9 @@ export class EntryServices {
     addEntry(userid:number, tag_id:number, def:string){
         return this.httpclient.post(`https://localhost:7095/api/TagEntry/entryekle`, {userid, tag_id, def});
     }
+    searchtagandname(nn:string){
+        return this.httpclient.get('https://localhost:7095/api/TagEntry/search'+nn);
+    }
     callingFromTepmlate(){
         console.log("calling from template directlt");
     }

@@ -1,8 +1,7 @@
 import { Component, OnInit} from "@angular/core";
 import { EntryServices } from "src/app/services/entryservices";
-import { faDroplet , faMessage, faListDots} from "@fortawesome/free-solid-svg-icons";
-import { SharedService } from "src/app/services/simpleservice";
-import { ActivatedRoute, Route, Router } from "@angular/router";
+
+import { Router } from "@angular/router";
 
 @Component({
   selector:'searchbox',
@@ -13,15 +12,24 @@ import { ActivatedRoute, Route, Router } from "@angular/router";
 //css düzenlenecek
 export class SearchBoxComponent implements OnInit{
  
- 
-  constructor(private router: Router){ }
- 
+  result:any;
+  constructor(private router: Router, private entryservice:EntryServices){ }
+ /** açılır box yapılmalı. veritabanından filtreleme ile aynı isimleri
+  * çekmeyi araştır. gelen kişi ise @ ile gelsin. tag ise normal yazı ile gelsin 
+  * @ gelen kişi ise profile sayfasına git. 
+  * takip et butonu ekle. o kişi nin id sini çek. 
+  */
   
   
    ngOnInit(): void {
    
    }
-  
+   getlist(nn:string){
+    this.entryservice.searchtagandname(nn).subscribe((res)=>{
+          this.result=res;
+          console.log(res);
+    })
+   }
   
   
    
