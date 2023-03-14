@@ -9,4 +9,13 @@
         padding: 10px;
       }
 </style>
-<div class="header-search"><input id="searchvalue" placeholder="bişey ara" /> </div> 
+
+<div class="header-search">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Search..." formControlName="searchInput">
+  </form>
+</div>
+<tr *ngFor="let list of dailyflow"> 
+  {{this.list}}
+</tr>
+
