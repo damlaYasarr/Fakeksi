@@ -19,8 +19,12 @@ export class SearchBoxComponent implements OnInit{
   searchInput: new FormControl('')
 });
  onSubmit() {
+  if(String(this.searchForm.value.searchInput)==""){
+    return;
+  }
     this.entryservice.searchtagandname(String(this.searchForm.value.searchInput)).subscribe((res)=>{
           this.dailyflow=res;
+          console.log(res)
     })
 }
    ngOnInit(): void {
