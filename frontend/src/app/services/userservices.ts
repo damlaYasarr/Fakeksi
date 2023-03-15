@@ -15,6 +15,9 @@ export class Userservice {
  userProfileInfo(id:number){
    return this.httpclient.get('https://localhost:7095/api/User/UserProfileDetail?id='+id);
  }
+ getuserIdByName(name:string){
+     return this.httpclient.get('https://localhost:7095/api/User/getuserIdByname?name='+name)
+ }
  adduserPhoto(){
    
  } 

@@ -22,10 +22,10 @@ appurl="https://localhost:7095/api/TagEntry/getalltagandentrieswithUSER";
   getEntry(){
     const number=localStorage.getItem('user_id');
     console.log(number);
-    this.httpClient.get(this.appurl+number).subscribe(response=>{
-    
+    this.httpClient.get(this.appurl+Number(number)).subscribe(response=>{
+      console.log(response)
       this.entriesUser=response
-     
+   
    })
   }
 ngOnInit(): void {

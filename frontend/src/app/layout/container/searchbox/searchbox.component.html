@@ -30,7 +30,7 @@
       }
       
       /* Style the links inside the dropdown */
-      .dropdown-content a {
+      .dropdown-content span {
         color: black;
         padding: 12px 16px;
         text-decoration: none;
@@ -39,7 +39,7 @@
       }
       
       /* Change the background color of the dropdown links on hover */
-      .dropdown-content a:hover {
+      .dropdown-content span:hover {
         background-color: #f1f1f1;
       }
       
@@ -72,9 +72,9 @@
       <input type="text" placeholder="Search..." formControlName="searchInput">
       <button class="dropbtn">Filter</button>
       <div class="dropdown-content">
-      <tr *ngFor="let list of dailyflow"> 
+      <tr *ngFor="let list of dailyflow" (click)="onLineClick(list)" > 
      
-        <a href="#">{{this.list}}</a>
+        <span>{{this.list}}</span>
       </tr>
       </div>
    
