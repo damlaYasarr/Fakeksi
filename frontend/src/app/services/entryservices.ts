@@ -28,6 +28,7 @@ export class EntryServices {
     searchtagandname(nn:string){
         return this.httpclient.get(`https://localhost:7095/api/TagEntry/search?nn=`+nn);
     }
+   
     callingFromTepmlate(){
         console.log("calling from template directlt");
     }

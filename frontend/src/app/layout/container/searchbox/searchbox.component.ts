@@ -4,6 +4,7 @@ import { EntryServices } from "src/app/services/entryservices";
 import { Router } from "@angular/router";
 import { FormControl, FormGroup } from "@angular/forms";
 import { Userservice } from "src/app/services/userservices";
+import { SharedService } from "src/app/services/simpleservice";
 
 @Component({
   selector:'searchbox',
@@ -14,9 +15,10 @@ import { Userservice } from "src/app/services/userservices";
 //css düzenlenecek
 export class SearchBoxComponent implements OnInit{
  dailyflow:any;
- getid:number;
+ public getid:number;
  usernme:string;
   constructor(private router: Router,
+    public sharedid:SharedService,
      private entryservice:EntryServices,
      private userservice:Userservice){ }
 
@@ -38,25 +40,26 @@ onLineClick(list:any){
     this.usernme=String(list).slice(1);
     this.userservice.getuserIdByName(this.usernme).subscribe((res)=>{
       console.log(res)
-      this.router.navigateByUrl(`(bla:home/profile)`);
+      this.getid=Number(res)
+      this.sharedid.changeId(this.getid);
+      //this.router.navigateByUrl(`/(bla:home/profile)`);
     })
     
   }else{
     this.entryservice.getTagIdByName(String(list)).subscribe((res)=>{
       console.log(res)
       this.getid=Number(res)
-    
-      this.router.navigateByUrl(`(bla:home/entrydetail/:${this.getid})`);
+      this.sharedid.changeId(this.getid);
+      this.sharedid.tagname=String(list)
+      this.router.navigateByUrl(`/(bla:home/entries/:${this.getid})`);
+      
     })
   }
-
-
 }
    ngOnInit(): void {
 
    }
    
-    
- 
+  
   
 }

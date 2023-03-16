@@ -23,11 +23,10 @@ export class TagAllEntriesComponent implements OnInit{
   
   
    ngOnInit(): void {
+    
     this.sharedservice.currentId.subscribe(id => {
-      
       this.tagid = Number(id);
-      console.log(this.tagid)  
-      this.getEntryies(this.tagid);  
+      this.getEntryies(this.tagid); 
     });
    //this.addentries(localStorage.getItem('user_id'),this.tagid  )
    }
@@ -35,12 +34,11 @@ export class TagAllEntriesComponent implements OnInit{
   getEntryies(id:number){
     this.enryservice.getTagsAllEntriesByTagId(id).subscribe((res)=>{
       this.dailyflow=res;
-      
-      this.router.navigateByUrl(`(bla:home/entrydetail/:${id})`);
-      console.log(res)
+      this.router.navigateByUrl(`/(bla:home/entries/:${id})`);
     })
    
   }
+  
   
   /*addentries(usr_id: number,tag_id:number, def:string ){
    //kullanıcı id si ile entry eklenir

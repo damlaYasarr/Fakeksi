@@ -37,7 +37,7 @@ const dashBoardRoutes : Route[] = [
                 loadChildren: () => import('./container/msgging/msg-routing.module').then(m => m.MsgModule)
               },
               {
-                path: 'entrydetail:id',
+                path: 'entries/:id',
                
                 loadChildren: () => import('./container/tagallentries/tagallentries-routing.module').then(m => m.TagAllModule)
               },

@@ -20,31 +20,22 @@ export class HeaderFlowComponent {
   dailyflow:any;
   gettag:string;
   faRotate=faRotateRight
-   public tagsid:number;
-  
+   tagsid:number=1;
    ngOnInit(): void {
   this.method();
-
    }
    onLineClick(list:any){
     this.gettag=list.tag;
-    console.log(list.tag);
     this.sharedid.tagname=this.gettag;
     this.entryservices.getTagIdByName(this.gettag).subscribe((res)=>{
       
       this.tagsid=Number(res)
       this.sharedid.changeId(this.tagsid);
-      
-      
-      console.log(this.tagsid);
-    
     })
    }
    method(){
     this.entryservices.getEntry().subscribe((data)=>{
-     
       this.dailyflow=data;
-    
      })
    }
   
