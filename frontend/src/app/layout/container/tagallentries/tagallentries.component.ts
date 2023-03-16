@@ -3,6 +3,7 @@ import { EntryServices } from "src/app/services/entryservices";
 import { faDroplet , faMessage, faListDots} from "@fortawesome/free-solid-svg-icons";
 import { SharedService } from "src/app/services/simpleservice";
 import { ActivatedRoute, Route, Router } from "@angular/router";
+import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
   selector:'tagallentries',
@@ -17,10 +18,13 @@ export class TagAllEntriesComponent implements OnInit{
   constructor(private router: Router, public sharedservice:SharedService, 
     private enryservice:EntryServices){ }
   dailyflow:any;
+  
   faDrop=faDroplet
   faMessageArrowUp=faMessage
   faListDot=faListDots 
-  
+  searchForms = new FormGroup({
+    searchInputs: new FormControl('')
+  });
   
    ngOnInit(): void {
     
@@ -39,12 +43,15 @@ export class TagAllEntriesComponent implements OnInit{
    
   }
   
-  
+  entryadd(){
+    console.log(Number(localStorage.getItem('user_id')),this.searchForms.value.searchInputs, this.tagid )
+    this.enryservice.addEntry(Number(localStorage.getItem('user_id')), this.tagid,String(this.searchForms.value.searchInputs)).subscribe((res)=>{
+       console.log(res)
+    })
+  }
   /*addentries(usr_id: number,tag_id:number, def:string ){
    //kullanıcı id si ile entry eklenir
-   this.enryservice.addEntry(usr_id, tag_id,def).subscribe((res)=>{
-       
-   })
+  
   }*/
   
    

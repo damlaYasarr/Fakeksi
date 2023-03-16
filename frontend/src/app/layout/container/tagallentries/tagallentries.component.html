@@ -131,9 +131,9 @@
             </div>
           </tr>
           <div>
-            <form class="add-entry"> 
-               <div class="add_entry"> <textarea id="comment" name="comment" rows="5"></textarea></div>
-               <div class="sbmt_btn"> <button type="submit">yolla gelsin</button></div>
+            <form class="add-entry" [formGroup]="searchForms" (ngSubmit)="entryadd()"> 
+               <div class="add_entry"> <textarea formControlName="searchInputs" id="comment" name="comment" rows="5"></textarea></div>
+               <div class="sbmt_btn"> <button  type="submit">yolla gelsin</button></div>
             </form>
           </div>
 </body>

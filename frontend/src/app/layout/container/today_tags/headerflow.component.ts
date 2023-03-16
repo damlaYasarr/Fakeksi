@@ -38,5 +38,8 @@ export class HeaderFlowComponent {
       this.dailyflow=data;
      })
    }
+   refresh(){
+    console.log("yeniliyoru")
+   }
   
 }
