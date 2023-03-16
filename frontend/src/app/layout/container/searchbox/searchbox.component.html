@@ -11,10 +11,12 @@
       .dropbtn {
         background-color: #4CAF50;
         color: white;
-        padding: 16px;
+        padding: 10px;
         font-size: 16px;
         border: none;
         cursor: pointer;
+        height: 40px;
+        
       }
       
       /* Style the dropdown content */
@@ -44,17 +46,23 @@
       }
       
       /* Style the input field */
-      .dropdown input[type=text] {
+      .dropdown input{
         padding: 16px;
         font-size: 16px;
-        border: none;
+        width: 300px;
+        height: 40px;
+        border: 1px solid gray;
+        outline:none;
         border-bottom: 1px solid #ccc;
       }
       
       /* Style the dropdown container */
       .dropdown {
         position: relative;
-        display: inline-block;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+       
       }
       
       /* Adjust the position of the dropdown content */

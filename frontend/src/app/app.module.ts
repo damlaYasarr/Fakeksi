@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderFlowComponent } from './layout/container/today_tags/headerflow.component';
 import { TagAllEntriesComponent } from './layout/container/tagallentries/tagallentries.component';
 import { SearchBoxComponent } from './layout/container/searchbox/searchbox.component';
+import { OtherUserComponent } from './layout/container/otheruser/otheruser.component';
 
 
 
@@ -34,7 +35,7 @@ import { SearchBoxComponent } from './layout/container/searchbox/searchbox.compo
     HeaderFlowComponent,
     TagAllEntriesComponent,
     CommentComponent,
-   LoginComponent,  MsggingComponent,   ProfileComponent,
+   LoginComponent,  MsggingComponent,   ProfileComponent,OtherUserComponent,
    AdminComponent,
   ],
   imports: [

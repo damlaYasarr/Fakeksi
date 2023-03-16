@@ -15,7 +15,8 @@ import { SharedService } from "src/app/services/simpleservice";
 //css düzenlenecek
 export class SearchBoxComponent implements OnInit{
  dailyflow:any;
- public getid:number;
+  getid:number;
+  otherid:number;
  usernme:string;
   constructor(private router: Router,
     public sharedid:SharedService,
@@ -36,22 +37,23 @@ export class SearchBoxComponent implements OnInit{
 }
 onLineClick(list:any){
   console.log(list)
-  if(list[0]=='@'){
-    this.usernme=String(list).slice(1);
-    this.userservice.getuserIdByName(this.usernme).subscribe((res)=>{
-      console.log(res)
-      this.getid=Number(res)
-      this.sharedid.changeId(this.getid);
-      //this.router.navigateByUrl(`/(bla:home/profile)`);
-    })
-    
-  }else{
+  if(list[0]!='@'){
+  
     this.entryservice.getTagIdByName(String(list)).subscribe((res)=>{
       console.log(res)
       this.getid=Number(res)
       this.sharedid.changeId(this.getid);
       this.sharedid.tagname=String(list)
       this.router.navigateByUrl(`/(bla:home/entries/:${this.getid})`);
+     
+    })
+  }else{
+    this.usernme=String(list).slice(1);
+    this.userservice.getuserIdByName(this.usernme).subscribe((res)=>{
+      console.log(res)
+      this.getid=Number(res)
+      this.userservice.changeId(this.getid);
+      this.router.navigateByUrl(`/(bla:home/user/:${this.getid})`);
       
     })
   }
