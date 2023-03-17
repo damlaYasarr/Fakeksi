@@ -15,6 +15,8 @@ import { FormControl, FormGroup } from "@angular/forms";
 export class TagAllEntriesComponent implements OnInit{
  
  tagid:number;
+ definition:string;
+ user_localid:number;
   constructor(private router: Router, public sharedservice:SharedService, 
     private enryservice:EntryServices){ }
   dailyflow:any;
@@ -44,9 +46,11 @@ export class TagAllEntriesComponent implements OnInit{
   }
   
   entryadd(){
-    console.log(Number(localStorage.getItem('user_id')),this.searchForms.value.searchInputs, this.tagid )
-    this.enryservice.addEntry(Number(localStorage.getItem('user_id')), this.tagid,String(this.searchForms.value.searchInputs)).subscribe((res)=>{
-       console.log(res)
+    this.definition=String(this.searchForms.value.searchInputs);
+    this.user_localid=Number(localStorage.getItem('user_id'))
+    console.log(this.user_localid,this.definition, this.tagid )
+    this.enryservice.addEntry(this.user_localid, Number(this.tagid),String(this.definition)).subscribe((response) => {
+       console.log(response)
     })
   }
   /*addentries(usr_id: number,tag_id:number, def:string ){
