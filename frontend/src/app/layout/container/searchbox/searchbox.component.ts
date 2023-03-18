@@ -39,6 +39,14 @@ export class SearchBoxComponent implements OnInit{
     if(this.dailyflow.length==0){
       console.log("bu boş")
       this.popup=true;
+      //post metotlarında büyük sıkıntı var
+      this.entryservice.addTag(Number(localStorage.getItem('user_id')),String(this.searchForm.value.searchInput)).subscribe((res)=>{
+        this.entryservice.getTagIdByName(String(this.searchForm.value.searchInput)).subscribe((res)=>{
+          this.getid=Number(res)
+          this.router.navigateByUrl(`/(bla:home/entries/:${Number(res)})`);
+        })
+       
+      })
     }
   });
 }

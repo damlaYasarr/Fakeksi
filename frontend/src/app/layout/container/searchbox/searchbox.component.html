@@ -82,7 +82,7 @@
       
       <div class="dropdown-content">
         <ng-container *ngIf="popup">
-          <span >böyle bir tag yok paylaşmak ister misin</span>
+          <span  [routerLink]="[ 'entries', getid]" >böyle bir tag yok paylaşmak ister misin</span>
         </ng-container>
         <ng-container *ngIf="!popup">
           <tr *ngFor="let list of dailyflow" (click)="onLineClick(list)">
