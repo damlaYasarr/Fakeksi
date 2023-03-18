@@ -18,6 +18,7 @@ export class SearchBoxComponent implements OnInit{
   getid:number;
   otherid:number;
  usernme:string;
+ popup:boolean;
   constructor(private router: Router,
     public sharedid:SharedService,
      private entryservice:EntryServices,
@@ -30,15 +31,22 @@ export class SearchBoxComponent implements OnInit{
   if(String(this.searchForm.value.searchInput)==""){
     return;
   }
-    this.entryservice.searchtagandname(String(this.searchForm.value.searchInput)).subscribe((res)=>{
-          this.dailyflow=res;
-          console.log(res)
-    })
+  this.entryservice.searchtagandname(String(this.searchForm.value.searchInput)).subscribe((res)=>{
+   
+  
+    this.dailyflow = res;
+    console.log(this.dailyflow);
+    if(this.dailyflow.length==0){
+      console.log("bu boş")
+      this.popup=true;
+    }
+  });
 }
 onLineClick(list:any){
   console.log(list)
-  if(list[0]!='@'){
   
+  if(list[0]!='@'){
+     
     this.entryservice.getTagIdByName(String(list)).subscribe((res)=>{
       console.log(res)
       this.getid=Number(res)

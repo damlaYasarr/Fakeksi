@@ -79,11 +79,16 @@
     <div class="dropdown">
       <input type="text" placeholder="Search..." formControlName="searchInput">
       <button class="dropbtn">Filter</button>
+      
       <div class="dropdown-content">
-      <tr *ngFor="let list of dailyflow" (click)="onLineClick(list)" > 
-     
-        <span>{{this.list}}</span>
-      </tr>
+        <ng-container *ngIf="popup">
+          <span >böyle bir tag yok paylaşmak ister misin</span>
+        </ng-container>
+        <ng-container *ngIf="!popup">
+          <tr *ngFor="let list of dailyflow" (click)="onLineClick(list)">
+            <span>{{ list }}</span>
+          </tr>
+        </ng-container>
       </div>
    
     </div>

@@ -28,7 +28,7 @@ export class Userservice {
   return this.httpclient.get('https://localhost:7095/api/TagEntry/getalltagandentrieswithUSER'+id);
  }
  addFollower(id:number, other_id:number){
-  return this.httpclient.post<any>(`https://localhost:7095/api/User/addFollower`, {id,other_id});
+  return this.httpclient.post(`https://localhost:7095/api/User/addFollower?id=${id}&otherid=${other_id}`, {id,other_id});
  } 
  adduserPhoto(){
    
