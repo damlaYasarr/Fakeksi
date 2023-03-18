@@ -49,14 +49,17 @@ export class TagAllEntriesComponent implements OnInit{
   
   entryadd(){
     this.definition=String(this.searchForms.value.searchInputs);
+   
     this.user_localid=Number(localStorage.getItem('user_id'))
     console.log(this.user_localid,this.definition, this.tagid )
     this.enryservice.addEntry(this.user_localid, this.tagid, this.definition)
     .subscribe((res) => {
       console.log('Başarılı işlem: ', res);
-     //burası error dönüyor öğren
+      this.router.navigateByUrl(`/(bla:home/entries/:${this.tagid})`);
+    
     });
-    this.router.navigateByUrl(`/(bla:home/entries/:${this.tagid})`);
+   
+   
   }
 
  

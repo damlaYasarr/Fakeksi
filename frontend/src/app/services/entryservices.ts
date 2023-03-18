@@ -3,17 +3,21 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { HttpHeaders } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
+import { retry } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-const headers = new HttpHeaders()
-     .set('Content-Type', 'application/json;charset=UTF-8')     
 
-let options = { headers : headers };
+
 @Injectable({
     providedIn:'root'
 })
 
 export class EntryServices {
+    httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+      };
     private baseUrl = '';
     constructor(private httpclient:HttpClient){}
     public tagidforentities: number;
@@ -32,13 +36,30 @@ export class EntryServices {
         return this.httpclient.get('https://localhost:7095/api/TagEntry/entries'+id);
     }
 
-    addEntry(user_id: number, tag_id: number, def: string) {
-        const body = JSON.stringify({ user_id, tag_id, def });
-        return this.httpclient.post(`https://localhost:7095/api/TagEntry/entryekle?user_id=${user_id}&tag_id=${tag_id}&definition=${def}`, body);
+    addEntry(user_id: number, tag_id: number, def: string):Observable<any> {
+         const body = JSON.stringify({ user_id, tag_id, def });
+        return this.httpclient.post(`https://localhost:7095/api/TagEntry/entryekle?user_id=${user_id}&tag_id=${tag_id}&definition=${def}`,body, this.httpOptions);
+    
+       
+   
+    }
+    handleError(error: any) {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+          // Get client-side error
+          errorMessage = error.error.message;
+        } else {
+          // Get server-side error
+          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        window.alert(errorMessage);
+        return throwError(() => {
+          return errorMessage;
+        });
       }
     addTag(user_id:number, def:string){
         const body={user_id,def}
-        return this.httpclient.post(`https://localhost:7095/api/TagEntry/tagekle?user_id=${user_id}&def=${def}`, body);
+        return this.httpclient.post(`https://localhost:7095/api/TagEntry/tagekle?user_id=${user_id}&def=${def}`, body,this.httpOptions);
     }
     searchtagandname(nn:string){
         return this.httpclient.get(`https://localhost:7095/api/TagEntry/search?nn=`+nn);

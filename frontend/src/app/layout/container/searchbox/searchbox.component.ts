@@ -43,7 +43,10 @@ export class SearchBoxComponent implements OnInit{
       this.entryservice.addTag(Number(localStorage.getItem('user_id')),String(this.searchForm.value.searchInput)).subscribe((res)=>{
         this.entryservice.getTagIdByName(String(this.searchForm.value.searchInput)).subscribe((res)=>{
           this.getid=Number(res)
+          this.sharedid.changeId(this.getid);
           this.router.navigateByUrl(`/(bla:home/entries/:${Number(res)})`);
+          this.sharedid.tagname=String(this.searchForm.value.searchInput)
+         
         })
        
       })
@@ -73,6 +76,9 @@ onLineClick(list:any){
       
     })
   }
+}
+getids(){
+  return `:${this.getid}`
 }
    ngOnInit(): void {
 
