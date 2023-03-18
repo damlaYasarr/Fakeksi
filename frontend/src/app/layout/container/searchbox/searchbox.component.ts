@@ -81,7 +81,20 @@ getids(){
   return `:${this.getid}`
 }
    ngOnInit(): void {
+    const dropdownContent = document.querySelector('.dropdown-content') as HTMLElement;
 
+    // Hide the dropdown content when clicking outside of it
+    document.addEventListener('click', (event) => {
+      // If the clicked element is not the dropdown content or a child of the dropdown content
+      if (!dropdownContent.contains(event.target as Node)) {
+        dropdownContent.style.display = 'none';
+      }
+    });
+    
+    // Show the dropdown content when hovering over the dropdown button
+    document.querySelector('.dropdown')?.addEventListener('mouseover', () => {
+      dropdownContent.style.display = 'block';
+    });
    }
    
   

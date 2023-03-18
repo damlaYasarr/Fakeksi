@@ -23,14 +23,17 @@
       .dropdown-content {
         display: block;
         position: absolute;
+       
         z-index: 1;
       }
+      
       
       /* Show the dropdown menu on hover */
       .dropdown:hover .dropdown-content {
         display: block;
       }
       
+     
       /* Style the links inside the dropdown */
       .dropdown-content span {
         color: black;
@@ -74,6 +77,8 @@
       }
 </style>
 
+
+ 
 <div>
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="dropdown">
