@@ -4,6 +4,8 @@ import { faDroplet , faMessage, faListDots} from "@fortawesome/free-solid-svg-ic
 import { SharedService } from "src/app/services/simpleservice";
 import { ActivatedRoute, Route, Router } from "@angular/router";
 import { FormControl, FormGroup } from "@angular/forms";
+import { catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 
 @Component({
   selector:'tagallentries',
@@ -49,14 +51,13 @@ export class TagAllEntriesComponent implements OnInit{
     this.definition=String(this.searchForms.value.searchInputs);
     this.user_localid=Number(localStorage.getItem('user_id'))
     console.log(this.user_localid,this.definition, this.tagid )
-    this.enryservice.addEntry(this.user_localid, Number(this.tagid),String(this.definition)).subscribe((response) => {
-       console.log(response)
-    })
+    this.enryservice.addEntry(this.user_localid, this.tagid, this.definition)
+    .subscribe((res) => {
+      console.log('Başarılı işlem: ', res);
+     //burası error dönüyor öğren
+    });
+    this.router.navigateByUrl(`/(bla:home/entries/:${this.tagid})`);
   }
-  /*addentries(usr_id: number,tag_id:number, def:string ){
-   //kullanıcı id si ile entry eklenir
-  
-  }*/
-  
-   
+
+ 
 }
