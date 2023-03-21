@@ -19,6 +19,7 @@ export class SearchBoxComponent implements OnInit{
   otherid:number;
  usernme:string;
  popup:boolean;
+ sharetag:boolean=false;
   constructor(private router: Router,
     public sharedid:SharedService,
      private entryservice:EntryServices,
@@ -39,7 +40,7 @@ export class SearchBoxComponent implements OnInit{
     if(this.dailyflow.length==0){
       console.log("bu boş")
       this.popup=true;
-      //post metotlarında büyük sıkıntı var
+     if(this.sharetag==true){
       this.entryservice.addTag(Number(localStorage.getItem('user_id')),String(this.searchForm.value.searchInput)).subscribe((res)=>{
         this.entryservice.getTagIdByName(String(this.searchForm.value.searchInput)).subscribe((res)=>{
           this.getid=Number(res)
@@ -51,7 +52,12 @@ export class SearchBoxComponent implements OnInit{
        
       })
     }
-  });
+
+     }
+    });  
+}
+clicksharetag(){
+   this.sharetag=true;
 }
 onLineClick(list:any){
   console.log(list)

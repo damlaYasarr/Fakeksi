@@ -18,7 +18,6 @@ export class EntryServices {
           'Content-Type': 'application/json',
         }),
       };
-    private baseUrl = '';
     constructor(private httpclient:HttpClient){}
     public tagidforentities: number;
     getEntry(){

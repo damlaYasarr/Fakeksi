@@ -5,6 +5,7 @@ import { DailyFLow } from './container/daily-flow/daily-flow.component';
 import { DailyModule } from './container/daily-flow/dailyflow-routing.module';
 import { LoginModule } from './container/login/login-routing.module';
 import { LoginComponent } from './container/login/login.component';
+import { MsgDetailModule } from './container/msgDetail/msgDetail-routing.module';
 import { MsgModule } from './container/msgging/msg-routing.module';
 import { OtherUserModule } from './container/otheruser/otheruser-routing.module';
 import { ProfileModule } from './container/profile/profile-routing.module';
@@ -47,6 +48,11 @@ const dashBoardRoutes : Route[] = [
                
                 loadChildren: () => import('./container/otheruser/otheruser-routing.module').then(m => m.OtherUserModule)
               },
+              {
+                path: 'msgdetails',
+               
+                loadChildren: () => import('./container/msgDetail/msgDetail-routing.module').then(m => m.MsgDetailModule)
+              }
             ]},
         
 ]
@@ -66,6 +72,7 @@ const dashBoardRoutes : Route[] = [
     TagAllModule,
     ProfileModule,
     OtherUserModule,
+    MsgDetailModule,
   ]
 })
 export class LayoutModule { }

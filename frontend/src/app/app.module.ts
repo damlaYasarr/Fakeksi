@@ -20,6 +20,7 @@ import { HeaderFlowComponent } from './layout/container/today_tags/headerflow.co
 import { TagAllEntriesComponent } from './layout/container/tagallentries/tagallentries.component';
 import { SearchBoxComponent } from './layout/container/searchbox/searchbox.component';
 import { OtherUserComponent } from './layout/container/otheruser/otheruser.component';
+import { MsgDetailComponent } from './layout/container/msgDetail/msgDetail.component';
 
 
 
@@ -32,11 +33,12 @@ import { OtherUserComponent } from './layout/container/otheruser/otheruser.compo
     LayoutComponent,
     SearchBoxComponent,
     DailyFLow,
+    
     HeaderFlowComponent,
     TagAllEntriesComponent,
     CommentComponent,
    LoginComponent,  MsggingComponent,   ProfileComponent,OtherUserComponent,
-   AdminComponent,
+   AdminComponent,MsgDetailComponent,
   ],
   imports: [
     BrowserModule,

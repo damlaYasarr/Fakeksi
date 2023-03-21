@@ -3,14 +3,14 @@ import { faUser, faMessage} from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
 
 @Component({
-  selector:'msgging',
+  selector:'msgDetail',
   //sayfayı komple kullan diyoruz
-  templateUrl:'msgging.component.html',
+  templateUrl:'msgDetail.component.html',
 
 })
 
-export class MsggingComponent implements OnInit{
-  constructor(private router:Router){
+export class MsgDetailComponent implements OnInit{
+  constructor(){
 
   }
 
@@ -19,9 +19,5 @@ export class MsggingComponent implements OnInit{
    }
    AddComment(): void{
     //post eklenirken bu metodu
-   }
-   routing(){
-        this.router.navigateByUrl('(bla:home/msgdetails)')
-        console.log("here is routing")
    }
 }
