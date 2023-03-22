@@ -72,13 +72,14 @@
     }
 
 </style>
-<p class="msgbox_header">Gelen kutusu >>@username</p>
+<p class="msgbox_header" >Gelen kutusu >>@username</p>
 <div class="msggin-box-card">
     
     <div *ngFor="let m of msg" [ngClass]="{'msgcontent_sender': sending_msg, 'msgcontent_receiver': !sending_msg}">
         <span class="">{{ m }}</span>
         <br/>
         <span style="font-size:14px;">date</span>
+       
     </div>
    
      

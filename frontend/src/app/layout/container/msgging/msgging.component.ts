@@ -13,7 +13,7 @@ export class MsggingComponent implements OnInit{
   constructor(private router:Router){
 
   }
-
+//msg detail- like count
    ngOnInit(): void {
 
    }
@@ -23,5 +23,8 @@ export class MsggingComponent implements OnInit{
    routing(){
         this.router.navigateByUrl('(bla:home/msgdetails)')
         console.log("here is routing")
+   }
+   getMsgginusers(){
+
    }
 }
