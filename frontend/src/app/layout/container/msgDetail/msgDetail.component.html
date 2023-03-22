@@ -10,13 +10,7 @@
    min-height: 400px;
    overflow: scroll;
     }
-    .msgcontent{
-        box-sizing: border-box;
-        border: 1px solid black;
-        width: 70%;
-        height: 70px; 
-       
-    }
+  
     .inputplace{
         box-sizing: border-box;
         width: 100%;
@@ -39,12 +33,60 @@
         height: 60px;
         width: 90px;
     }
+    .msgbox_header{
+        margin-top: 5px;
+        padding: 5px;
+        font-weight: bold;
+        color: green;
+     }
+     .msgcontent_sender{
+        padding: 10px;
+        float: left;
+   
+        box-sizing: border-box;
+        border: 1px solid black;
+        width: 70%;
+        height: 70px; 
+        display: block;
+        margin-bottom: 10px;
+        
+    }
+    .msgcontent_sender::before{
+        display: none;
+    }
+    .msgcontent_receiver::before{
+        display: none;
+    }
+    .msgcontent_receiver{
+      
+        padding: 10px;
+        float: right;
+        display: block;
+        box-sizing: border-box;
+        border: 1px solid black;
+        width: 70%;
+        height: 70px; 
+        
+        margin-bottom: 10px;
+         
+    }
+
 </style>
+<p class="msgbox_header">Gelen kutusu >>@username</p>
 <div class="msggin-box-card">
-    <div class="msgcontent"> hello</div>
-
-</div>
-
-<div class="inputplace"><textarea placeholder="biseyler yaz"></textarea>
-    <button>gönderive</button>
+    
+    <div *ngFor="let m of msg" [ngClass]="{'msgcontent_sender': sending_msg, 'msgcontent_receiver': !sending_msg}">
+        <span class="">{{ m }}</span>
+        <br/>
+        <span style="font-size:14px;">date</span>
     </div>
+   
+     
+</div>
+<form [formGroup]="searchForm" >
+    <div class="inputplace" ><textarea  formControlName="searchInput" placeholder="biseyler yaz"></textarea>
+        <button  (click)="onSubmit($event)">gönderive</button>
+    </div>
+</form>
+
+    
