@@ -30,8 +30,8 @@ export class Userservice {
  addFollower(id:number, other_id:number){
   return this.httpclient.post(`https://localhost:7095/api/User/addFollower?id=${id}&otherid=${other_id}`, {id,other_id});
  } 
- adduserPhoto(){
-   
+ adduserPhoto(id:number){
+  return this.httpclient.post('https://localhost:7095/api/Fileupload/imageupload', {id});
  } 
  changeuserphoto(){
   

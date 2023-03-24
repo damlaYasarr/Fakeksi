@@ -73,7 +73,10 @@ padding: 10px;
          </div>
          <button (click)="onClick()">çıkış</button>
          <div class="profile-picture">
-
+          <form (ngSubmit)="resimYukle()" #resimForm="ngForm">
+            <input type="file" (change)="dosyaSec($event)">
+            <span type="submit">Yükle</span>
+          </form>
         </div>
   </div>
 
