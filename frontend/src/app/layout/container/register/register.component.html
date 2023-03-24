@@ -1,0 +1,46 @@
+<style>
+    .registcard{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        
+    }
+    .registcard input{
+        width: 300px;
+        height: 40px;
+        outline: none;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+    }
+    .registcard button{
+        width: 100px;
+        height: 40px;
+        outline: none;
+        color: white;
+        background-color: green;
+        border: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+    }
+</style>
+<div >
+   
+   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="registcard">
+        <label style="text-align: center; font-weight: bold; font-size: 20px;">kayıt ol</label>
+        <input  formControlName="username" placeholder="kullanıcı isim gir"/>
+   
+   
+        <input  formControlName="email" placeholder="email gir"/>
+ 
+  
+        <input  formControlName="password" placeholder="şifreni gir"/>
+   
+  
+        <button type="submit">gir bakalım</button>
+    </div>
+    </form>
+</div>

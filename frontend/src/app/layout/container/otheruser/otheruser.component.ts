@@ -24,6 +24,7 @@ faMessageArrowUp=faMessage
 faListDot=faListDots
 profileinfo:any; 
 entriesdetail:any;
+addfollow:boolean=true;
   constructor(
      public userservice:Userservice,
   
@@ -64,11 +65,17 @@ entriesdetail:any;
    }
    addFollower(){
     console.log("takip et");
+ 
     console.log(Number(localStorage.getItem('user_id')),this.user_id)
     this.userservice.addFollower(Number(localStorage.getItem('user_id')),this.user_id).subscribe((res)=>{
         console.log(res);
+        this.addfollow=true;
+
     })
    }
-
+   removefollower(){
+      console.log("console.log(takipten çık)")
+      this.addfollow=false;
+   }
  
 }

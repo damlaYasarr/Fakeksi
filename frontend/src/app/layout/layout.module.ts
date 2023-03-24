@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
 import { DailyFLow } from './container/daily-flow/daily-flow.component';
 import { DailyModule } from './container/daily-flow/dailyflow-routing.module';
+import { ForgorpasswordModule } from './container/forgotpassword/forgot.module';
 import { LoginModule } from './container/login/login-routing.module';
 import { LoginComponent } from './container/login/login.component';
+import { RegisterModule } from './container/register/regsiter.module';
 import { MsgDetailModule } from './container/msgDetail/msgDetail-routing.module';
 import { MsgModule } from './container/msgging/msg-routing.module';
 import { OtherUserModule } from './container/otheruser/otheruser-routing.module';
@@ -52,6 +54,16 @@ const dashBoardRoutes : Route[] = [
                 path: 'msgdetails',
                
                 loadChildren: () => import('./container/msgDetail/msgDetail-routing.module').then(m => m.MsgDetailModule)
+              },
+              {
+                path: 'forgotpassword', 
+               
+                loadChildren: () => import('./container/forgotpassword/forgot.module').then(m => m.ForgorpasswordModule)
+              },
+              {
+                path: 'register', 
+               
+                loadChildren: () => import('./container/register/regsiter.module').then(m => m.RegisterModule)
               }
             ]},
         
@@ -73,6 +85,8 @@ const dashBoardRoutes : Route[] = [
     ProfileModule,
     OtherUserModule,
     MsgDetailModule,
+    RegisterModule,
+    ForgorpasswordModule,
   ]
 })
 export class LayoutModule { }

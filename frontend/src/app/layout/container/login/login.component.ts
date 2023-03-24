@@ -67,6 +67,12 @@ export class LoginComponent implements OnInit {
         });
         
     }
+    clickregsP(){
+      this.router.navigateByUrl('(bla:home/(log:register))')
+    }
+    clickforgP(){
+      this.router.navigateByUrl('(bla:home/(log:forgotpassword))')
+    }
 
   }
 

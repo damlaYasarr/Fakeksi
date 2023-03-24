@@ -125,7 +125,12 @@ padding: 10px;
            <span> {{profileinfo.totalentrynumber}}entry.{{profileinfo.followernumber}}takipçi.{{profileinfo.followednumber}}takipedilen</span>
            <span > <fa-icon style="font-size: 1.8em; padding: 4px;" [icon]="facirclearrow"> </fa-icon> <fa-icon style="font-size: 1.8em; padding: 4px;" [icon]="facirclearrow"> </fa-icon></span>
          </div>
-         <button (click)="addFollower()">takipet</button>
+         <ng-container *ngIf="addfollow">
+          <button (click)="addFollower()">takipet</button>
+        </ng-container>
+        <ng-container *ngIf="!addfollow">
+          <button (click)="removefollower()">tahibibırak</button>
+        </ng-container>
          <div class="profile-picture">
 
         </div>

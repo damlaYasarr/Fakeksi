@@ -21,6 +21,8 @@ import { TagAllEntriesComponent } from './layout/container/tagallentries/tagalle
 import { SearchBoxComponent } from './layout/container/searchbox/searchbox.component';
 import { OtherUserComponent } from './layout/container/otheruser/otheruser.component';
 import { MsgDetailComponent } from './layout/container/msgDetail/msgDetail.component';
+import { ForgotPComponent } from './layout/container/forgotpassword/forgot.component';
+import { RegisterComponent } from './layout/container/register/register.component';
 
 
 
@@ -33,10 +35,10 @@ import { MsgDetailComponent } from './layout/container/msgDetail/msgDetail.compo
     LayoutComponent,
     SearchBoxComponent,
     DailyFLow,
-    
+    ForgotPComponent,
     HeaderFlowComponent,
     TagAllEntriesComponent,
-    CommentComponent,
+    CommentComponent,RegisterComponent,
    LoginComponent,  MsggingComponent,   ProfileComponent,OtherUserComponent,
    AdminComponent,MsgDetailComponent,
   ],

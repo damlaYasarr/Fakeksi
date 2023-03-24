@@ -33,7 +33,10 @@ this.currentUserSubject.next(user);
 return user;
 }));
 }
- 
+
+register(email:string, password:string,usernam:string){
+   return this.http.post(`https://localhost:7095/api/Auth/register?email=${email}&password=${password}&name=${usernam}`, {email, password,usernam})
+}
 logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next({} as User)
