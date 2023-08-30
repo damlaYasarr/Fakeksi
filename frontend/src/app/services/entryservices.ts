@@ -72,4 +72,8 @@ export class EntryServices {
     addLike(user_id:number, entry_id:number){
       return this.httpclient.post(`https://localhost:7095/api/TagEntry/addLike?userid=${user_id}&entryid=${entry_id}`,{user_id, entry_id}, this.httpOptions )
     }
+    getEntryUserId(){
+      
+    }
+  
 }

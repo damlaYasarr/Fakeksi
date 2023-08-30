@@ -30,7 +30,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url('https://via.placeholder.com/400x200');
+  background-image: url('./images/');
 
 }
 .alt-profile{
@@ -72,7 +72,7 @@ padding: 10px;
            <span > <fa-icon style="font-size: 1.8em; padding: 4px;" [icon]="facirclearrow"> </fa-icon> <fa-icon style="font-size: 1.8em; padding: 4px;" [icon]="facirclearrow"> </fa-icon></span>
          </div>
          <button (click)="onClick()">çıkış</button>
-         <div class="profile-picture">
+         <div class="profile-picture" >
           <form (ngSubmit)="resimYukle()" #resimForm="ngForm">
             <input type="file" (change)="dosyaSec($event)">
             <span type="submit">Yükle</span>

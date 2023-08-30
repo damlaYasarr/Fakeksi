@@ -32,8 +32,8 @@ export class ProfileComponent implements OnInit{
   }
   resimYukle(){
 
-   this.userservice.adduserPhoto(1).subscribe((res)=>{
-      console.log("resim eklendi")
+   this.userservice.adduserPhoto(1, './images/').subscribe((res)=>{
+       
    })
   }
   faSmile=faSmile
