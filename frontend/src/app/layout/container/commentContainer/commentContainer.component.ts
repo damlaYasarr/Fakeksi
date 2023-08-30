@@ -14,7 +14,7 @@ export class CommentComponent implements OnInit{
   constructor(private httpClient:HttpClient, 
     private entryservice:EntryServices){ }
   entriesUser:any;
-  
+  entryid:number=0;
 faDrop=faDroplet
 faMessageArrowUp=faMessage
 faListDot=faListDots
@@ -34,11 +34,23 @@ ngOnInit(): void {
 this.getEntry();
 
    }
+   //get like count
    addlike(){
-this.entryservice.addLike(Number(localStorage.getItem('user_id')), 1).subscribe((res)=>{
-
-})
-   }
-  
+    this.entryservice.addLike(Number(localStorage.getItem('user_id')), this.entryid).subscribe(
+      (res) => {
+        console.log("Response:", res); // Do something with the response
+      },
+      (error) => {
+        console.error("Error:", error);
+      }
+    );
+  }
+   logEntryName(name: string) {
+    console.log('Clicked tagname:', name);
+    this.entryservice.getEntyIdByName(name).subscribe((res)=>{
+      console.log(res)
+      this.entryid=Number(res);
+    })
+  }
 
 }
