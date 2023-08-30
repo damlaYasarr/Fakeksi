@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import {  faDroplet , faListDots,faMessage} from '@fortawesome/free-solid-svg-icons'
 import { HttpClient } from '@angular/common/http';
 import { EntryServices } from "src/app/services/entryservices";
+import { SharedService } from "src/app/services/simpleservice";
 
 
 
@@ -17,8 +18,9 @@ export class DailyFLow implements OnInit{
   faMessageArrowUp=faMessage
   faListDot=faListDots
   entries:any;
-  
-  constructor(private entryService:EntryServices){ }
+  tagid:number=1;
+  constructor(private entryService:EntryServices,
+    private sharedid:SharedService){ }
   //one tag one entry
   //tag başlığına tıklayınca idsini al. consola yaz. 
   //buradan tekrar tag all entries ksımına yönlendir. 
@@ -29,7 +31,16 @@ ngOnInit(): void {
     this.entries=res
   })
    }
-
+   logTagName(tagname: string) {
+    console.log('Clicked tagname:', tagname);
+    this.sharedid.tagname=tagname;
+    this.entryService.getTagIdByName(tagname).subscribe((res)=>{
+      
+    this.tagid=Number(res)
+    this.sharedid.changeId(this.tagid);
+    console.log(this.tagid)
+    })
+  }
 
 
    

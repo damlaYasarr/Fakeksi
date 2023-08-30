@@ -36,5 +36,8 @@ export class Userservice {
  changeuserphoto(){
   
  }
+ forgotpass(){
+  //email aktivasyonu kullan. 
+ }
    
 }

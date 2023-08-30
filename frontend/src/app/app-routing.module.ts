@@ -28,12 +28,13 @@ const appRoute: Routes=[
 @NgModule({
   declarations: [],
   imports: [
-   
+  
     LayoutModule,
     CommonModule,
 
     HttpClientModule,
     RouterModule.forRoot(appRoute,  { scrollPositionRestoration: 'enabled' })
-  ]
+  ], 
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { faDroplet , faMessage, faListDots} from "@fortawesome/free-solid-svg-icons";
+import { EntryServices } from "src/app/services/entryservices";
 @Component({
   selector:'entry',
   //sayfayı komple kullan diyoruz
@@ -10,7 +11,8 @@ import { faDroplet , faMessage, faListDots} from "@fortawesome/free-solid-svg-ic
 
 export class CommentComponent implements OnInit{
  
-  constructor(private httpClient:HttpClient){ }
+  constructor(private httpClient:HttpClient, 
+    private entryservice:EntryServices){ }
   entriesUser:any;
   
 faDrop=faDroplet
@@ -31,6 +33,11 @@ appurl="https://localhost:7095/api/TagEntry/getalltagandentrieswithUSER";
 ngOnInit(): void {
 this.getEntry();
 
+   }
+   addlike(){
+this.entryservice.addLike(Number(localStorage.getItem('user_id')), 1).subscribe((res)=>{
+
+})
    }
   
 
