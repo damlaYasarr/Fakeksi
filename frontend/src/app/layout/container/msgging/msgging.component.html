@@ -5,6 +5,8 @@
   width: 100%;
   height: 120px;
   border: 1px solid red;
+  padding: 10px;
+  color: gray;
 }
 .msgbox_header{
    margin-top: 5px;
@@ -12,11 +14,25 @@
    font-weight: bold;
    color: green;
 }
+textarea {
+  resize: none; /* Kullanıcı tarafından yeniden boyutlandırılmasını engeller */
+  overflow: auto; /* Metni otomatik kaydırmayı etkinleştirir */
+  max-height: 200px; 
+  width: 100%;/* Metnin en fazla bu yüksekliğe ulaşmasını sağlar, istediğiniz değeri ayarlayabilirsiniz */
+}
+
 
 </style>
-<p class="msgbox_header">Gelen kutusu</p>
+<p class="msgbox_header">Gelen kutusu </p>
 
 <div class="msg_card">
-    <span  (click)="routing()" >username</span>
-    <div>profile pic</div>
+    <span  (click)="routing()" ><strong>username</strong> (msgcount)</span> 
+    <br/>
+    <div class="alt_cards" > 
+    <textarea>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, perferendis, necessitatibus placeat ab nemo facilis, velit corporis qui sunt provident eius in cumque quibusdam amet porro aspernatur repellat dolores.</textarea> 
+    </div>
+    <div style="margin-top: 20px;">
+    <span> sil </span> 
+    <span>arşivle</span>
+    </div>
 </div>
