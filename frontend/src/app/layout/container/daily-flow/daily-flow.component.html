@@ -71,13 +71,13 @@
   </style>
 <body>
   <div style="padding: 16px;">
-    <tr *ngFor="let entry of entries" > 
+    <tr *ngFor="let entry of entries" (mouseover)="logEntryName(entry.entries)" > 
       <div class="general-body">
       <div class="comment-header" >
         <span  [routerLink]="['../entries', tagid]" (click)="logTagName(entry.tagname)"> {{entry.tagname}}</span></div>
            <div style="font-size: 15px;">{{entry.entries}}</div>
            <div style="display: flex; flex-direction: row; justify-content:space-between ;align-items: center;">
-            <span> <fa-icon class="style-icon" style=" cursor: pointer;"  [icon]="faDrop"></fa-icon>
+            <span> <fa-icon class="style-icon" style=" cursor: pointer;"  [icon]="faDrop"></fa-icon> {{likecount}}
     
             </span>
             <span >

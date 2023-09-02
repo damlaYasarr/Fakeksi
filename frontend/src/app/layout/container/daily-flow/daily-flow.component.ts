@@ -19,6 +19,9 @@ export class DailyFLow implements OnInit{
   faListDot=faListDots
   entries:any;
   tagid:number=1;
+  entryid:number=0;
+  IsCliked:boolean=false;
+  likecount:number;
   constructor(private entryService:EntryServices,
     private sharedid:SharedService){ }
   //one tag one entry
@@ -29,6 +32,9 @@ ngOnInit(): void {
   this.entryService.getDailyOneTagAndOneEntry().subscribe((res)=>{
     console.log(res)
     this.entries=res
+  })
+  this.entryService.getLikeCount(this.entryid).subscribe((res)=>{
+    this.likecount=Number(res)
   })
    }
    logTagName(tagname: string) {
@@ -42,6 +48,26 @@ ngOnInit(): void {
     })
   }
 
+  logEntryName(name: string) {
+    console.log('Clicked tagname:', name);
+    this.entryService.getEntyIdByName(name).subscribe((res)=>{
+      console.log(res)
+      this.entryid=Number(res);
+    })
+  }
+  addlike(){
+    this.entryService.addLike(Number(localStorage.getItem('user_id')), this.entryid).subscribe(
+      (res) => {
+        console.log("Response:", res); 
+        this.IsCliked=true;
+      }
+    );
+  }
+  deletelike(){
+    this.entryService.deletelike(Number(localStorage.getItem('user_id')), this.entryid).subscribe((res)=>{
+      console.log("Response:", res); 
+      this.IsCliked=false;
+    });
+  }
 
-   
 }

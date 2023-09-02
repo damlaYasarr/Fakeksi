@@ -108,12 +108,12 @@
     </style>
   
     <div class="header-tag-flow"><span>{{ sharedservice.tagname }}</span></div>
-    <tr  *ngFor="let list of dailyflow"> 
+    <tr  *ngFor="let list of dailyflow" (mouseover)="logEntryName(list.entries)"> 
     <div class="general-body">
         
              <div style="font-size: 15px;">   {{list.entries}}</div>
              <div style="display: flex; flex-direction: row; justify-content:space-between ;align-items: center;">
-              <span> <fa-icon class="style-icon" style=" cursor: pointer;"  [icon]="faDrop"></fa-icon>
+              <span> <fa-icon class="style-icon" style=" cursor: pointer;"  [icon]="faDrop"></fa-icon> {{likecount}}
           
               </span>
               <span >

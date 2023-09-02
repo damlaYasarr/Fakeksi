@@ -15,7 +15,9 @@ import { Observable, throwError } from 'rxjs';
 })
 //css düzenlenecek
 export class TagAllEntriesComponent implements OnInit{
- 
+  entryid:number=0;
+  IsCliked:boolean=false;
+  likecount:number;
  tagid:number;
  definition:string;
  user_localid:number;
@@ -36,6 +38,9 @@ export class TagAllEntriesComponent implements OnInit{
       this.tagid = Number(id);
       this.getEntryies(this.tagid); 
     });
+    this.enryservice.getLikeCount(this.entryid).subscribe((res)=>{
+      this.likecount=Number(res)
+    })
    //this.addentries(localStorage.getItem('user_id'),this.tagid  )
    }
   
@@ -61,6 +66,27 @@ export class TagAllEntriesComponent implements OnInit{
    
    
   }
+  addlike(){
+    this.enryservice.addLike(Number(localStorage.getItem('user_id')), this.entryid).subscribe(
+      (res) => {
+        console.log("Response:", res); 
+        this.IsCliked=true;
+      }
+    );
+  }
+  deletelike(){
+    this.enryservice.deletelike(Number(localStorage.getItem('user_id')), this.entryid).subscribe((res)=>{
+      console.log("Response:", res); 
+      this.IsCliked=false;
+    });
+  }
 
+   logEntryName(name: string) {
+    console.log('Clicked tagname:', name);
+    this.enryservice.getEntyIdByName(name).subscribe((res)=>{
+      console.log(res)
+      this.entryid=Number(res);
+    })
+  }
  
 }

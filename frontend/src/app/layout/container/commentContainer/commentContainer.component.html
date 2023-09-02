@@ -14,13 +14,7 @@
   border-bottom: 2px solid black;
 
 }
-.style-icon{
- color: rgb(160, 160, 160);
- font-size: 13px;
-}
-.style-icon:hover{
-  color: rgb(85, 182, 29);
-}
+
 .alt-card-style{
   display: flex;
   align-items: center;
@@ -62,9 +56,10 @@ border-bottom: 1px solid rgb(55, 173, 8);
     <span> {{entry.tagname}}</span></div>
        <div style="font-size: 15px;">{{entry.entries}}</div>
        <div style="display: flex; flex-direction: row; justify-content:space-between ;align-items: center;">
-        <span (click)="addlike()"> <fa-icon class="style-icon" style=" cursor: pointer;"  [icon]="faDrop" ></fa-icon> 
-
+        <span (click)="addlike()"> <fa-icon class="style-icon" [style.color]="IsCliked ? 'rgb(85, 182, 29)' : 'gray'" [icon]="faDrop"></fa-icon>
+          {{likecount}}
         </span>
+
         <span >
           <fa-icon class="style-icon" style="margin: 4px; cursor: pointer;"  [icon]="faMessageArrowUp"></fa-icon>
           <fa-icon class="style-icon" style=" cursor: pointer;" [icon]="faListDot"></fa-icon>

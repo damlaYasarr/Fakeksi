@@ -15,6 +15,8 @@ export class CommentComponent implements OnInit{
     private entryservice:EntryServices){ }
   entriesUser:any;
   entryid:number=0;
+  IsCliked:boolean=false;
+  likecount:number;
 faDrop=faDroplet
 faMessageArrowUp=faMessage
 faListDot=faListDots
@@ -32,19 +34,26 @@ appurl="https://localhost:7095/api/TagEntry/getalltagandentrieswithUSER";
   }
 ngOnInit(): void {
 this.getEntry();
-
+this.entryservice.getLikeCount(this.entryid).subscribe((res)=>{
+  this.likecount=Number(res)
+})
    }
    //get like count
    addlike(){
     this.entryservice.addLike(Number(localStorage.getItem('user_id')), this.entryid).subscribe(
       (res) => {
         console.log("Response:", res); // Do something with the response
-      },
-      (error) => {
-        console.error("Error:", error);
+        this.IsCliked=true;
       }
     );
   }
+  deletelike(){
+    this.entryservice.deletelike(Number(localStorage.getItem('user_id')), this.entryid).subscribe((res)=>{
+      console.log("Response:", res); // Do something with the response
+      this.IsCliked=false;
+    });
+  }
+
    logEntryName(name: string) {
     console.log('Clicked tagname:', name);
     this.entryservice.getEntyIdByName(name).subscribe((res)=>{
