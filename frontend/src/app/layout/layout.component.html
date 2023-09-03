@@ -89,34 +89,47 @@ a{
 
 
     body{
-      width: 78%;
+      width: 100%;
      left: 100px;
      right: 100px;
       box-sizing: border-box;
-      margin-top: 155px;
-      position: fixed;
-
+      margin-top: 120px;
+      overflow: hidden;
+      padding: 20px;
      
     }
     .flowEvent{
       display: flex;
       flex-direction: row;
-      height: 600px;
+      overflow: hidden;
+      width: 100%;
+
     }
+    /* Küçük ekranlar için stil kuralları */
+@media (max-width: 508px) { /* Örnek bir ekran genişliği, istediğiniz değere ayarlayabilirsiniz */
+  .flowEvent {
+    flex-direction: column; /* Örneğin sütun şeklinde görüntülemek isterseniz */
+    position: relative; /* Mutlaka gerekiyorsa kullanın, aksi halde çıkartın */
+    width: auto; /* Genişliği içeriğe göre ayarlayın */
+    height: auto; /* Otomatik yükseklik */
+  }
+}
     .flowEventfirst{
       box-sizing: border-box;
       width:29%;
       overflow: scroll;
- 
+     padding: 10px;
+     max-height: 600px;
       border: 2px solid pink;
 
     }
     .flowEventsec{
       box-sizing: border-box;
       width: 66%;
-     
+      max-height: 600px;
+
       border: 2px solid pink;
-      overflow: scroll;
+      overflow-y: scroll;
       
     }
     .flowEventthird{

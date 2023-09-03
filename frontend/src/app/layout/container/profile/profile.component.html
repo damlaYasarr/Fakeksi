@@ -55,7 +55,7 @@ padding: 10px;
 .container-flow{
   padding: 20px;
   box-sizing: border-box;
-  height: 184px;
+
   border: 2px solid pink;
 }
 </style>
@@ -74,7 +74,7 @@ padding: 10px;
          <button (click)="onClick()">çıkış</button>
          <div class="profile-picture" >
           <form (ngSubmit)="resimYukle()" #resimForm="ngForm">
-            <input type="file" (change)="dosyaSec($event)">
+           
             <span type="submit">Yükle</span>
           </form>
         </div>

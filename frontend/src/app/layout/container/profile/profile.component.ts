@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit{
     this.secilenDosya = dosyaSecmeOlayi.target.files[0];
   }
   resimYukle(){
-
+// <input type="file" (change)="dosyaSec($event)">
    this.userservice.adduserPhoto(1, './images/').subscribe((res)=>{
        
    })

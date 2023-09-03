@@ -11,14 +11,12 @@
     <style>
 
         .general-body{
-            box-sizing: border-box; 
-        
-            align-items: center;
-            width: 630px;
-            padding: 10px;
-            height: 150px;
-          
-            margin-bottom: 5px;
+          box-sizing: border-box;
+          width: 43rem;
+          min-width: 40rem;
+          padding: 18px;
+          height: 150px;
+          margin-bottom: 5px;
           }
           .comment-header{
             font-size: 18px;
@@ -105,11 +103,18 @@
             flex-direction: row;
             margin-left: 20px;
           }
+          .outlinecomment{
+            margin-left: auto;
+            margin-right: auto;
+          }
     </style>
-  
+ 
     <div class="header-tag-flow"><span>{{ sharedservice.tagname }}</span></div>
-    <tr  *ngFor="let list of dailyflow" (mouseover)="logEntryName(list.entries)"> 
-    <div class="general-body">
+    
+    <div class="outlinecomment"> 
+      <tr  *ngFor="let list of dailyflow" (mouseover)="logEntryName(list.entries)"> 
+    <td> 
+      <div class="general-body">
         
              <div style="font-size: 15px;">   {{list.entries}}</div>
              <div style="display: flex; flex-direction: row; justify-content:space-between ;align-items: center;">
@@ -129,12 +134,15 @@
                  <div class="profile-user"></div>
              </div>
             </div>
+          </td>
           </tr>
           <div>
+          </div>
             <form class="add-entry" [formGroup]="searchForms" (ngSubmit)="entryadd()"> 
                <div class="add_entry"> <textarea formControlName="searchInputs" id="comment" name="comment" rows="5"></textarea></div>
                <div class="sbmt_btn"> <button  type="submit">yolla gelsin</button></div>
             </form>
           </div>
+          
 </body>
 </html>

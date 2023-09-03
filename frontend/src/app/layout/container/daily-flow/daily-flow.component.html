@@ -10,15 +10,18 @@
 </head>
 
 <style>
-  .general-body{
-    box-sizing: border-box; 
-
-    align-items: center;
-    width: 630px;
+  .general-body {
+    box-sizing: border-box;
+    width: 45rem;
+    min-width: 40rem;
     padding: 10px;
     height: 150px;
-  
     margin-bottom: 5px;
+    
+  }
+  .outlinecomment{
+    margin-left: auto;
+    margin-right: auto;
   }
   .comment-header{
     font-size: 18px;
@@ -70,9 +73,11 @@
   }
   </style>
 <body>
-  <div style="padding: 16px;">
+  <div style="padding: 16px; " class="outlinecomment">
     <tr *ngFor="let entry of entries" (mouseover)="logEntryName(entry.entries)" > 
+    
       <div class="general-body">
+
       <div class="comment-header" >
         <span  [routerLink]="['../entries', tagid]" (click)="logTagName(entry.tagname)"> {{entry.tagname}}</span></div>
            <div style="font-size: 15px;">{{entry.entries}}</div>
@@ -85,6 +90,7 @@
               <fa-icon class="style-icon" style=" cursor: pointer;" [icon]="faListDot"></fa-icon>
             </span>
            </div>
+
            <div class="alt-card-style">
               <div class="ff" style="display:flex; margin-right: 7px; flex-direction: column;">
                 <span class="isim">{{entry.name}}</span>
@@ -92,6 +98,7 @@
               </div>
                <div class="profile-user"></div>
            </div>
+
           </div>
     </tr>
       
