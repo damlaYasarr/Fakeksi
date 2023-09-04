@@ -33,6 +33,13 @@ export class Userservice {
  adduserPhoto(id:number, url:string){
   return this.httpclient.post('https://localhost:7095/api/Fileupload/imageupload', {id, url});
  } 
+
+ getUserNameById(id:number){
+  return this.httpclient.get(`https://localhost:7095/api/User/GetUserNameById?id=${id}`);
+ }
+ getLastMsg(id:number,senderid:number){
+     return this.httpclient.get(`https://localhost:7095/api/User/LastMsg?userid=${id}&senderid=${senderid}`);
+ }
  changeuserphoto(){
   
  }

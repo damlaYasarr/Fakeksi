@@ -12,12 +12,14 @@ import { Userservice } from "src/app/services/userservices";
 
 export class MsggingComponent implements OnInit{
   senderid:number; //username'den id al
+  sendername:string;
+  msgThumbnail:string;
   constructor(private router:Router, private userService:Userservice){
 
   }
 //msg detail- like count
    ngOnInit(): void {
-
+    this.getLastmsg(0,this.senderid);
    }
    AddComment(): void{
     //post eklenirken bu metodu
@@ -35,6 +37,16 @@ export class MsggingComponent implements OnInit{
    getUserName(uname:string){
     this.userService.getuserIdByName(uname).subscribe((res)=>{
         this.senderid=Number(res)
+    })
+   }
+   getUserNameById(senderid:number){
+    this.userService.getUserNameById(senderid).subscribe((res)=>{
+  this.sendername=String(res);
+})
+   }
+   getLastmsg(id:number, senderid:number){
+    this.userService.getLastMsg(id=0, senderid).subscribe((res)=>{
+        this.msgThumbnail=String(res);
     })
    }
 }

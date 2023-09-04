@@ -38,14 +38,17 @@
 </style>
 <p class="msgbox_header">Gelen kutusu </p>
 
-<div class="msg_card">
-    <span  (click)="routing()" ><strong>username</strong> (msgcount)</span> 
+<!-- (mouseover)="getsenderid()"> -->
+<div class="msg_card" > 
+    <span  (click)="routing()" ><strong>username {{sendername}}</strong> (msgcount)</span> 
     <br/>
     <div class="alt_cards" > 
-    <span class="msg_thumbnail" rows="2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, perferendis, necessitatibus placeat ab nemo facilis, velit corporis qui sunt provident eius in cumque quibusdam amet porro aspernatur repellat dolores.</span> 
+    <span class="msg_thumbnail" rows="2"> {{msgThumbnail}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, perferendis, necessitatibus placeat ab nemo facilis, velit corporis qui sunt provident eius in cumque quibusdam amet porro aspernatur repellat dolores.</span> 
     </div>
-    <div style="margin-top: 9px; font-size:13px; margin-left:12px;">
-    <span style=" cursor:pointer; padding:3px; "> sil </span> 
+    <div style="margin-top: 9px; font-size:13px; margin-left:12px;"> 
+    
+    <span onclick="deletecard(senderid)" style=" cursor:pointer; padding:3px; "> sil </span> 
     <span style="cursor: pointer; padding:3px;">arşivle</span>
     </div>
+    <div>radiobtn</div>
 </div>
