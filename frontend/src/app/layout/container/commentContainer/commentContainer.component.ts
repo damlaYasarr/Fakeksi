@@ -38,18 +38,18 @@ this.entryservice.getLikeCount(this.entryid).subscribe((res)=>{
   this.likecount=Number(res)
 })
    }
-   //get like count
+  
    addlike(){
     this.entryservice.addLike(Number(localStorage.getItem('user_id')), this.entryid).subscribe(
       (res) => {
-        console.log("Response:", res); // Do something with the response
+        console.log("Response:", res); 
         this.IsCliked=true;
       }
     );
   }
   deletelike(){
     this.entryservice.deletelike(Number(localStorage.getItem('user_id')), this.entryid).subscribe((res)=>{
-      console.log("Response:", res); // Do something with the response
+      console.log("Response:", res); 
       this.IsCliked=false;
     });
   }

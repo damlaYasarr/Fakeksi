@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { faUser, faMessage} from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
+import { Userservice } from "src/app/services/userservices";
 
 @Component({
   selector:'msgging',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 })
 
 export class MsggingComponent implements OnInit{
-  constructor(private router:Router){
+  senderid:number; //username'den id al
+  constructor(private router:Router, private userService:Userservice){
 
   }
 //msg detail- like count
@@ -26,5 +28,13 @@ export class MsggingComponent implements OnInit{
    }
    getMsgginusers(){
 
+   }
+   deletecard(senderid:number){
+
+   }
+   getUserName(uname:string){
+    this.userService.getuserIdByName(uname).subscribe((res)=>{
+        this.senderid=Number(res)
+    })
    }
 }

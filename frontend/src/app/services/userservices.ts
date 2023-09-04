@@ -22,7 +22,7 @@ export class Userservice {
    return this.httpclient.get('https://localhost:7095/api/User/UserProfileDetail?id='+id);
  }
  getuserIdByName(name:string){
-     return this.httpclient.get('https://localhost:7095/api/User/getuserIdByname?name='+name)
+     return this.httpclient.get(`https://localhost:7095/api/User/getuserIdByname?name=${name}`+name);
  }
  getUserAllEntries(id:number){
   return this.httpclient.get('https://localhost:7095/api/TagEntry/getalltagandentrieswithUSER'+id);

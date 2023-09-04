@@ -75,6 +75,7 @@ export class EntryServices {
     deletelike(user_id:number, entry_id:number){
       return this.httpclient.delete(`https://localhost:7095/api/TagEntry/deletelike?userid=${user_id}&entryid=${entry_id}` );
     }
+    
      getEntyIdByName(name:string){
       return this.httpclient.get(`https://localhost:7095/api/TagEntry/entryidbyname?name=${name}`);
      }

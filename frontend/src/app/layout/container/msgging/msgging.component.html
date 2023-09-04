@@ -2,11 +2,14 @@
 <style>
 .msg_card{
   box-sizing: border-box;
-  width: 100%;
+  width: 90%;
   height: 120px;
-  border: 1px solid red;
+  border: 1px solid rgb(170, 170, 170);
   padding: 10px;
   color: gray;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4px;
 }
 .msgbox_header{
    margin-top: 5px;
@@ -14,11 +17,21 @@
    font-weight: bold;
    color: green;
 }
-textarea {
+.msg_thumbnail {
   resize: none; 
   overflow: auto; 
   max-height: 200px; 
+  padding: 10px;
+  outline: none;
+  border: none;
+  font-style: italic;
+  font-size: 14px;
+  display: inline-block;
   width: 100%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  
 }
 
 
@@ -29,10 +42,10 @@ textarea {
     <span  (click)="routing()" ><strong>username</strong> (msgcount)</span> 
     <br/>
     <div class="alt_cards" > 
-    <textarea>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, perferendis, necessitatibus placeat ab nemo facilis, velit corporis qui sunt provident eius in cumque quibusdam amet porro aspernatur repellat dolores.</textarea> 
+    <span class="msg_thumbnail" rows="2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, perferendis, necessitatibus placeat ab nemo facilis, velit corporis qui sunt provident eius in cumque quibusdam amet porro aspernatur repellat dolores.</span> 
     </div>
-    <div style="margin-top: 20px;">
-    <span> sil </span> 
-    <span>arşivle</span>
+    <div style="margin-top: 9px; font-size:13px; margin-left:12px;">
+    <span style=" cursor:pointer; padding:3px; "> sil </span> 
+    <span style="cursor: pointer; padding:3px;">arşivle</span>
     </div>
 </div>
