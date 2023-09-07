@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { faUser, faMessage} from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from "@angular/forms";
+import { Userservice } from "src/app/services/userservices";
 
 @Component({
   selector:'msgDetail',
@@ -15,7 +16,7 @@ export class MsgDetailComponent implements OnInit{
  
   sending_msg:boolean;
   receiv:boolean;
-  constructor(){
+  constructor(private userService:Userservice){
 
   }
   searchForm = new FormGroup({
@@ -31,7 +32,10 @@ export class MsgDetailComponent implements OnInit{
    ngOnInit(): void {
 
    }
-   AddComment(): void{
-    //post eklenirken bu metodu
+   SendMsg(id:number,senderid:number, txt:string){
+      this.userService.sendMsg(id,senderid,txt).subscribe((res)=>{
+               console.log(res);
+      })
    }
 }
+

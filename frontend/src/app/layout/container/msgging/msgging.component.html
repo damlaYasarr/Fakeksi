@@ -37,18 +37,23 @@
 
 </style>
 <p class="msgbox_header">Gelen kutusu </p>
-
+<div> 
 <!-- (mouseover)="getsenderid()"> -->
+<tr *ngFor="let msg of msg_view" >
+
 <div class="msg_card" > 
-    <span  (click)="routing()" ><strong>username {{sendername}}</strong> (msgcount)</span> 
+    <span  (click)="routing()" ><strong> {{sendername}} {{msg.msg_sender_id}}</strong> (msgcount)</span> 
     <br/>
     <div class="alt_cards" > 
-    <span class="msg_thumbnail" rows="2"> {{msgThumbnail}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, perferendis, necessitatibus placeat ab nemo facilis, velit corporis qui sunt provident eius in cumque quibusdam amet porro aspernatur repellat dolores.</span> 
+    <span class="msg_thumbnail" rows="2"> {{msg.msg_detail}}</span> 
     </div>
     <div style="margin-top: 9px; font-size:13px; margin-left:12px;"> 
-    
+    <span>dün_bugün {{msg.msg_date}}</span>
     <span onclick="deletecard(senderid)" style=" cursor:pointer; padding:3px; "> sil </span> 
     <span style="cursor: pointer; padding:3px;">arşivle</span>
     </div>
     <div>radiobtn</div>
+
+</div>
+</tr>
 </div>

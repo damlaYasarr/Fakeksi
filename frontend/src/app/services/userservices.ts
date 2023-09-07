@@ -35,10 +35,13 @@ export class Userservice {
  } 
 
  getUserNameById(id:number){
-  return this.httpclient.get(`https://localhost:7095/api/User/GetUserNameById?id=${id}`);
+  return this.httpclient.get(`https://localhost:7095/api/User/GetUserNameById?id=`+id);
  }
- getLastMsg(id:number,senderid:number){
-     return this.httpclient.get(`https://localhost:7095/api/User/LastMsg?userid=${id}&senderid=${senderid}`);
+ getLastMsg(user_id:number){
+     return this.httpclient.get(`https://localhost:7095/api/User/getmsg?userid=${user_id}`);
+ }
+ sendMsg(id:number, senderid:number, msg:string){
+  return this.httpclient.post(`https://localhost:7095/api/User/sendmsg?userid=${id}&otherid=${senderid}&msg=${msg}`, {id,senderid,msg});
  }
  changeuserphoto(){
   
