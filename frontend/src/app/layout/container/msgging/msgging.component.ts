@@ -11,13 +11,12 @@ import { Observable } from 'rxjs';
 })
 export class MsggingComponent implements OnInit {
   senderid: number; //username'den id al
-  sendername: string;
   msg_view: any;
   constructor(private router: Router, private userService: Userservice) {}
   //msg detail- like count
   ngOnInit(): void {
    
-   this.getLastMsg(33);
+   this.getLastMsg(24);
   }
   AddComment(): void {
     //post eklenirken bu metodu
@@ -39,22 +38,10 @@ export class MsggingComponent implements OnInit {
 
     this.userService.getLastMsg(userid).subscribe((res) => {
       this.msg_view = res;
-
-      this.senderid = this.msg_view[0].msg_sender_id;
+      console.log(res)
       
-     
     });
   }
-  getName(id:number){
-    this.userService.getUserNameById(id).subscribe(
-      (res) => {
-        this.sendername = String(res);
-         this.sendername;
-        console.log(this.sendername);
-      },
-      (error) => {
-        console.error('Error fetching user name:', error);
-      }
-    );
-  }
+ 
+  
 }

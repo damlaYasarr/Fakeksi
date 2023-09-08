@@ -13,7 +13,7 @@ import { Userservice } from "src/app/services/userservices";
 
 export class MsgDetailComponent implements OnInit{
   msg: string[] = [];
- 
+
   sending_msg:boolean;
   receiv:boolean;
   constructor(private userService:Userservice){

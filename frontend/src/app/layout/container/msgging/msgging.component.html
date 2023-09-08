@@ -2,13 +2,13 @@
 <style>
 .msg_card{
   box-sizing: border-box;
-  width: 90%;
+  width: 700px;
+  min-width: 600px;
   height: 120px;
   border: 1px solid rgb(170, 170, 170);
   padding: 10px;
   color: gray;
-  margin-left: auto;
-  margin-right: auto;
+ 
   margin-top: 4px;
 }
 .msgbox_header{
@@ -20,6 +20,7 @@
 .msg_thumbnail {
   resize: none; 
   overflow: auto; 
+
   max-height: 200px; 
   padding: 10px;
   outline: none;
@@ -37,23 +38,25 @@
 
 </style>
 <p class="msgbox_header">Gelen kutusu </p>
-<div> 
+<div style="margin-left: auto;margin-right:auto;"> 
+
 <!-- (mouseover)="getsenderid()"> -->
 <tr *ngFor="let msg of msg_view" >
-
+<td> 
 <div class="msg_card" > 
-    <span  (click)="routing()" ><strong> {{sendername}} {{msg.msg_sender_id}}</strong> (msgcount)</span> 
+    <span  (click)="routing()" ><strong> {{msg.sendername}}</strong> (msgcount)</span> 
     <br/>
     <div class="alt_cards" > 
-    <span class="msg_thumbnail" rows="2"> {{msg.msg_detail}}</span> 
+    <span class="msg_thumbnail" rows="2"> {{msg.lastmsg}}</span> 
     </div>
     <div style="margin-top: 9px; font-size:13px; margin-left:12px;"> 
-    <span>dün_bugün {{msg.msg_date}}</span>
+    <span>dün_bugün {{msg.msgdate}}</span>
     <span onclick="deletecard(senderid)" style=" cursor:pointer; padding:3px; "> sil </span> 
     <span style="cursor: pointer; padding:3px;">arşivle</span>
     </div>
     <div>radiobtn</div>
 
 </div>
+</td>
 </tr>
 </div>
