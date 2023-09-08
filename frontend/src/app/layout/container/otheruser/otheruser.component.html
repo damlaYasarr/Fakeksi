@@ -1,190 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<style>
-  .profile-card{
-    display: flex;
-    flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-left: 20px;
-  margin-right: 20px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .profile-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
 
-  }
-
-.profile-card-info{
-  display: flex;
-  flex-direction: column;
-}
-.profile-picture{
-
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-image: url('https://via.placeholder.com/400x200');
-
-}
-.alt-profile{
-  margin-left: auto;
-  margin-right: auto;
-padding: 10px;
-  box-sizing: border-box;
-  width: 95%;
-  height: 50px;
-  border-bottom: 1px solid gray;
-  border-top: 1px solid gray;
-  margin-bottom: 20px;
-}
-.alt-profile span{
-  padding: 8px;
-}
-.alt-profile span:hover{
-  font-weight: bold;
-  border-bottom: 2px solid rgb(130, 212, 23);
-  cursor: pointer;
-}
-.container-flow{
-  padding: 20px;
-  box-sizing: border-box;
-  height: 184px;
-  border: 2px solid pink;
-}
-</style>
-<style>
-    .comment-card{
+    .profile-card-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .profile-picture {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-image: url("https://via.placeholder.com/400x200");
+    }
+    .alt-profile {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px;
+      box-sizing: border-box;
+      width: 95%;
+      height: 50px;
+      border-bottom: 1px solid gray;
+      border-top: 1px solid gray;
+      margin-bottom: 20px;
+    }
+    .alt-profile span {
+      padding: 8px;
+    }
+    .alt-profile span:hover {
+      font-weight: bold;
+      border-bottom: 2px solid rgb(130, 212, 23);
+      cursor: pointer;
+    }
+    .container-flow {
+      padding: 20px;
+      box-sizing: border-box;
+      height: 184px;
+      border: 2px solid pink;
+    }
+  </style>
+  <style>
+    .comment-card {
       box-sizing: border-box;
       height: 200px;
-      
     }
-  .comment-header{
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .comment-header span:hover{
-    border-bottom: 2px solid black;
-  
-  }
-  .style-icon{
-   color: rgb(160, 160, 160);
-   font-size: 13px;
-  }
-  .style-icon:hover{
-    color: rgb(85, 182, 29);
-  }
-  .alt-card-style{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    line-height: 18px;
-    font-size: 13px;
-    cursor: pointer;
-  
-  }
-  .profile-user{
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-image: url('https://via.placeholder.com/400x200');
-  
-  }
-  .ff .isim{
-    color: rgb(105, 233, 54);
-    cursor: pointer;
-  }
-  .ff  .isim:hover{
-  border-bottom: 1px solid rgb(55, 173, 8);
-  }
-  .ff .tarih:hover{
-    border-bottom: 1px solid rgb(179, 179, 179);
-  }
+    .comment-header {
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .comment-header span:hover {
+      border-bottom: 2px solid black;
+    }
+    .style-icon {
+      color: rgb(160, 160, 160);
+      font-size: 13px;
+    }
+    .style-icon:hover {
+      color: rgb(85, 182, 29);
+    }
+    .alt-card-style {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      line-height: 18px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .profile-user {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-image: url("https://via.placeholder.com/400x200");
+    }
+    .ff .isim {
+      color: rgb(105, 233, 54);
+      cursor: pointer;
+    }
+    .ff .isim:hover {
+      border-bottom: 1px solid rgb(55, 173, 8);
+    }
+    .ff .tarih:hover {
+      border-bottom: 1px solid rgb(179, 179, 179);
+    }
   </style>
-<body>
-
-<div>
+  <body>
+    <div>
       <div class="profile-card">
-         <div class="profile-card-info">
-          <span style="font-size: 20px; color:black; font-weight: bold;">{{profileinfo.username}}</span>
-          <span > <fa-icon [icon]="faSmile"></fa-icon>
+        <div class="profile-card-info">
+          <span style="font-size: 20px; color: black; font-weight: bold">{{
+            profileinfo.username
+          }}</span>
+          <span>
             <fa-icon [icon]="faSmile"></fa-icon>
-            <fa-icon [icon]="faSmile"></fa-icon></span>
-           <span> {{profileinfo.totalentrynumber}}entry.{{profileinfo.followernumber}}takipçi.{{profileinfo.followednumber}}takipedilen</span>
-           <span > <fa-icon style="font-size: 1.8em; padding: 4px;" [icon]="facirclearrow"> </fa-icon> <fa-icon style="font-size: 1.8em; padding: 4px;" [icon]="facirclearrow"> </fa-icon></span>
-         </div>
-         <ng-container *ngIf="addfollow">
+            <fa-icon [icon]="faSmile"></fa-icon>
+            <fa-icon [icon]="faSmile"></fa-icon
+          ></span>
+          <span>
+            {{ profileinfo.totalentrynumber }}entry.{{
+              profileinfo.followernumber
+            }}takipçi.{{ profileinfo.followednumber }}takipedilen</span
+          >
+          <span>
+            <fa-icon
+              style="font-size: 1.8em; padding: 4px"
+              [icon]="facirclearrow"
+            >
+            </fa-icon>
+            <fa-icon
+              style="font-size: 1.8em; padding: 4px"
+              [icon]="facirclearrow"
+            >
+            </fa-icon
+          ></span>
+        </div>
+        <ng-container *ngIf="addfollow">
           <button (click)="addFollower()">takipet</button>
         </ng-container>
         <ng-container *ngIf="!addfollow">
           <button (click)="removefollower()">tahibibırak</button>
         </ng-container>
-         <div class="profile-picture">
+        <div class="profile-picture"></div>
+      </div>
 
+      <div class="alt-profile">
+        <span> entry'ler</span>
+        <span> favoriler</span>
+        <span> görseller</span>
+        <span> istatistikler</span>
+      </div>
+
+      <div class="container-flow">
+        <div>
+          <tr *ngFor="let bla of entriesdetail">
+            <td>
+              <div class="comment-card">
+                <div class="comment-header">
+                  <span> {{ bla.tagname }}</span>
+                </div>
+                <div style="font-size: 15px">{{ bla.entries }}</div>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
+                  <span>
+                    <fa-icon
+                      class="style-icon"
+                      style="cursor: pointer"
+                      [icon]="faDrop"
+                    ></fa-icon>
+                  </span>
+                  <span>
+                    <fa-icon
+                      class="style-icon"
+                      style="margin: 4px; cursor: pointer"
+                      [icon]="faMessageArrowUp"
+                    ></fa-icon>
+                    <fa-icon
+                      class="style-icon"
+                      style="cursor: pointer"
+                      [icon]="faListDot"
+                    ></fa-icon>
+                  </span>
+                </div>
+                <div class="alt-card-style">
+                  <div class="ff" style="display: flex; flex-direction: column">
+                    <span class="isim">{{ bla.name }}</span>
+                    <span class="tarih">{{ bla.enrydate }}</span>
+                  </div>
+                  <div class="profile-user"></div>
+                </div>
+              </div>
+            </td>
+          </tr>
         </div>
-  </div>
-
-
- <div class="alt-profile">
-     <span> entry'ler</span>
-     <span> favoriler</span>
-     <span> görseller</span>
-     <span> istatistikler</span>
- </div>
-
-
-  <div class="container-flow">
-    
-    
-
-  <div >
-  
-    <tr *ngFor="let bla of entriesdetail " >
-      <td> 
-        <div class="comment-card"> 
-    <div class="comment-header">
-      <span> {{bla.tagname}}</span></div>
-         <div style="font-size: 15px;">{{bla.entries}}</div>
-         <div style="display: flex; flex-direction: row; justify-content:space-between ;align-items: center;">
-          <span> <fa-icon class="style-icon" style=" cursor: pointer;"  [icon]="faDrop"></fa-icon>
-  
-          </span>
-          <span >
-            <fa-icon class="style-icon" style="margin: 4px; cursor: pointer;"  [icon]="faMessageArrowUp"></fa-icon>
-            <fa-icon class="style-icon" style=" cursor: pointer;" [icon]="faListDot"></fa-icon>
-          </span>
-         </div>
-         <div class="alt-card-style">
-            <div class="ff" style="display:flex;  flex-direction: column;">
-              <span class="isim">{{bla.name}}</span>
-              <span  class="tarih">{{bla.enrydate}}</span>
-            </div>
-             <div class="profile-user"></div>
-         </div>
-        </div>
-        </td>
-        </tr>
-  </div>
-  
-   
-
-
-  </div>
-</div>
-
-
-
-</body>
+      </div>
+    </div>
+  </body>
 </html>

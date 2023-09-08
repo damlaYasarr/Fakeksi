@@ -6,7 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms' 
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './layout/container/login/login.component';
 import { DailyFLow } from './layout/container/daily-flow/daily-flow.component';
 import { ProfileComponent } from './layout/container/profile/profile.component';
@@ -24,10 +24,6 @@ import { MsgDetailComponent } from './layout/container/msgDetail/msgDetail.compo
 import { ForgotPComponent } from './layout/container/forgotpassword/forgot.component';
 import { RegisterComponent } from './layout/container/register/register.component';
 
-
-
-
-
 //bütün component modulleri bburaya import eidlir
 @NgModule({
   declarations: [
@@ -38,23 +34,26 @@ import { RegisterComponent } from './layout/container/register/register.componen
     ForgotPComponent,
     HeaderFlowComponent,
     TagAllEntriesComponent,
-    CommentComponent,RegisterComponent,
-   LoginComponent,  MsggingComponent,   ProfileComponent,OtherUserComponent,
-   AdminComponent,MsgDetailComponent,
+    CommentComponent,
+    RegisterComponent,
+    LoginComponent,
+    MsggingComponent,
+    ProfileComponent,
+    OtherUserComponent,
+    AdminComponent,
+    MsgDetailComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FontAwesomeModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
-   
-   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 //injectble kısmında sayfa gidiyor
 /**@Injectable()
@@ -63,7 +62,4 @@ export class ConfigService {
 }*/
 //https://localhost:7095/api/TagEntry/GetTagandcount
 //localhost: /api/getalltagandentrieswithUSER -userin taglere entryleri -anasayfa
-export class AppModule {
-
-
- }
+export class AppModule {}

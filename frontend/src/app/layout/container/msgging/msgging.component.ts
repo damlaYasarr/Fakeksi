@@ -15,8 +15,7 @@ export class MsggingComponent implements OnInit {
   constructor(private router: Router, private userService: Userservice) {}
   //msg detail- like count
   ngOnInit(): void {
-   
-   this.getLastMsg(24);
+    this.getLastMsg(24);
   }
   AddComment(): void {
     //post eklenirken bu metodu
@@ -27,21 +26,16 @@ export class MsggingComponent implements OnInit {
   }
   getMsgginusers() {}
   deletecard(senderid: number) {}
-  /*getUserName(uname:string){
-    this.userService.getuserIdByName(uname).subscribe((res)=>{
-        this.senderid=Number(res)
-    })
-   }*/
 
-   
+
   getLastMsg(userid: number) {
-
     this.userService.getLastMsg(userid).subscribe((res) => {
       this.msg_view = res;
-      console.log(res)
-      
+      console.log(res);
     });
   }
- 
-  
+
+  getSenderName(name: string) {
+    console.log(name);
+  }
 }

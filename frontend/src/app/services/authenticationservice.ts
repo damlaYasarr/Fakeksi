@@ -4,47 +4,51 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
- 
 
- 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-private currentUserSubject: BehaviorSubject<User>;
-public currentUser: Observable<User>;
- 
-constructor(private http: HttpClient) {
-this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
-this.currentUser = this.currentUserSubject.asObservable();
-}
- 
-public get currentUserValue(): User {
-return this.currentUserSubject.value;
-}
- API='https://localhost:7095/api/Auth/login';
-login(email: string, password: string) {
-return this.http.post<any>(this.API, { email, password })
-.pipe(map(user => {
-if (user && user.token ) { 
-// store user details in local storage to keep user logged in
-localStorage.setItem('currentUser', JSON.stringify(user.result));
-this.currentUserSubject.next(user);
-}
- 
-return user;
-}));
-}
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
-register(email:string, password:string,usernam:string){
-   return this.http.post(`https://localhost:7095/api/Auth/register?email=${email}&password=${password}&name=${usernam}`, {email, password,usernam})
-}
-logout() {
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(
+      JSON.parse(localStorage.getItem('currentUser') || '{}')
+    );
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+  API = 'https://localhost:7095/api/Auth/login';
+  login(email: string, password: string) {
+    return this.http.post<any>(this.API, { email, password }).pipe(
+      map((user) => {
+        if (user && user.token) {
+          // store user details in local storage to keep user logged in
+          localStorage.setItem('currentUser', JSON.stringify(user.result));
+          this.currentUserSubject.next(user);
+        }
+
+        return user;
+      })
+    );
+  }
+
+  register(email: string, password: string, usernam: string) {
+    return this.http.post(
+      `https://localhost:7095/api/Auth/register?email=${email}&password=${password}&name=${usernam}`,
+      { email, password, usernam }
+    );
+  }
+  logout() {
     localStorage.removeItem('currentUser');
-    this.currentUserSubject.next({} as User)
-   
-}
+    this.currentUserSubject.next({} as User);
+  }
 
-getusrid(email:string){
-
-   return this.http.get("https://localhost:7095/api/User/getuserIdByEmail?email="+email);
-}
+  getusrid(email: string) {
+    return this.http.get(
+      'https://localhost:7095/api/User/getuserIdByEmail?email=' + email
+    );
+  }
 }

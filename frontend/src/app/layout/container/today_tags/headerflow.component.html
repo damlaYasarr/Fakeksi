@@ -1,70 +1,61 @@
-
-
 <style>
-.header-flow-header{
-  font-size: 20px;
-  color: gray;
-  margin: 5px;
-}
-.header-flow-re{
-  box-sizing: border-box;
-  width: 270px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 35px;
-  border: 1px solid rgb(202, 202, 202);
-  color: gray;
-  text-align: center;
-padding: 5px;
-cursor: pointer;
-font-size: 15px;
-}
-.header-flow-re span:hover{
-  color: rgb(54, 141, 19);
-}
-.header-flow-headers{
-
- box-sizing: border-box;
- width: 270px;
- height: 55px;
- margin: 8px;
- margin-left: auto;
- margin-right: auto;
- font-size: 15px;
- padding: 10px;
- display: flex;
- flex-direction: column;
-}
-.header-flow-headers:hover{
-  background-color: rgb(238, 238, 238);
-  
-}
-.header-detail{
-  display: flex;
- flex-direction: row;
- margin-top: 2px;
- justify-content: space-between;
-}
-
-
+  .header-flow-header {
+    font-size: 20px;
+    color: gray;
+    margin: 5px;
+  }
+  .header-flow-re {
+    box-sizing: border-box;
+    width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
+    border: 1px solid rgb(202, 202, 202);
+    color: gray;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  .header-flow-re span:hover {
+    color: rgb(54, 141, 19);
+  }
+  .header-flow-headers {
+    box-sizing: border-box;
+    width: 270px;
+    height: 55px;
+    margin: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .header-flow-headers:hover {
+    background-color: rgb(238, 238, 238);
+  }
+  .header-detail {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2px;
+    justify-content: space-between;
+  }
 </style>
 
 <div class="header-flow-left-side">
-
-   <div class="header-flow-header"><span>bugün</span></div>
-   <div class="header-flow-re"> <span (click)="refresh()">yenile <fa-icon [icon]="faRotate"></fa-icon></span></div>
-   <tr  *ngFor="let list of dailyflow" (click)="onLineClick(list)"> 
-   <div class="header-flow-headers">
-  
-   
-   <div  [routerLink]="['entries', tagsid]" class="header-detail">
-    <span >{{list.tag}} </span>
-    <span style="font-size: 13px; color:gray;">{{list.entryCount}}</span>
-   </div>
-  
-
-  </div>  </tr>
-
-
-
+  <div class="header-flow-header"><span>bugün</span></div>
+  <div class="header-flow-re">
+    <span (click)="refresh()"
+      >yenile <fa-icon [icon]="faRotate"></fa-icon
+    ></span>
+  </div>
+  <tr *ngFor="let list of dailyflow" (click)="onLineClick(list)">
+    <div class="header-flow-headers">
+      <div [routerLink]="['entries', tagsid]" class="header-detail">
+        <span>{{ list.tag }} </span>
+        <span style="font-size: 13px; color: gray">{{ list.entryCount }}</span>
+      </div>
+    </div>
+  </tr>
 </div>

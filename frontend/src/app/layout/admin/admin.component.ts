@@ -14,7 +14,7 @@ export class AdminComponent{
   constructor( ){
 
   }
-   //eğer loginde giriş yapılmadı ise profile ve msg kapanacak
+
    
   
    

@@ -1,62 +1,81 @@
-
 <style>
-.msg_card{
-  box-sizing: border-box;
-  width: 700px;
-  min-width: 600px;
-  height: 120px;
-  border: 1px solid rgb(170, 170, 170);
-  padding: 10px;
-  color: gray;
- 
-  margin-top: 4px;
-}
-.msgbox_header{
-   margin-top: 5px;
-   padding: 5px;
-   font-weight: bold;
-   color: green;
-}
-.msg_thumbnail {
-  resize: none; 
-  overflow: auto; 
+  .msg_card {
+    box-sizing: border-box;
+    width: 700px;
+    min-width: 600px;
+    height: 140px;
+    border: 1px solid rgb(170, 170, 170);
+    padding: 10px;
+    color: gray;
 
-  max-height: 200px; 
-  padding: 10px;
-  outline: none;
-  border: none;
-  font-style: italic;
-  font-size: 14px;
-  display: inline-block;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
-  
-}
+    margin-top: 4px;
+  }
+  .msgbox_header {
+    margin-top: 5px;
+    padding: 5px;
+    font-weight: bold;
+    color: green;
+  }
+  .msg_thumbnail {
+    resize: none;
+    overflow: auto;
 
-
+    max-height: 200px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    font-style: italic;
+    font-size: 14px;
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
 </style>
-<p class="msgbox_header">Gelen kutusu </p>
-<div style="margin-left: auto;margin-right:auto;"> 
-
-<!-- (mouseover)="getsenderid()"> -->
-<tr *ngFor="let msg of msg_view" >
-<td> 
-<div class="msg_card" > 
-    <span  (click)="routing()" ><strong> {{msg.sendername}}</strong> (msgcount)</span> 
-    <br/>
-    <div class="alt_cards" > 
-    <span class="msg_thumbnail" rows="2"> {{msg.lastmsg}}</span> 
-    </div>
-    <div style="margin-top: 9px; font-size:13px; margin-left:12px;"> 
-    <span>dün_bugün {{msg.msgdate}}</span>
-    <span onclick="deletecard(senderid)" style=" cursor:pointer; padding:3px; "> sil </span> 
-    <span style="cursor: pointer; padding:3px;">arşivle</span>
-    </div>
-    <div>radiobtn</div>
-
-</div>
-</td>
-</tr>
+<p class="msgbox_header">Gelen kutusu</p>
+<div style="margin-left: auto; margin-right: auto">
+  <!-- > -->
+  <tr *ngFor="let msg of msg_view">
+    <td>
+      <div class="msg_card" (mouseover)="getSenderName(msg.sendername)">
+        <span (click)="routing()"
+          ><strong> {{ msg.sendername }}</strong> {{ msg.msgCount }}</span
+        >
+        <br />
+        <div class="alt_cards">
+          <span class="msg_thumbnail" rows="2"> {{ msg.lastmsg }}</span>
+        </div>
+        <div
+          style="
+            margin-top: 9px;
+            font-size: 13px;
+            margin-left: 12px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          "
+        >
+          <div>
+            <span
+              onclick="deletecard(senderid)"
+              style="cursor: pointer; padding: 3px"
+            >
+              sil
+            </span>
+            <span style="cursor: pointer; padding: 3px">arşivle</span>
+          </div>
+          <div>
+            <span>{{ msg.msgdate }}</span>
+          </div>
+        </div>
+        <div>
+          <input type="checkbox" id="custom-checkbox" />
+          <label for="custom-checkbox" class="custom-checkbox-label"
+            >işaretle</label
+          >
+        </div>
+      </div>
+    </td>
+  </tr>
 </div>

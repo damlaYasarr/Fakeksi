@@ -1,25 +1,25 @@
-<style> 
-.regis_card{
+<style>
+  .regis_card {
     box-sizing: border-box;
     height: 600px;
     padding: 20px;
     list-style: none;
     margin-top: 10px;
-}
-.email_card{
+  }
+  .email_card {
     margin-top: 25px;
     display: flex;
     flex-direction: column;
-}
-.email_card input{
+  }
+  .email_card input {
     height: 40px;
     outline: none;
     width: 300px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid grey;
-}
-.regis_btn{
+  }
+  .regis_btn {
     width: 300px;
     height: 55px;
     border-radius: 5px;
@@ -27,36 +27,35 @@
     outline: none;
     border: none;
     margin-top: 20px;
-}
-.regis_btn a{
-  color: aliceblue;
-  text-decoration: none;
-  
-}
-.regis_router{
- margin-top: 5px;
-}
-.regis_router a{
- text-decoration: none;
- color: black;
-}
+  }
+  .regis_btn a {
+    color: aliceblue;
+    text-decoration: none;
+  }
+  .regis_router {
+    margin-top: 5px;
+  }
+  .regis_router a {
+    text-decoration: none;
+    color: black;
+  }
 </style>
 
-
-<div class="regis_card"> 
-ben buraya bieşy yazıyorum
-  <div ><span style="font-weight: bold;">giriş</span> </div>
-  <div> 
+<div class="regis_card">
+  ben buraya bieşy yazıyorum
+  <div><span style="font-weight: bold">giriş</span></div>
+  <div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <input type="email" formControlName="email" class="form-control"  />
-      <input type="password" formControlName="password" class="form-control"  />
-      <button type="submit"  class="btn btn-primary">
-       
-        Login
-    </button>
-  </form>
+      <input type="email" formControlName="email" class="form-control" />
+      <input type="password" formControlName="password" class="form-control" />
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
   </div>
-  <div style="margin-top: 20px;"><span style="font-weight: bold; ">giremeyiş</span></div>
-   <div class="regis_router"> <a (click)="clickregsP()" >kayıtlı kullanıcı olunası</a></div>
-   <div  class="regis_router"> <a  (click)="clickforgP() "  >şifremi unuttum</a></div>
+  <div style="margin-top: 20px">
+    <span style="font-weight: bold">giremeyiş</span>
+  </div>
+  <div class="regis_router">
+    <a (click)="clickregsP()">kayıtlı kullanıcı olunası</a>
+  </div>
+  <div class="regis_router"><a (click)="clickforgP()">şifremi unuttum</a></div>
 </div>
