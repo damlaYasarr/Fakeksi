@@ -39,7 +39,7 @@
   <tr *ngFor="let msg of msg_view">
     <td>
       <div class="msg_card" (mouseover)="getSenderName(msg.sendername)">
-        <span (click)="routing()"
+        <span (click)="routing()" style="cursor: pointer;"
           ><strong> {{ msg.sendername }}</strong> {{ msg.msgCount }}</span
         >
         <br />

@@ -37,5 +37,6 @@ export class MsggingComponent implements OnInit {
 
   getSenderName(name: string) {
     console.log(name);
+    this.userService.changesendername(name)
   }
 }

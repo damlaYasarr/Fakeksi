@@ -12,10 +12,17 @@ export class Userservice {
   constructor(private httpclient: HttpClient) {}
   private idSource = new BehaviorSubject<number>(0);
   currentId = this.idSource.asObservable();
-
+   
   changeId(id: number) {
     this.idSource.next(id);
     console.log(id);
+  }
+  private senderNameSource = new BehaviorSubject<string>("");
+  currendSnderName = this.senderNameSource.asObservable();
+   
+  changesendername(name: string) {
+    this.senderNameSource.next(name);
+    console.log("aktarılan isim",name);
   }
   userProfileInfo(id: number) {
     return this.httpclient.get(
