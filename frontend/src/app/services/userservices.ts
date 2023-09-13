@@ -9,6 +9,11 @@ const headers = new HttpHeaders().append('Content-Type', 'application/json');
   providedIn: 'root',
 })
 export class Userservice {
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
   constructor(private httpclient: HttpClient) {}
   private idSource = new BehaviorSubject<number>(0);
   currentId = this.idSource.asObservable();
@@ -63,12 +68,18 @@ export class Userservice {
     );
   }
   sendMsg(id: number, senderid: number, msg: string) {
+    const body={id,senderid,msg};
     return this.httpclient.post(
       `https://localhost:7095/api/User/sendmsg?userid=${id}&otherid=${senderid}&msg=${msg}`,
-      { id, senderid, msg }
+   body, 
+   this.httpOptions
     );
   }
-  
+ 
+ 
+  listallmag(userid1:number, userid2:number){
+       return this.httpclient.get(`https://localhost:7095/api/User/GetAllMessagesBetweenUsers?user1=${userid1}&user2=${userid2}`)
+  }
   changeuserphoto() {}
   forgotpass() {
     //email aktivasyonu kullan.

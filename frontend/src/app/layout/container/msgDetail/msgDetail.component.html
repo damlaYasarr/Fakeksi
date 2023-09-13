@@ -70,15 +70,21 @@
         margin-bottom: 10px;
          
     }
-
+    .msgcontent_sender {
+        text-align: right; /* Gönderen mesajlarını sağa hizala */
+    }
+    
+    .msgcontent_receiver {
+        text-align: left; /* Alıcı mesajlarını sola hizala */
+    }
 </style>
 <p class="msgbox_header" >Gelen kutusu >>@{{sendername}} </p>
 <div class="msggin-box-card">
     <!-- Gelen mesajlar-->
-    <div *ngFor="let m of msg" [ngClass]="{'msgcontent_sender': sending_msg, 'msgcontent_receiver': !sending_msg}">
-        <span class="">{{ m }}</span>
+    <div *ngFor="let m of listall" class="msgcontent_sender" >
+        <span class="">{{ m.msg_detail }}</span>
         <br/>
-        <span style="font-size:14px;">date</span>
+        <span style="font-size:14px;">{{m.msg_date}}</span>
     </div>
 </div>
 <form [formGroup]="searchForm">
