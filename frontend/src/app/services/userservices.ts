@@ -15,7 +15,7 @@ export class Userservice {
     }),
   };
   constructor(private httpclient: HttpClient) {}
-  private idSource = new BehaviorSubject<number>(0);
+  private idSource = new BehaviorSubject<number |null>( null);
   currentId = this.idSource.asObservable();
    
   changeId(id: number) {

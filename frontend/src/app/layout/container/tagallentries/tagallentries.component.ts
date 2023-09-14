@@ -10,7 +10,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'tagallentries',
   //sayfayı komple kullan diyoruz
@@ -27,7 +27,8 @@ export class TagAllEntriesComponent implements OnInit {
   constructor(
     private router: Router,
     public sharedservice: SharedService,
-    private enryservice: EntryServices
+    private enryservice: EntryServices,
+    private location: Location
   ) {}
   dailyflow: any;
 
@@ -55,7 +56,10 @@ export class TagAllEntriesComponent implements OnInit {
       this.router.navigateByUrl(`/(bla:home/entries/:${id})`);
     });
   }
-
+  refreshPage() {
+    this.location.go(this.location.path());
+    location.reload(); 
+  }
   entryadd() {
     this.definition = String(this.searchForms.value.searchInputs);
 
@@ -65,6 +69,7 @@ export class TagAllEntriesComponent implements OnInit {
       .addEntry(this.user_localid, this.tagid, this.definition)
       .subscribe((res) => {
         console.log('Başarılı işlem: ', res);
+        this.refreshPage()
         this.router.navigateByUrl(`/(bla:home/entries/:${this.tagid})`);
       });
   }
