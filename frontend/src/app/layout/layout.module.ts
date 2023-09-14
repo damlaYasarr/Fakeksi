@@ -67,7 +67,7 @@ const dashBoardRoutes: Route[] = [
           ),
       },
       {
-        path: 'msgdetails',
+        path: 'msgdetails/:sendername',
 
         loadChildren: () =>
           import('./container/msgDetail/msgDetail-routing.module').then(

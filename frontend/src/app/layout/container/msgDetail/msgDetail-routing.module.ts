@@ -9,8 +9,9 @@ import { MsgDetailComponent } from './msgDetail.component';
 
 
 const routes: Routes = [
-  {
-    path: 'msgdetails',
+  { 
+    //Sendername parametresi ekle
+    path: 'msgdetails/:sendername',
     component: MsgDetailComponent,
     
   }

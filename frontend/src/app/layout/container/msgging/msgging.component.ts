@@ -10,23 +10,31 @@ import { Observable } from 'rxjs';
   templateUrl: 'msgging.component.html',
 })
 export class MsggingComponent implements OnInit {
-  senderid: number; //username'den id al
+  senderid:number;
+  urlid:number;
   msg_view: any;
+  names:string;
   constructor(private router: Router, private userService: Userservice) {}
   //msg detail- like count
   ngOnInit(): void {
     this.getLastMsg(24);
+    
   }
   AddComment(): void {
     //post eklenirken bu metodu
   }
   routing() {
-    this.router.navigateByUrl('(bla:home/msgdetails)');
+    this.userService.currendSnderName.subscribe(res=>{
+      this.names=String(res).trim();
+
+      }) 
+      this.router.navigateByUrl(`(bla:home/msgdetails/:${this.names})`);
+    //this.router.navigateByUrl(`bla:home/msgdetails/:${this.names}`);
     console.log('here is routing');
   }
   getMsgginusers() {}
   deletecard(senderid: number) {}
-
+  
 
   getLastMsg(userid: number) {
     this.userService.getLastMsg(userid).subscribe((res) => {
@@ -36,7 +44,10 @@ export class MsggingComponent implements OnInit {
   }
 
   getSenderName(name: string) {
+
     console.log(name);
+  
+    console.log(this.names)
     this.userService.changesendername(name)
   }
 }

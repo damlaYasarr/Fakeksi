@@ -47,21 +47,16 @@
         border: 1px solid rgb(137, 137, 137);
         width: 70%;
         height: 70px; 
-        display: block;
+   
         margin-bottom: 10px;
         
     }
-    .msgcontent_sender::before{
-        display: none;
-    }
-    .msgcontent_receiver::before{
-        display: none;
-    }
+ 
     .msgcontent_receiver{
       
         padding: 10px;
         float: right;
-        display: block;
+     
         box-sizing: border-box;
         border: 1px solid rgb(94, 94, 94);
         width: 70%;
@@ -70,23 +65,20 @@
         margin-bottom: 10px;
          
     }
-    .msgcontent_sender {
-        text-align: right; /* Gönderen mesajlarını sağa hizala */
-    }
-    
-    .msgcontent_receiver {
-        text-align: left; /* Alıcı mesajlarını sola hizala */
-    }
+ 
 </style>
 <p class="msgbox_header" >Gelen kutusu >>@{{sendername}} </p>
-<div class="msggin-box-card">
+
     <!-- Gelen mesajlar-->
-    <div *ngFor="let m of listall" class="msgcontent_sender" >
-        <span class="">{{ m.msg_detail }}</span>
-        <br/>
-        <span style="font-size:14px;">{{m.msg_date}}</span>
+    <div class="msggin-box-card">
+        <div *ngFor="let m of listall" 
+             [ngClass]="{'msgcontent_sender': m.msg_sender_id != 24, 'msgcontent_receiver': m.msg_sender_id == 24}">
+            <span class="">{{ m.msg_detail }}</span>
+            <br/>
+            <span style="font-size:14px;">{{ m.msg_date }}</span>
+        </div>
     </div>
-</div>
+
 <form [formGroup]="searchForm">
     <!-- Giden mesajlar -->
     <div class="inputplace" style="float: left;">
