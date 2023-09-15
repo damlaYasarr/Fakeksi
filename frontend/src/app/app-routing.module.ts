@@ -16,7 +16,7 @@ import { Notfound } from './layout/notfound/notfound.component';
 //import { Injectable } from '@angular/core';
 //moduller buraya eklenir
 const appRoute: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/(bla:home/daily)', pathMatch: 'full' },
   {
     path: 'home',
     outlet: 'bla',

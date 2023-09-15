@@ -23,13 +23,16 @@ export class HeaderFlowComponent {
   ngOnInit(): void {
     this.method();
   }
-  onLineClick(list: any) {
-    this.gettag = list.tag;
+ onLineClick(list: any) {
+     this.gettag = list.tag;
     this.sharedid.tagname = this.gettag;
-    this.entryservices.getTagIdByName(this.gettag).subscribe((res) => {
+   this.entryservices.getTagIdByName(this.gettag).subscribe((res) => {
       this.tagsid = Number(res);
-      this.sharedid.changeId(this.tagsid);
-    });
+     this.sharedid.changeId(this.tagsid);
+     });
+  }
+  tagname(name:string){
+     console.log(name)
   }
   method() {
     this.entryservices.getEntry().subscribe((data) => {

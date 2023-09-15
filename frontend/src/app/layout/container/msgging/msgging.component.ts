@@ -14,6 +14,7 @@ export class MsggingComponent implements OnInit {
   urlid:number;
   msg_view: any;
   names:string;
+  isOpencont:boolean=false;
   constructor(private router: Router, private userService: Userservice) {}
   //msg detail- like count
   ngOnInit(): void {
@@ -37,9 +38,24 @@ export class MsggingComponent implements OnInit {
   
 
   getLastMsg(userid: number) {
-    this.userService.getLastMsg(userid).subscribe((res) => {
+    this.userService.getLastMsg(userid).subscribe(res  => {
       this.msg_view = res;
+      
       console.log(res);
+     
+      if (Array.isArray(res)) {
+   
+        let number=0;
+        while (res.length > number) {
+       //if msg_open is false, turn allcolor to green
+          const firstItem = res[number];
+          if(!firstItem.isOpen){
+            this.isOpencont=true
+          }
+        
+          number=number+1; 
+        }
+      }
     });
   }
 
@@ -50,4 +66,7 @@ export class MsggingComponent implements OnInit {
     console.log(this.names)
     this.userService.changesendername(name)
   }
+}
+interface MessagesInterface{
+  isOpen:boolean;
 }

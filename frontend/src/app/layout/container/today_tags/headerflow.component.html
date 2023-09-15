@@ -50,7 +50,7 @@
       >yenile <fa-icon [icon]="faRotate"></fa-icon
     ></span>
   </div>
-  <tr *ngFor="let list of dailyflow" (click)="onLineClick(list)">
+  <tr *ngFor="let list of dailyflow" (mouseover)="tagname(list.tag)" (click)="onLineClick(list)">
     <div class="header-flow-headers">
       <div [routerLink]="['entries', tagsid]" class="header-detail">
         <span>{{ list.tag }} </span>
