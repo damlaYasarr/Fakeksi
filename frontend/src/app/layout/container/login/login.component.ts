@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AuthenticationService } from 'src/app/services/authenticationservice';
 import { LayoutComponent } from '../../layout.component';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'login_progress',
   //sayfayı komple kullan diyoruz
@@ -21,10 +21,11 @@ export class LoginComponent implements OnInit {
 
   isAdmin: boolean;
   constructor(
-    private logoutLayout: LayoutComponent,
     private formBuilder: FormBuilder,
     private router: Router,
-    private authservice: AuthenticationService
+    private authservice: AuthenticationService, 
+    private location:Location,
+    private layoutComponent:LayoutComponent
   ) {}
 
   ngOnInit() {
@@ -51,14 +52,23 @@ export class LoginComponent implements OnInit {
       .login(this.form.value.email, this.form.value.password)
       .subscribe((response) => {
         this.loading = true;
-        this.logoutLayout.classReferance.authendricated = true;
+      
         this.authservice.getusrid(this.form.value.email).subscribe((res) => {
           this.userid = res;
+          //jwt setItem edilmeli. eğer sistemde jwt varsa o usern kullanıcı bilgileri çekilir.
           localStorage.setItem('user_id', this.userid);
+          this.refreshPage();
+           this.layoutComponent.classReferance.authendricated=true;
+           
         });
-
+  
         this.router.navigateByUrl('/(bla:home/profile)');
+    
       });
+  }
+  refreshPage() {
+    this.location.go(this.location.path());
+    location.reload(); 
   }
   clickregsP() {
     this.router.navigateByUrl('(bla:home/(log:register))');

@@ -27,14 +27,20 @@ export class DailyFLow implements OnInit {
     private sharedid: SharedService
   ) {}
 
-  ngOnInit(): void {
-    this.entryService.getDailyOneTagAndOneEntry().subscribe((res) => {
-      console.log(res);
-      this.entries = res;
-    });
-    this.entryService.getLikeCount(this.entryid).subscribe((res) => {
-      this.likecount = Number(res);
-    });
+  async ngOnInit() {
+    try {
+       this.entryService.getDailyOneTagAndOneEntry().subscribe((res) => {
+        console.log(res);
+        this.entries = res;
+      });
+      this.entryService.getLikeCount(this.entryid).subscribe((res) => {
+        this.likecount = Number(res);
+      });
+      
+    } catch (error) {
+      console.error(error);
+    }
+    
   }
   logTagName(tagname: string) {
     console.log('Clicked tagname:', tagname);

@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit{
      private userservice:Userservice,
      private authservice:AuthenticationService,
      private router:Router,
+     
      private logoutLayout:LayoutComponent){
     //tanımlama yaparken kullanılır
   }
@@ -38,25 +39,30 @@ export class ProfileComponent implements OnInit{
   }
   faSmile=faSmile
   facirclearrow=faCircleArrowUp
-
-   ngOnInit(): void {
   
-this.getprofile();
-   }  
-   getprofile(){
-
+   ngOnInit(): void {
     const info=localStorage.getItem("user_id");//just the usual way 
+    console.log(info)
+ this.getprofile(info);
+   }  
+   getprofile(info:any){
+   
      this.usr_id=Number(info);
-    this.userservice.userProfileInfo(this.usr_id).subscribe((res)=>{
+     
+      this.userservice.userProfileInfo(this.usr_id).subscribe((res)=>{
       this.profile=res;
       console.log(res);
     })
    }
    onClick(){
     this.authservice.logout();
-    console.log('çıkış yapıldı')
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("loggedin");
     this.logoutLayout.classReferance.authendricated=false;
-    this.router.navigateByUrl('/(bla:home/daily)');
+    console.log('çıkış yapıldı')
+    this.router.navigateByUrl('(bla:home/daily)');
+ 
+    
    }
 
  
