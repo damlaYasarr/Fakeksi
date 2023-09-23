@@ -20,16 +20,21 @@ export class HeaderFlowComponent {
   gettag: string;
   faRotate = faRotateRight;
   tagsid: number = 1;
-  ngOnInit(): void {
+  async ngOnInit() {
     this.method();
   }
- onLineClick(list: any) {
-     this.gettag = list.tag;
-    this.sharedid.tagname = this.gettag;
-   this.entryservices.getTagIdByName(this.gettag).subscribe((res) => {
-      this.tagsid = Number(res);
-     this.sharedid.changeId(this.tagsid);
-     });
+async onLineClick(list: any) {
+    try {
+      this.gettag = list.tag;
+      this.sharedid.tagname = this.gettag;
+     this.entryservices.getTagIdByName(this.gettag).subscribe((res) => {
+        this.tagsid = Number(res);
+       this.sharedid.changeId(this.tagsid);
+       });
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
   tagname(name:string){
      console.log(name)
