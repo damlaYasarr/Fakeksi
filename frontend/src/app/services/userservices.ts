@@ -36,7 +36,8 @@ export class Userservice {
   }
   getuserIdByName(name: string) {
     return this.httpclient.get(
-      `https://localhost:7095/api/User/getuserIdByname?name=${name}` + name
+
+      `https://localhost:7095/api/User/getuserIdByname?name=${name}`
     );
   }
   getUserAllEntries(id: number) {

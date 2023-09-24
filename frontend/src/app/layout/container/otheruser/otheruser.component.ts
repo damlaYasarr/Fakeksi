@@ -7,8 +7,6 @@ import {
   faListDots,
 } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
-import { LayoutComponent } from '../../layout.component';
-import { AuthenticationService } from 'src/app/services/authenticationservice';
 import { Userservice } from 'src/app/services/userservices';
 import { SharedService } from 'src/app/services/simpleservice';
 
@@ -51,18 +49,18 @@ export class OtherUserComponent implements OnInit {
       console.log(this.user_id);
     });
   }
-  getprofileinfo(id: number) {
+ async getprofileinfo(id: number) {
     this.userservice.userProfileInfo(id).subscribe((res) => {
       this.profileinfo = res;
     });
   }
-  getEntriesDetail(id: number) {
+async  getEntriesDetail(id: number) {
     this.userservice.getUserAllEntries(id).subscribe((res) => {
       this.entriesdetail = res;
       console.log(this.entriesdetail);
     });
   }
-  addFollower() {
+ async addFollower() {
     console.log('takip et');
 
     console.log(Number(localStorage.getItem('user_id')), this.user_id);

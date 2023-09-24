@@ -38,7 +38,8 @@ export class LayoutComponent {
     if (localStorage.getItem('user_id') != null) {
       LayoutComponent.authendricated = true;
     } else {
-      LayoutComponent.authendricated = false;
+      LayoutComponent.authendricated = false; 
+  
     }
     return LayoutComponent.authendricated;
   }

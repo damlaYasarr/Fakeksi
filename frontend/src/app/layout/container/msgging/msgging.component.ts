@@ -18,7 +18,7 @@ export class MsggingComponent implements OnInit {
   constructor(private router: Router, private userService: Userservice) {}
   //msg detail- like count
   ngOnInit(): void {
-    this.getLastMsg(24);
+    this.getLastMsg(Number(localStorage.getItem('user_id')));
     
   }
   AddComment(): void {

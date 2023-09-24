@@ -14,10 +14,10 @@ import { Location } from '@angular/common';
 export class MsgDetailComponent implements OnInit{
   msg: string[] = [];
   sendername:string
+  sender_id:number
   sending_msg:boolean;
   receiv:boolean;
   listall:any;
-  senderid:number;
   isleft=false;
   constructor(private userService:Userservice, 
     private location: Location){
@@ -26,7 +26,7 @@ export class MsgDetailComponent implements OnInit{
   searchForm = new FormGroup({
     searchInput: new FormControl('')
   });
-  onSubmit(event : MouseEvent) {
+  async onSubmit(event : MouseEvent) {
    
     event.preventDefault();
     this.sending_msg=true;
@@ -36,12 +36,22 @@ export class MsgDetailComponent implements OnInit{
     this.SendMsg(24, 30, String(this.searchForm.value.searchInput));
     this.searchForm.patchValue({searchInput: ""});
   }
-   ngOnInit(): void {
+   ngOnInit() {
     this.userService.currendSnderName.subscribe(res=>{
       this.sendername=res
       }) 
-   this.listallmsg(24,30);
-  
+      console.log(this.sendername)
+      this.userService.getuserIdByName(this.sendername).subscribe(rs=>{
+        this.sender_id=Number(rs)
+        console.log(this.sender_id) 
+        this.userService.listallmag(this.sender_id,Number(localStorage.getItem('user_id'))).subscribe((res)=>{
+          this.listall=res;  
+           
+          console.log(res)
+         })
+       })
+   
+   
    }
    //after sending msg, refresh the page bc of non used socket
    refreshPage() {
@@ -55,17 +65,7 @@ export class MsgDetailComponent implements OnInit{
            this.refreshPage();
       })
    }
-   listallmsg(usr1:number, usr2:number){
-    this.userService.listallmag(usr1,usr2).subscribe((res)=>{
-     this.listall=res;  
-     
-     console.log(res)
-    })
-   }
-   getUserNameById(name:string){
-    this.userService.getuserIdByName(name).subscribe((res)=>{
-               this.senderid=Number(res);
-    })
-   }
+ 
+   
 }
 

@@ -28,7 +28,7 @@ export class SearchBoxComponent implements OnInit{
  searchForm = new FormGroup({
   searchInput: new FormControl('')
 });
- onSubmit() {
+ async onSubmit() {
   if(String(this.searchForm.value.searchInput)==""){
     return;
   }
@@ -74,6 +74,7 @@ onLineClick(list:any){
     })
   }else{
     this.usernme=String(list).slice(1);
+    console.log(this.usernme)
     this.userservice.getuserIdByName(this.usernme).subscribe((res)=>{
       console.log(res)
       this.getid=Number(res)
