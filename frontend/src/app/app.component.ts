@@ -9,4 +9,7 @@ export class AppComponent {
   title = 'frontend';
   s1 = 34;
   s2 = 90;
+  constructor(){
+     
+  }
 }

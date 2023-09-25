@@ -4,6 +4,8 @@ import {
   faDroplet,
   faMessage,
   faListDots,
+  faArrowDown,
+  faArrowUp
 } from '@fortawesome/free-solid-svg-icons';
 import { SharedService } from 'src/app/services/simpleservice';
 import { ActivatedRoute, Route, Router } from '@angular/router';
@@ -11,6 +13,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Location } from '@angular/common';
+import { LayoutComponent } from '../../layout.component';
 @Component({
   selector: 'tagallentries',
   //sayfayı komple kullan diyoruz
@@ -24,22 +27,26 @@ export class TagAllEntriesComponent implements OnInit {
   tagid: number;
   definition: string;
   user_localid: number;
+  visible:boolean=false;
   constructor(
     private router: Router,
     public sharedservice: SharedService,
     private enryservice: EntryServices,
-    private location: Location
+    private location: Location,
+    private layoutComponent:LayoutComponent
   ) {}
   dailyflow: any;
 
   faDrop = faDroplet;
   faMessageArrowUp = faMessage;
   faListDot = faListDots;
+  faArrowdown=faArrowDown;
+  faArrowUp=faArrowUp;
   searchForms = new FormGroup({
     searchInputs: new FormControl(''),
   });
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.sharedservice.currentId.subscribe((id) => {
       this.tagid = Number(id);
       this.getEntryies(this.tagid);
@@ -48,6 +55,11 @@ export class TagAllEntriesComponent implements OnInit {
       this.likecount = Number(res);
     });
     //this.addentries(localStorage.getItem('user_id'),this.tagid  )
+    if( this.layoutComponent.classReferance.authendricated==true){
+      this.visible=false;
+    }else{
+      this.visible=true;
+    }
   }
 
   getEntryies(id: number) {

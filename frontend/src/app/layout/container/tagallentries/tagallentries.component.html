@@ -27,7 +27,9 @@
       }
       .style-icon {
         color: rgb(160, 160, 160);
-        font-size: 13px;
+        font-size: 14px;
+        padding: 5px;
+        
       }
       .style-icon:hover {
         color: rgb(85, 182, 29);
@@ -122,20 +124,52 @@
                 align-items: center;
               "
             >
+          
               <span>
-                <fa-icon
+                
+                <ng-container *ngIf="visible">
+                  <fa-icon
+                
                   class="style-icon"
                   style="cursor: pointer"
-                  [icon]="faDrop"
-                ></fa-icon>
-                {{ likecount }}
+                  [icon]="faArrowdown "
+      
+                  > 
+                  </fa-icon>
+                  <fa-icon
+                 
+                  class="style-icon"
+                  style="cursor: pointer"
+                  [icon]="faArrowUp "
+      
+                  > 
+                  </fa-icon>
+                </ng-container>
+                
+                <ng-container *ngIf="!visible"> 
+                  <fa-icon
+                
+                  class="style-icon"
+                  style="cursor: pointer"
+                  [icon]=" faDrop"
+                  > 
+                  </fa-icon>
+                  {{ likecount }}
+                </ng-container>
+               
+               
               </span>
-              <span>
-                <fa-icon
+              <span >
+                <ng-container *ngIf="!visible"> 
+                  <fa-icon
+
                   class="style-icon"
                   style="margin: 4px; cursor: pointer"
                   [icon]="faMessageArrowUp"
                 ></fa-icon>
+
+                </ng-container>
+                
                 <fa-icon
                   class="style-icon"
                   style="cursor: pointer"
