@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  faArrowDown,
+  faArrowUp,
   faDroplet,
   faListDots,
   faMessage,
@@ -7,6 +9,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { EntryServices } from 'src/app/services/entryservices';
 import { SharedService } from 'src/app/services/simpleservice';
+import { LayoutComponent } from '../../layout.component';
 
 @Component({
   selector: 'dataflow',
@@ -22,9 +25,13 @@ export class DailyFLow implements OnInit {
   entryid: number = 0;
   IsCliked: boolean = false;
   likecount: number;
+  visible:boolean=false;
+  faArrowdown=faArrowDown;
+  faArrowUp=faArrowUp;
   constructor(
     private entryService: EntryServices,
-    private sharedid: SharedService
+    private sharedid: SharedService,
+    private layoutComponent:LayoutComponent
   ) {}
 
   async ngOnInit() {
@@ -40,6 +47,11 @@ export class DailyFLow implements OnInit {
     } catch (error) {
       console.error(error);
     }
+    if( this.layoutComponent.classReferance.authendricated==true){
+      this.visible=false;
+    }else{
+      this.visible=true;
+    }
     
   }
   logTagName(tagname: string) {
@@ -48,6 +60,7 @@ export class DailyFLow implements OnInit {
     this.entryService.getTagIdByName(tagname).subscribe((res) => {
       this.tagid = Number(res);
       this.sharedid.changeId(this.tagid);
+      
       console.log(this.tagid);
     });
   }

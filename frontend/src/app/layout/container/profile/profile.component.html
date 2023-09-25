@@ -13,16 +13,7 @@
       display: flex;
       flex-direction: column;
     }
-    .profile-picture {
-      display: inline-block;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-      background-image: url("./images/");
-    }
+    
     .alt-profile {
       margin-left: auto;
       margin-right: auto;
@@ -47,6 +38,18 @@
       box-sizing: border-box;
 
       border: 2px solid pink;
+    }
+    .round-button {
+      display: inline-block;
+      background-color: #007bff; /* Yuvarlak zeminin arka plan rengi */
+      color: #fff; /* Metin rengi */
+      border: none;
+      border-radius: 50%; /* Yuvarlak zemin yapmak için border-radius kullanılır */
+      width: 70px; /* Genişlik */
+      height: 70px; /* Yükseklik */
+      text-align: center;
+      line-height: 40px; /* Metin yüksekliği ile hizalamak için */
+      cursor: pointer;
     }
   </style>
  
@@ -80,10 +83,12 @@
           ></span>
         </div>
         <button (click)="onClick()">çıkış</button>
-        <div class="profile-picture">
-          <form (ngSubmit)="resimYukle()" #resimForm="ngForm">
-            <span type="submit">Yükle</span>
+        <div >
+          <form (change)="dosyaSec($event)" (ngSubmit)="resimYukle()">
+            <!-- Form içeriği -->
+            <button type="submit" class="round-button">Yükle</button>
           </form>
+          
         </div>
       </div>
 

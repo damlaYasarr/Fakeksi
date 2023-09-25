@@ -24,6 +24,7 @@
     .style-icon {
       color: rgb(160, 160, 160);
       font-size: 13px;
+      padding: 5px;
     }
     .style-icon:hover {
       color: rgb(85, 182, 29);
@@ -82,26 +83,57 @@
               align-items: center;
             "
           >
-            <span>
+          <span>
+                
+            <ng-container *ngIf="visible">
               <fa-icon
-                class="style-icon"
-                style="cursor: pointer"
-                [icon]="faDrop"
-              ></fa-icon>
+            
+              class="style-icon"
+              style="cursor: pointer"
+              [icon]="faArrowdown "
+  
+              > 
+              </fa-icon>
+              <fa-icon
+             
+              class="style-icon"
+              style="cursor: pointer"
+              [icon]="faArrowUp "
+  
+              > 
+              </fa-icon>
+            </ng-container>
+            
+            <ng-container *ngIf="!visible"> 
+              <fa-icon
+            
+              class="style-icon"
+              style="cursor: pointer"
+              [icon]=" faDrop"
+              > 
+              </fa-icon>
               {{ likecount }}
-            </span>
-            <span>
+            </ng-container>
+           
+           
+          </span>
+          <span >
+            <ng-container *ngIf="!visible"> 
               <fa-icon
-                class="style-icon"
-                style="margin: 4px; cursor: pointer"
-                [icon]="faMessageArrowUp"
-              ></fa-icon>
-              <fa-icon
-                class="style-icon"
-                style="cursor: pointer"
-                [icon]="faListDot"
-              ></fa-icon>
-            </span>
+
+              class="style-icon"
+              style="margin: 4px; cursor: pointer"
+              [icon]="faMessageArrowUp"
+            ></fa-icon>
+
+            </ng-container>
+            
+            <fa-icon
+              class="style-icon"
+              style="cursor: pointer"
+              [icon]="faListDot"
+            ></fa-icon>
+          </span>
           </div>
 
           <div class="alt-card-style">
