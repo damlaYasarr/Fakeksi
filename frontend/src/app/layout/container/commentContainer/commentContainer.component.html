@@ -59,12 +59,13 @@ border-bottom: 1px solid rgb(55, 173, 8);
 
   <tr *ngFor="let entry of entriesUser" >
     <td> 
-      <div class="comment-card" (mouseover)="logEntryName(entry.entries)"> 
+      <div class="comment-card" (click)="logEntryName(entry.entries)"> 
   <div class="comment-header">
-    <span> {{entry.tagname}}</span></div>
+    <span > {{entry.tagname}}</span></div>
        <div style="font-size: 15px;">{{entry.entries}}</div>
        <div style="display: flex; flex-direction: row; justify-content:space-between ;align-items: center;">
         <span (click)="addlike()"> <fa-icon class="style-icon" [style.color]="IsCliked ? 'rgb(85, 182, 29)' : 'gray'" [icon]="faDrop"></fa-icon>
+          
           {{likecount}}
         </span>
 

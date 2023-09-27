@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   faDroplet,
   faMessage,
   faListDots,
 } from '@fortawesome/free-solid-svg-icons';
 import { EntryServices } from 'src/app/services/entryservices';
+import { SharedService } from 'src/app/services/simpleservice';
 @Component({
   selector: 'entry',
   //sayfayı komple kullan diyoruz
@@ -14,19 +16,22 @@ import { EntryServices } from 'src/app/services/entryservices';
 export class CommentComponent implements OnInit {
   constructor(
     private httpClient: HttpClient,
-    private entryservice: EntryServices
+    private entryservice: EntryServices,
+    private router: Router,
   ) {}
   entriesUser: any;
-  entryid: number = 0;
+  entryid: number ;
   IsCliked: boolean = false;
   likecount: number;
   faDrop = faDroplet;
   faMessageArrowUp = faMessage;
   faListDot = faListDots;
+
   appurl = 'https://localhost:7095/api/TagEntry/getalltagandentrieswithUSER';
 
   //params kullanılır user id alınır-comment cart genişliği sabit kalmalı
  async getEntry() { 
+  
   try {
     const number = localStorage.getItem('user_id');
     console.log(number);
@@ -40,6 +45,7 @@ export class CommentComponent implements OnInit {
     
   }
   ngOnInit(): void {
+   
     this.getEntry();
     this.entryservice.getLikeCount(this.entryid).subscribe((res) => {
       this.likecount = Number(res);
@@ -68,6 +74,8 @@ export class CommentComponent implements OnInit {
     this.entryservice.getEntyIdByName(name).subscribe((res) => {
       console.log(res);
       this.entryid = Number(res);
+     
     });
   }
+  
 }

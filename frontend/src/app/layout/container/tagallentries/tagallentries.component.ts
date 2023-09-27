@@ -72,18 +72,37 @@ export class TagAllEntriesComponent implements OnInit {
     this.location.go(this.location.path());
     location.reload(); 
   }
-  entryadd() {
+  addentryndtag(){
     this.definition = String(this.searchForms.value.searchInputs);
-
-    this.user_localid = Number(localStorage.getItem('user_id'));
-    console.log(this.user_localid, this.definition, this.tagid);
-    this.enryservice
-      .addEntry(this.user_localid, this.tagid, this.definition)
-      .subscribe((res) => {
-        console.log('Başarılı işlem: ', res);
-        this.refreshPage()
-        this.router.navigateByUrl(`/(bla:home/entries/:${this.tagid})`);
-      });
+    this.enryservice.addTagandentry(Number(localStorage.getItem('user_id')), this.sharedservice.tagname, this.definition ).subscribe(res=>{
+      console.log(res)
+      
+    })
+   
+  }
+  entryadd() {
+    console.log(this.tagid)
+    if(this.tagid==0){
+     
+      this.addentryndtag()
+    }else{
+      this.definition = String(this.searchForms.value.searchInputs);
+  
+      console.log(this.sharedservice.tagname)
+      this.user_localid = Number(localStorage.getItem('user_id'));
+      console.log(this.user_localid, this.definition, this.tagid);
+      this.enryservice
+        .addEntry(this.user_localid, this.tagid, this.definition)
+        .subscribe((res) => {
+          this.getEntryies(this.tagid);
+          console.log('Başarılı işlem: ', res);
+          
+  
+        });
+       
+    }
+    this.searchForms.get('searchInputs')?.setValue('');
+ 
   }
   addlike() {
     this.enryservice

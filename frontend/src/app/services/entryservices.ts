@@ -63,10 +63,10 @@ export class EntryServices {
       return errorMessage;
     });
   }
-  addTag(user_id: number, def: string) {
-    const body = { user_id, def };
+  addTagandentry(user_id: number, deftag: string,defentry:string ) {
+    const body = { user_id, deftag, defentry };
     return this.httpclient.post(
-      `https://localhost:7095/api/TagEntry/tagekle?user_id=${user_id}&def=${def}`,
+      `https://localhost:7095/api/TagEntry/tagekle?user_id=${user_id}&def=${deftag}&entr_def=${defentry}`,
       body,
       this.httpOptions
     );
@@ -101,5 +101,8 @@ export class EntryServices {
     return this.httpclient.get(
       `https://localhost:7095/api/TagEntry/entryidbyname?name=${name}`
     );
+  }
+  gettodayflow(){
+    return this.httpclient.get('https://localhost:7095/api/TagEntry/gettodayflow');
   }
 }
