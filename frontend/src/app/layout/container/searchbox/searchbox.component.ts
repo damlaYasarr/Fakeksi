@@ -41,16 +41,11 @@ export class SearchBoxComponent implements OnInit {
         if (this.dailyflow.length == 0) {
           console.log('bu boş');
           this.popup = true;
-          this.sharedid.tagname = String(
-            this.searchForm.value.searchInput,
-          );
+          this.sharedid.tagname = String(this.searchForm.value.searchInput);
           if (this.sharetag == true) {
-            this.router.navigateByUrl(
-              `/(bla:home/entries})`,
-            );
-            
-            console.log(this.sharedid.tagname)
-             
+            this.router.navigateByUrl(`/(bla:home/entries})`);
+
+            console.log(this.sharedid.tagname);
           }
         }
       });

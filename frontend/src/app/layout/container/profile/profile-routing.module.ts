@@ -4,6 +4,7 @@ import { ProfileComponent } from './profile.component';
 
 const routes: Routes = [
   {
+    //User id ekle
     path: 'profile',
     component: ProfileComponent,
   },

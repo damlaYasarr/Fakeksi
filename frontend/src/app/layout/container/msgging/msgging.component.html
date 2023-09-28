@@ -17,7 +17,7 @@
     color: green;
   }
   .green-background {
-   color: rgb(85, 196, 85);
+    color: rgb(85, 196, 85);
   }
   .msg_thumbnail {
     resize: none;
@@ -41,15 +41,19 @@
   <!-- > -->
   <tr *ngFor="let msg of msg_view">
     <td>
-      <div class="msg_card" [ngClass]="{'green-background': isOpencont}"  (mouseover)="getSenderName(msg.sendername)">
-        <span (click)="routing()" style="cursor: pointer;"
+      <div
+        class="msg_card"
+        [ngClass]="{ 'green-background': isOpencont }"
+        (mouseover)="getSenderName(msg.sendername)"
+      >
+        <span (click)="routing()" style="cursor: pointer"
           ><strong> {{ msg.sendername }}</strong> {{ msg.msgCount }}</span
         >
         <br />
         <div class="alt_cards">
           <span class="msg_thumbnail" rows="2"> {{ msg.lastmsg }}</span>
         </div>
-      
+
         <div
           style="
             margin-top: 9px;

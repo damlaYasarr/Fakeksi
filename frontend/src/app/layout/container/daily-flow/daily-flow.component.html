@@ -1,154 +1,136 @@
+<style>
+  .general-body {
+    box-sizing: border-box;
+    width: 45rem;
+    min-width: 40rem;
+    padding: 10px;
+    height: 150px;
+    margin-bottom: 5px;
+  }
+  .outlinecomment {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .comment-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .comment-header span:hover {
+    border-bottom: 2px solid black;
+  }
+  .style-icon {
+    color: rgb(160, 160, 160);
+    font-size: 13px;
+    padding: 5px;
+  }
+  .style-icon:hover {
+    color: rgb(85, 182, 29);
+  }
+  .alt-card-style {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    line-height: 18px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .profile-user {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  .ff .isim {
+    color: rgb(105, 233, 54);
+    cursor: pointer;
+  }
+  .ff .isim:hover {
+    border-bottom: 1px solid rgb(55, 173, 8);
+  }
+  .ff .tarih:hover {
+    border-bottom: 1px solid rgb(179, 179, 179);
+  }
+</style>
 
-  <style>
-    .general-body {
-      box-sizing: border-box;
-      width: 45rem;
-      min-width: 40rem;
-      padding: 10px;
-      height: 150px;
-      margin-bottom: 5px;
-    }
-    .outlinecomment {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .comment-header {
-      font-size: 18px;
-      margin-bottom: 10px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .comment-header span:hover {
-      border-bottom: 2px solid black;
-    }
-    .style-icon {
-      color: rgb(160, 160, 160);
-      font-size: 13px;
-      padding: 5px;
-    }
-    .style-icon:hover {
-      color: rgb(85, 182, 29);
-    }
-    .alt-card-style {
-      display: flex;
-      align-items: center;
-      justify-content: end;
-      line-height: 18px;
-      font-size: 13px;
-      cursor: pointer;
-    }
-    .profile-user {
-      display: flex;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      border-radius: 50%;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-    
-    }
-    .ff .isim {
-      color: rgb(105, 233, 54);
-      cursor: pointer;
-    }
-    .ff .isim:hover {
-      border-bottom: 1px solid rgb(55, 173, 8);
-    }
-    .ff .tarih:hover {
-      border-bottom: 1px solid rgb(179, 179, 179);
-    }
-  </style>
- 
-    <div style="padding: 16px" class="outlinecomment">
-      <tr
-        *ngFor="let entry of entries"
-        (mouseover)="logEntryName(entry.entries)"
+<div style="padding: 16px" class="outlinecomment">
+  <tr
+    *ngFor="let entry of entries"
+    (mouseover)="logEntryName(entry.entries)"
+    (mouseover)="getusername(entry.name)"
+  >
+    <div class="general-body">
+      <div class="comment-header">
+        <span
+          [routerLink]="['../entries', tagid]"
+          (click)="logTagName(entry.tagname)"
+        >
+          {{ entry.tagname }}</span
+        >
+      </div>
+      <div style="font-size: 15px">{{ entry.entries }}</div>
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        "
       >
-        <div class="general-body">
-          <div class="comment-header">
-            <span
-              [routerLink]="['../entries', tagid]"
-              (click)="logTagName(entry.tagname)"
+        <span>
+          <ng-container *ngIf="visible">
+            <fa-icon
+              class="style-icon"
+              style="cursor: pointer"
+              [icon]="faArrowdown"
             >
-              {{ entry.tagname }}</span
+            </fa-icon>
+            <fa-icon
+              class="style-icon"
+              style="cursor: pointer"
+              [icon]="faArrowUp"
             >
-          </div>
-          <div style="font-size: 15px">{{ entry.entries }}</div>
-          <div
-            style="
-              display: flex;
-              flex-direction: row;
-              justify-content: space-between;
-              align-items: center;
-            "
-          >
-          <span>
-                
-            <ng-container *ngIf="visible">
-              <fa-icon
-            
-              class="style-icon"
-              style="cursor: pointer"
-              [icon]="faArrowdown "
-  
-              > 
-              </fa-icon>
-              <fa-icon
-             
-              class="style-icon"
-              style="cursor: pointer"
-              [icon]="faArrowUp "
-  
-              > 
-              </fa-icon>
-            </ng-container>
-            
-            <ng-container *ngIf="!visible"> 
-              <fa-icon
-            
-              class="style-icon"
-              style="cursor: pointer"
-              [icon]=" faDrop"
-              > 
-              </fa-icon>
-              {{ likecount }}
-            </ng-container>
-           
-           
-          </span>
-          <span >
-            <ng-container *ngIf="!visible"> 
-              <fa-icon
+            </fa-icon>
+          </ng-container>
 
+          <ng-container *ngIf="!visible">
+            <fa-icon class="style-icon" style="cursor: pointer" [icon]="faDrop">
+            </fa-icon>
+            {{ likecount }}
+          </ng-container>
+        </span>
+        <span>
+          <ng-container *ngIf="!visible">
+            <fa-icon
               class="style-icon"
               style="margin: 4px; cursor: pointer"
               [icon]="faMessageArrowUp"
             ></fa-icon>
+          </ng-container>
 
-            </ng-container>
-            
-            <fa-icon
-              class="style-icon"
-              style="cursor: pointer"
-              [icon]="faListDot"
-            ></fa-icon>
-          </span>
-          </div>
+          <fa-icon
+            class="style-icon"
+            style="cursor: pointer"
+            [icon]="faListDot"
+          ></fa-icon>
+        </span>
+      </div>
 
-          <div class="alt-card-style">
-            <div
-              class="ff"
-              style="display: flex; margin-right: 7px; flex-direction: column"
-            >
-              <span class="isim">{{ entry.name }}</span>
-              <span class="tarih">{{ entry.enrydate }}</span>
-            </div>
-            <div class="profile-user"></div>
-          </div>
+      <div class="alt-card-style">
+        <div
+          class="ff"
+          style="display: flex; margin-right: 7px; flex-direction: column"
+        >
+          <span (click)="gotoUserPage()" class="isim">{{ entry.name }}</span>
+          <span class="tarih">{{ entry.enrydate }}</span>
         </div>
-      </tr>
-
-      <form></form>
+        <div class="profile-user"></div>
+      </div>
     </div>
-  
+  </tr>
+</div>

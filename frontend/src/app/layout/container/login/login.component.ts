@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authservice: AuthenticationService, 
-    private location:Location,
-    private layoutComponent:LayoutComponent
+    private authservice: AuthenticationService,
+    private location: Location,
+    private layoutComponent: LayoutComponent,
   ) {}
 
   ngOnInit() {
@@ -52,23 +52,21 @@ export class LoginComponent implements OnInit {
       .login(this.form.value.email, this.form.value.password)
       .subscribe((response) => {
         this.loading = true;
-      
+
         this.authservice.getusrid(this.form.value.email).subscribe((res) => {
           this.userid = res;
-          //jwt setItem edilmeli. eğer sistemde jwt varsa o usern kullanıcı bilgileri çekilir.
           localStorage.setItem('user_id', this.userid);
-          this.refreshPage();
-           this.layoutComponent.classReferance.authendricated=true;
-           
+
+          this.router.navigateByUrl(`/(bla:home/profile`);
+
+          this.layoutComponent.classReferance.authendricated = true;
         });
-  
-        this.router.navigateByUrl('/(bla:home/profile)');
-    
+        // console.log()
       });
   }
   refreshPage() {
     this.location.go(this.location.path());
-    location.reload(); 
+    location.reload();
   }
   clickregsP() {
     this.router.navigateByUrl('(bla:home/(log:register))');
